@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/flipbook.style.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- JavaScript Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="js/flipbook.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f6f6f6;
+        }
+        .bookshelf .thumb {
+            display: inline-block;
+            cursor: pointer;
+            margin: 0 0.5%;
+            width: 15% !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            max-width: 100px;
+        }
+        .bookshelf .thumb img {
+            width: 100%;
+            display: block;
+            vertical-align: top;
+        }
+        .bookshelf .shelf-img {
+            z-index: 0;
+            height: auto;
+            max-width: 100%;
+            vertical-align: top;
+            margin-top: -12px;
+        }
+        .bookshelf .covers {
+            width: 100%;
+            height: auto;
+            z-index: 99;
+            position: relative;
+            text-align: center;
+        }
+        .bookshelf {
+            text-align: center;
+            padding: 0;
+        }
+    </style>
+
+    <link rel="shortcut icon" href="images/KPK_Logo.svg">
+</head>
+
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-light bg-white fixed-top">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" width="125" height="50" alt="Logo">
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="bookshelf">
+            <div class="covers">
+                <div class="thumb book-1"><img src="images/book2/1.jpg" alt="Book Cover"></div>
+                <!-- More thumbnails... -->
+            </div>
+            <img class="shelf-img" src="images/shelf_wood.png" alt="Wooden Shelf">
+        </div>
+        <!-- More bookshelves... -->
+    </main>
+
+    <footer id="footer" class="footer mt-5">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <!-- Footer content... -->
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="https://www.instagram.com/official.kpk/"><i class="fab fa-instagram"></i></a></li>
+                        <!-- More social links... -->
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p class="h6">Hak Cipta © 2017 Komisi Pemberantasan Korupsi. Semua Hak Dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".book-1").flipBook({
+                pages: [
+                    { src: "images/book2/1.jpg", thumb: "images/book2/1.jpg", title: "Cover" },
+                    // More pages...
+                ],
+                btnShare: { enabled: false },
+                btnPrint: { hideOnMobile: true },
+                btnDownloadPages: {
+                    enabled: true,
+                    title: "Download pages",
+                    icon: "fa-download",
+                    icon2: "file_download",
+                    url: "images/pdf.rar",
+                    name: "allPages.zip",
+                    hideOnMobile: false
+                },
+                pdfUrl: 'pdf/pdf.pdf',
+                btnColor: 'rgb(255,120,60)',
+                sideBtnRadius: 60,
+                sideBtnSize: 60,
+                sideBtnBackground: "rgba(0,0,0,.7)",
+                sideBtnColor: 'rgb(255,120,60)',
+                lightBox: true,
+                viewMode: "3d",
+                layout: 3,
+                btnSound: { vAlign: "top", hAlign: "left" },
+                btnAutoplay: { vAlign: "top", hAlign: "left" },
+                currentPage: { vAlign: "bottom", hAlign: "left" }
+            });
+        });
+    </script>
+</body>
+
+</html>
