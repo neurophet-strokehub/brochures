@@ -6,27 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neurophet E-brochures</title>
 
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/flipbook.style.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
-    <script src="js/flipbook.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png">
 
+    <!-- Custom Styles -->
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             color: #333;
             line-height: 1.6;
+            padding-top: 60px; /* Adjust padding to account for fixed navbar */
+        }
+
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .navbar-brand img {
+            height: 35px;
         }
 
         .main {
             padding: 60px 0;
         }
 
-        .bookshelf .thumb {
+        .bookshelf {
+            text-align: center;
+            padding: 0;
+        }
+
+        .thumb {
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s ease;
@@ -35,85 +53,60 @@
             margin: 0 0.5%;
             width: 15% !important;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            max-width: 100px;
         }
 
-        .bookshelf .thumb:hover {
+        .thumb:hover {
             transform: scale(1.05);
         }
 
-        .bookshelf .thumb img {
+        .thumb img {
             width: 100%;
             display: block;
-            vertical-align: top;
         }
 
-        .bookshelf .shelf-img {
-            z-index: 0;
-            height: auto;
-            max-width: 100%;
-            vertical-align: top;
-            margin-top: -12px;
-        }
-
-        .bookshelf .covers {
-            width: 100%;
-            height: auto;
-            z-index: 99;
-            position: relative;
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
-        }
-
-        .bookshelf {
-            text-align: center;
-            padding: 0;
-        }
-
-        nav.navbar {
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        .navbar-brand img {
-            height: 40px;
         }
     </style>
-    <link rel="shortcut icon" href="images/favicon.png">
 </head>
 
 <body>
+    <!-- Header -->
     <header>
-        <nav class="navbar navbar-light bg-white fixed-top">
+        <nav class="navbar navbar-light fixed-top">
             <a class="navbar-brand" href="#">
-                <img src="images/logo.png" height="35" alt="Logo">
+                <img src="images/logo.png" alt="Logo">
             </a>
         </nav>
     </header>
 
-    <main>
-        <div class="bookshelf">
-            <div class="covers">
-                <div class="thumb book-1"><img src="images/book2/1.jpg" alt="Book Cover"></div>
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="bookshelf">
+                <div class="thumb book-1">
+                    <img src="images/book2/1.jpg" alt="Book Cover">
+                </div>
+                <div class="thumb book-2">
+                    <img src="images/book2/2.jpg" alt="Book Cover">
+                </div>
             </div>
-            <div class="covers">
-                <div class="thumb book-2"><img src="images/book2/2.jpg" alt="Book Cover"></div>
-            </div>
-
         </div>
     </main>
 
-    <footer id="footer" class="footer mt-5">
-        <div class="col-12 text-center text-white">
-            © NEUROPHET MARKETING TEAM. ALL RIGHTS RESERVED.
-        </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div>© NEUROPHET MARKETING TEAM. ALL RIGHTS RESERVED.</div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/flipbook.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $(".book-1").flipBook({
@@ -179,12 +172,8 @@
                 btnAutoplay: { vAlign: "top", hAlign: "left" },
                 currentPage: { vAlign: "bottom", hAlign: "left" }
             });
-
-            var headerHeight = $("nav.navbar").outerHeight();
-            $("body").css("padding-top", (headerHeight + 20) + "px");
         });
     </script>
-
 </body>
 
 </html>
