@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
@@ -21,8 +22,33 @@
 
     <style>
         body {
-            background-color: #f6f6f6;
+            font-family: 'Roboto', sans-serif;
+            /* 모던한 폰트 */
+            color: #333;
+            /* 텍스트 색상 */
+            line-height: 1.6;
+            /* 행 간격 */
         }
+
+        .main {
+            padding: 60px 0;
+            /* 상하 패딩 추가 */
+        }
+
+        .bookshelf .thumb {
+            border-radius: 8px;
+            /* 이미지 모서리 둥글게 */
+            overflow: hidden;
+            /* 둥글게 처리된 모서리 안의 내용이 넘치지 않도록 */
+            transition: transform 0.3s ease;
+            /* 호버 효과 부드럽게 */
+        }
+
+        .bookshelf .thumb:hover {
+            transform: scale(1.05);
+            /* 호버 시 확대 효과 */
+        }
+
         .bookshelf .thumb {
             display: inline-block;
             cursor: pointer;
@@ -31,11 +57,13 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             max-width: 100px;
         }
+
         .bookshelf .thumb img {
             width: 100%;
             display: block;
             vertical-align: top;
         }
+
         .bookshelf .shelf-img {
             z-index: 0;
             height: auto;
@@ -43,6 +71,7 @@
             vertical-align: top;
             margin-top: -12px;
         }
+
         .bookshelf .covers {
             width: 100%;
             height: auto;
@@ -50,11 +79,26 @@
             position: relative;
             text-align: center;
         }
+
         .bookshelf {
             text-align: center;
             padding: 0;
         }
-    </style> 
+
+        nav.navbar {
+            background-color: #fff;
+            /* 흰색 배경 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* 부드러운 그림자 */
+            border-bottom: 1px solid #eaeaea;
+            /* 하단 경계선 */
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            /* 로고 크기 조정 */
+        }
+    </style>
     <link rel="shortcut icon" href="images/favicon.png">
 </head>
 
@@ -75,7 +119,7 @@
                 <!-- More thumbnails... -->
             </div>
             <img class="shelf-img" src="images/shelf_wood.png" alt="Wooden Shelf">
-        </div> 
+        </div>
     </main>
 
     <footer id="footer" class="footer mt-5">
@@ -87,9 +131,13 @@
     </footer>
 
     <!-- JavaScript Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $(".book-1").flipBook({
@@ -122,7 +170,13 @@
                 currentPage: { vAlign: "bottom", hAlign: "left" }
             });
         });
+        $(document).ready(function () {
+            var headerHeight = $("nav.navbar").outerHeight();
+            $("body").css("padding-top", (headerHeight + 20) + "px");
+        });
+
     </script>
+
 </body>
 
 </html>
