@@ -6,56 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neurophet E-brochures</title>
 
-    <!-- CSS Files -->
     <link rel="stylesheet" href="css/flipbook.style.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-    <!-- JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
     <script src="js/flipbook.min.js"></script>
 
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            /* 모던한 폰트 */
             color: #333;
-            /* 텍스트 색상 */
             line-height: 1.6;
-            /* 행 간격 */
         }
 
         .main {
             padding: 60px 0;
-            /* 상하 패딩 추가 */
         }
 
         .bookshelf .thumb {
             border-radius: 8px;
-            /* 이미지 모서리 둥글게 */
             overflow: hidden;
-            /* 둥글게 처리된 모서리 안의 내용이 넘치지 않도록 */
             transition: transform 0.3s ease;
-            /* 호버 효과 부드럽게 */
-        }
-
-        .bookshelf .thumb:hover {
-            transform: scale(1.05);
-            /* 호버 시 확대 효과 */
-        }
-
-        .bookshelf .thumb {
             display: inline-block;
             cursor: pointer;
             margin: 0 0.5%;
             width: 15% !important;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             max-width: 100px;
+        }
+
+        .bookshelf .thumb:hover {
+            transform: scale(1.05);
         }
 
         .bookshelf .thumb img {
@@ -87,16 +71,12 @@
 
         nav.navbar {
             background-color: #fff;
-            /* 흰색 배경 */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* 부드러운 그림자 */
             border-bottom: 1px solid #eaeaea;
-            /* 하단 경계선 */
         }
 
         .navbar-brand img {
             height: 40px;
-            /* 로고 크기 조정 */
         }
     </style>
     <link rel="shortcut icon" href="images/favicon.png">
@@ -104,7 +84,6 @@
 
 <body>
     <header>
-        <!-- Navigation Bar -->
         <nav class="navbar navbar-light bg-white fixed-top">
             <a class="navbar-brand" href="#">
                 <img src="images/logo.png" height="35" alt="Logo">
@@ -116,39 +95,36 @@
         <div class="bookshelf">
             <div class="covers">
                 <div class="thumb book-1"><img src="images/book2/1.jpg" alt="Book Cover"></div>
-                <!-- More thumbnails... -->
             </div>
-            <img class="shelf-img" src="images/shelf_wood.png" alt="Wooden Shelf">
+            <div class="covers">
+                <div class="thumb book-2"><img src="images/book2/2.jpg" alt="Book Cover"></div>
+            </div>
+
         </div>
     </main>
 
     <footer id="footer" class="footer mt-5">
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5 text-center text-white">
-            <ul class="list-unstyled list-inline social text-center">
-                <p class="h6">© NEUROPHET MARKETING TEAM. ALL RIGHTS RESERVED.</p>
-            </ul>
+        <div class="col-12 text-center text-white">
+            © NEUROPHET MARKETING TEAM. ALL RIGHTS RESERVED.
         </div>
     </footer>
 
-    <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
             $(".book-1").flipBook({
                 pages: [
-                    { src: "images/book2/1.jpg", thumb: "images/book2/1.jpg", title: "Cover" },
-                    // More pages...
+                    { src: "images/book2/1.jpg", thumb: "images/book2/1.jpg", title: "Cover" }
                 ],
-                btnShare: { enabled: false },
+                btnShare: { enabled: true },
                 btnPrint: { 
-                    enabled : false,
-                    enahideOnMobile: true },
+                    enabled: true,
+                    hideOnMobile: true
+                },
                 btnDownloadPages: {
                     enabled: false,
                     title: "Download pages",
@@ -171,12 +147,42 @@
                 btnAutoplay: { vAlign: "top", hAlign: "left" },
                 currentPage: { vAlign: "bottom", hAlign: "left" }
             });
-        });
-        $(document).ready(function () {
+
+            $(".book-2").flipBook({
+                pages: [
+                    { src: "images/book2/1.jpg", thumb: "images/book2/1.jpg", title: "Cover" }
+                ],
+                btnShare: { enabled: true },
+                btnPrint: { 
+                    enabled: true,
+                    hideOnMobile: true
+                },
+                btnDownloadPages: {
+                    enabled: false,
+                    title: "Download pages",
+                    icon: "fa-download",
+                    icon2: "file_download",
+                    url: "images/pdf.rar",
+                    name: "allPages.zip",
+                    hideOnMobile: false
+                },
+                pdfUrl: 'pdf/02. AQUA/AQUA 3.0.2_브로슈어_EN_v.2.5.1(low).pdf',
+                btnColor: 'red',
+                sideBtnRadius: 60,
+                sideBtnSize: 60,
+                sideBtnBackground: "rgba(0,0,0,.7)",
+                sideBtnColor: 'red',
+                lightBox: true,
+                viewMode: "3d",
+                layout: 3,
+                btnSound: { vAlign: "top", hAlign: "left" },
+                btnAutoplay: { vAlign: "top", hAlign: "left" },
+                currentPage: { vAlign: "bottom", hAlign: "left" }
+            });
+
             var headerHeight = $("nav.navbar").outerHeight();
             $("body").css("padding-top", (headerHeight + 20) + "px");
         });
-
     </script>
 
 </body>
