@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap">
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.png">
 
@@ -22,53 +23,107 @@
             font-family: 'Roboto', sans-serif;
             color: #333;
             line-height: 1.6;
-            padding-top: 60px; /* Adjust padding to account for fixed navbar */
+            margin: 0;
+            padding: 0;
+            background: #f0f2f5;
         }
 
         .navbar {
-            background-color: #fff;
+            background: linear-gradient(to right, #ffffff, #f8f9fa);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid #ddd;
         }
 
         .navbar-brand img {
-            height: 35px;
+            height: 50px;
         }
 
         .main {
-            padding: 60px 0;
+            padding: 100px 0 40px;
+        }
+
+        .container {
+            max-width: 1200px;
         }
 
         .bookshelf {
-            text-align: center;
-            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .thumb {
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease;
-            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            margin: 0 0.5%;
-            width: 15% !important;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            width: calc(25% - 1rem);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            border: 1px solid #ddd;
+            position: relative;
         }
 
         .thumb:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         .thumb img {
             width: 100%;
             display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumb:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumb:hover:before {
+            opacity: 1;
+        }
+
+        .thumb:hover img {
+            opacity: 0.7;
         }
 
         .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
+            background-color: #212529;
+            color: #e9ecef;
+            padding: 1rem 0;
             text-align: center;
+            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+            font-size: 0.875rem;
+        }
+
+        h2 {
+            font-family: 'roboto', sans-serif;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .thumb {
+                width: calc(50% - 0.75rem);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .thumb {
+                width: calc(100% - 0.75rem);
+            }
         }
     </style>
 </head>
@@ -86,30 +141,28 @@
     <!-- Main Content -->
     <main class="main">
         <div class="container">
-            <p>About Neurophet</p>
-
+            <h2 class="text-center mb-4">About Neurophet</h2>
             <div class="bookshelf">
-                <div class="thumb book-1">
+                <div class="thumb" data-pdf="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf">
                     <img src="images/book2/01_NEUROPHET.png" alt="Neurophet">
                 </div>
-                <div class="thumb book-2">
+                <div class="thumb" data-pdf="pdf/pdf\01. 회사소개서&리플렛\[MKT]회사소개서 업데이트(EN).pdf">
                     <img src="images/book2/2.jpg" alt="Book Cover">
                 </div>
             </div>
         </div>
 
         <div class="container">
-            <p>Neuro-degenerative lineup</p>
+            <h2 class="text-center mb-4">Neuro-degenerative Lineup</h2>
             <div class="bookshelf">
-                <div class="thumb book-1">
+                <div class="thumb" data-pdf="pdf/03. SOME_OTHER_PATH/SOME_OTHER_FILE.pdf">
                     <img src="images/book2/1.jpg" alt="Book Cover">
                 </div>
-                <div class="thumb book-2">
+                <div class="thumb" data-pdf="pdf/04. ANOTHER_PATH/ANOTHER_FILE.pdf">
                     <img src="images/book2/2.jpg" alt="Book Cover">
                 </div>
             </div>
         </div>
-        
     </main>
 
     <!-- Footer -->
@@ -124,71 +177,34 @@
     <script src="js/flipbook.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".book-1").flipBook({
-                pages: [
-                    { src: "images/book2/1.jpg", thumb: "images/book2/1.jpg", title: "Cover" }
-                ],
-                btnShare: { enabled: true },
-                btnPrint: { 
-                    enabled: true,
-                    hideOnMobile: true
-                },
-                btnDownloadPages: {
-                    enabled: false,
-                    title: "Download pages",
-                    icon: "fa-download",
-                    icon2: "file_download",
-                    url: "images/pdf.rar",
-                    name: "allPages.zip",
-                    hideOnMobile: false
-                },
-                pdfUrl:{
-                    enabled: false
-                }
-                pdfUrl: 'pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf',
-                btnColor: 'red',
-                sideBtnRadius: 60,
-                sideBtnSize: 60,
-                sideBtnBackground: "rgba(0,0,0,.7)",
-                sideBtnColor: 'red',
-                lightBox: true,
-                viewMode: "3d",
-                layout: 3,
-                btnSound: { vAlign: "top", hAlign: "left" },
-                btnAutoplay: { vAlign: "top", hAlign: "left" },
-                currentPage: { vAlign: "bottom", hAlign: "left" }
-            });
-
-            $(".book-2").flipBook({
-                pages: [
-                    { src: "images/book2/1.jpg", thumb: "images/book2/1.jpg", title: "Cover" }
-                ],
-                btnShare: { enabled: true },
-                btnPrint: { 
-                    enabled: true,
-                    hideOnMobile: true
-                },
-                btnDownloadPages: {
-                    enabled: false,
-                    title: "Download pages",
-                    icon: "fa-download",
-                    icon2: "file_download",
-                    url: "images/pdf.rar",
-                    name: "allPages.zip",
-                    hideOnMobile: false
-                },
-                pdfUrl: 'pdf/02. AQUA/AQUA 3.0.2_브로슈어_EN_v.2.5.1(low).pdf',
-                btnColor: 'red',
-                sideBtnRadius: 60,
-                sideBtnSize: 60,
-                sideBtnBackground: "rgba(0,0,0,.7)",
-                sideBtnColor: 'red',
-                lightBox: true,
-                viewMode: "3d",
-                layout: 3,
-                btnSound: { vAlign: "top", hAlign: "left" },
-                btnAutoplay: { vAlign: "top", hAlign: "left" },
-                currentPage: { vAlign: "bottom", hAlign: "left" }
+            $(".thumb").each(function () {
+                var pdfUrl = $(this).data('pdf');
+                $(this).flipBook({
+                    pages: [
+                        { src: $(this).find('img').attr('src'), thumb: $(this).find('img').attr('src'), title: "Cover" }
+                    ],
+                    btnShare: { enabled: true },
+                    btnPrint: { enabled: true },
+                    btnDownloadPages: {
+                        enabled: false,
+                        title: "Download pages",
+                        icon: "fa-download",
+                        url: "images/pdf.rar",
+                        name: "allPages.zip",
+                    },
+                    pdfUrl: pdfUrl,
+                    btnColor: '#ff6f61',
+                    sideBtnRadius: 50,
+                    sideBtnSize: 50,
+                    sideBtnBackground: "#333",
+                    sideBtnColor: '#fff',
+                    lightBox: true,
+                    viewMode: "2d",
+                    layout: 2,
+                    btnSound: { vAlign: "bottom", hAlign: "center" },
+                    btnAutoplay: { vAlign: "bottom", hAlign: "center" },
+                    currentPage: { vAlign: "top", hAlign: "center" }
+                });
             });
         });
     </script>
