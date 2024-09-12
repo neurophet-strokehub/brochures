@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.png">
@@ -26,6 +26,27 @@
             margin: 0;
             padding: 0;
             background: #f0f2f5;
+        }
+
+        /* Initial header styles */
+        header {
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 1rem 2rem;
+        }
+
+        /* Styles when scrolled */
+        .scrolled .navbar {
+            background: black;
+            padding: 0.5rem 2rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .scrolled .navbar-brand img {
+            height: 20px;
         }
 
         .navbar {
@@ -47,19 +68,36 @@
         }
 
         .bookshelf {
+            background-color: white;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            gap: 2rem;
             margin-bottom: 2rem;
+            scroll-behavior: smooth;
+            padding-left: 2rem;
+        }
+
+        .bookshelf::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .bookshelf::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .bookshelf::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
 
         .thumb {
+            flex: 0 0 auto;
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            width: calc(25% - 1rem);
+            width: 200px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             background: #fff;
             border: 1px solid #ddd;
@@ -107,7 +145,7 @@
         }
 
         h2 {
-            font-family: 'roboto', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-weight: 700;
             color: #333;
             margin-bottom: 3rem;
@@ -116,15 +154,38 @@
         /* Responsive design */
         @media (max-width: 768px) {
             .thumb {
-                width: calc(50% - 0.75rem);
+                width: 150px;
             }
         }
 
         @media (max-width: 576px) {
             .thumb {
-                width: calc(100% - 0.75rem);
+                width: 100%;
             }
         }
+
+        .btn-custom-outline {
+            border-radius: 3px;
+            padding: 0.8em 1.8em;
+            color: #fff;
+            font-weight: 700;
+            -webkit-transition: all .5s ease-out;
+            transition: all .5s ease-out;
+            text-transform: uppercase;
+            background-color: transparent;
+            border-color: #ffffff;
+        }
+
+        .btn-custom-outline:hover,
+        .btn-custom-outline:focus {
+            color: red;
+            background-color: rgba(255, 255, 255, .5);
+        }
+
+        .btn-bar a {
+            margin-right: 10px;
+        }
+        
     </style>
 </head>
 
@@ -138,28 +199,62 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
+
+
     <main class="main">
+        <!-- Main Content -->
+        <section class="main-heading" id="ebrochures">
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="main-heading-content col-md-12 col-sm-12 text-center">
+                            <h1 class="main-heading-title">We are Creative</h1>
+                            <p class="main-heading-text">Et harum quidem rerum facilis est et expedita distinctio. Nam
+                                libero
+                                tempore,<br />cum soluta nobis est eligendi optio cumque nihil impedit quo facilis</p>
+                            <div class="btn-bar">
+                                <a href="#" class="btn btn-custom-outline">Get started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div class="container">
-            <h2 class="text-center mb-4">About Neurophet</h2>
+            <h2 class="text-left mb-4">About Neurophet</h2>
             <div class="bookshelf">
-                <div class="thumb" data-pdf="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf">
+                <div class="thumb"
+                    data-pdf="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf">
                     <img src="images/book2/01_NEUROPHET.png" alt="Neurophet">
                 </div>
-                <div class="thumb" data-pdf="pdf/pdf\01. 회사소개서&리플렛\[MKT]회사소개서 업데이트(EN).pdf">
-                    <img src="images\book2\01_neurophet2.png" alt="Book Cover">
+                <div class="thumb" data-pdf="pdf/01. 회사소개서&리플렛/[MKT]회사소개서 업데이트(EN).pdf">
+                    <img src="images/book2/01_neurophet2.png" alt="Book Cover">
                 </div>
             </div>
         </div>
 
         <div class="container">
-            <h2 class="text-center mb-4">Neuro-degenerative Lineup</h2>
+            <h2 class="text-left mb-4">Neuro-imaging Analysis Products</h2>
             <div class="bookshelf">
-                <div class="thumb" data-pdf="pdf/03. SOME_OTHER_PATH/SOME_OTHER_FILE.pdf">
-                    <img src="images/book2/1.jpg" alt="Book Cover">
+                <div class="thumb"
+                    data-pdf="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf">
+                    <img src="images/book2/01_NEUROPHET.png" alt="Neurophet">
                 </div>
-                <div class="thumb" data-pdf="pdf/04. ANOTHER_PATH/ANOTHER_FILE.pdf">
-                    <img src="images/book2/2.jpg" alt="Book Cover">
+                <div class="thumb" data-pdf="pdf/01. 회사소개서&리플렛/[MKT]회사소개서 업데이트(EN).pdf">
+                    <img src="images/book2/01_neurophet2.png" alt="Book Cover">
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="text-left mb-4">Neuro-modulation Products</h2>
+            <div class="bookshelf">
+                <div class="thumb"
+                    data-pdf="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf">
+                    <img src="images/book2/01_NEUROPHET.png" alt="Neurophet">
+                </div>
+                <div class="thumb" data-pdf="pdf/01. 회사소개서&리플렛/[MKT]회사소개서 업데이트(EN).pdf">
+                    <img src="images/book2/01_neurophet2.png" alt="Book Cover">
                 </div>
             </div>
         </div>
@@ -171,9 +266,13 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="js/flipbook.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -183,8 +282,10 @@
                     pages: [
                         { src: $(this).find('img').attr('src'), thumb: $(this).find('img').attr('src'), title: "Cover" }
                     ],
+                    btnToc: { enabled: false },
                     btnShare: { enabled: true },
                     btnPrint: { enabled: true },
+                    btnBookmark: { enabled: false },
                     btnDownloadPages: {
                         enabled: false,
                         title: "Download pages",
@@ -193,7 +294,7 @@
                         name: "allPages.zip",
                     },
                     pdfUrl: pdfUrl,
-                    btnColor: '#ff6f61',
+                    btnColor: 'red',
                     sideBtnRadius: 50,
                     sideBtnSize: 50,
                     sideBtnBackground: "#333",
@@ -207,7 +308,18 @@
                 });
             });
         });
+        $(document).ready(function () {
+            $(window).on('scroll', function () {
+                if ($(window).scrollTop() > 50) { // 스크롤 위치가 50px을 넘었을 때
+                    $('header').addClass('scrolled');
+                } else {
+                    $('header').removeClass('scrolled');
+                }
+            });
+        });
+
     </script>
+
 </body>
 
 </html>

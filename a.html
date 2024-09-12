@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: lato;
+}
+
+#navArea {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10%;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  background: white;
+  transition: background 0.5s;
+}
+section {
+  height: 500px;
+  padding: 200px 0;
+  font-size: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+section:nth-of-type(1) {
+  margin-top: 84px;
+}
+
+#navArea .logo img {
+  height: 84px;
+  transition: height 0.5s;
+}
+
+#navArea ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  width: 400px;
+  justify-content: space-around;
+}
+#navArea ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  transition: color 0.5s;
+}
+
+#navArea.is-sticky {
+  background: #000;
+}
+
+#navArea.is-sticky a {
+  color: #fff;
+}
+
+#navArea.is-sticky .logo img {
+  height: 64px;
+}
+
+section:nth-of-type(2n) {
+  background: darkcyan;
+  color: #fff;
+}
+
+section:nth-of-type(2n + 1) {
+  background: white;
+  color: #333;
+}
+
+footer {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  color: #fff;
+}
+
+</style>
+</head>
+<body>
+    <nav id="navArea">
+        <div class="logo">
+          <a href="#">
+            <img src="https://i.postimg.cc/Wz2dVb1j/logo1.png" alt="your company logo">
+          </a>
+        </div>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+        </nav>
+        
+        <section>First Section</section>
+        <section>Second Section</section>
+        <section>Third Section</section>
+        
+        <footer>All Right Reserved By your Website</footer>
+        
+
+        <script>
+            window.addEventListener("scroll", function () {
+  let navArea = document.getElementById("navArea");
+
+  if (window.pageYOffset > 0) {
+    navArea.classList.add("is-sticky");
+  } else {
+    navArea.classList.remove("is-sticky");
+  }
+});
+
+        </script>
+    </body>
+</html>
