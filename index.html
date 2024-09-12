@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neurophet E-brochures</title>
@@ -10,294 +9,295 @@
     <link rel="stylesheet" href="css/flipbook.style.css" />
     <link rel="stylesheet" href="css/font-awesome.css" />
     <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap"
+    />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.png" />
 
     <!-- Custom Styles -->
     <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: "Roboto", sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background: #f0f2f5;
-        }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background: #f0f2f5;
+      }
 
-        header {
-            background-color: #212529;
-            color: #e9ecef;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
-            font-size: 0.875rem;
-        }
+      header {
+        background-color: #212529;
+        color: #e9ecef;
+        padding: 1rem 0;
+        text-align: center;
+        box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+      }
 
-        #fullpage {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            /* 전체 높이를 100vh로 설정하여 페이지가 화면을 꽉 채우게 합니다. */
-        }
+      header.shrink {
+        padding: 0.5rem 0;
+        font-size: 0.75rem;
+      }
 
-        /* Navbar Styles */
-        .navbar {
-            background: linear-gradient(to right, #ffffff, #f8f9fa);
-            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-            padding: 0.5rem 2rem;
-            transition: all 0.3s ease;
-        }
+      #fullpage {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* 전체 높이를 100vh로 설정하여 페이지가 화면을 꽉 채우게 합니다. */
+      }
 
-        .navbar-brand img {
-            height: 50px;
-        }
+      .main {
+        flex: 1; /* 푸터를 화면 하단에 고정하기 위해 이 속성이 필요합니다. */
+        padding: 120px 0 40px;
+      }
 
-        .scrolled .navbar {
-            background: #000;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        }
+      .footer {
+        background-color: #212529;
+        color: #e9ecef;
+        padding: 1rem 0;
+        text-align: center;
+        box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+        font-size: 0.875rem;
+      }
 
-        .scrolled .navbar-brand img {
-            height: 20px;
-        }
+      .container {
+        max-width: 1200px;
+      }
 
-        /* Main Content */
+      .section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .main {
-            flex: 1;
-            /* 푸터를 화면 하단에 고정하기 위해 이 속성이 필요합니다. */
-            padding: 120px 0 40px;
-        }
+      .bookshelf {
+        background-color: white;
+        display: flex;
+        overflow-x: auto;
+        padding: 1rem 0;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        scroll-behavior: smooth;
+        padding-left: 2rem;
+      }
 
-        .footer {
-            background-color: #212529;
-            color: #e9ecef;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
-            font-size: 0.875rem;
-        }
+      .bookshelf::-webkit-scrollbar {
+        height: 8px;
+      }
 
-        .container {
-            max-width: 1200px;
-        }
+      .bookshelf::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
 
-        .section {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .bookshelf::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
 
-        .bookshelf {
-            background-color: white;
-            display: flex;
-            overflow-x: auto;
-            padding: 1rem 0;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            scroll-behavior: smooth;
-            padding-left: 2rem;
-        }
+      .thumb {
+        flex: 0 0 auto;
+        width: 200px;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background: #fff;
+        border: 1px solid #ddd;
+        position: relative;
+      }
 
-        .bookshelf::-webkit-scrollbar {
-            height: 8px;
-        }
+      .thumb:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
 
-        .bookshelf::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
+      .thumb img {
+        width: 100%;
+        display: block;
+        transition: opacity 0.3s ease;
+      }
 
-        .bookshelf::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
+      .thumb:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
 
+      .thumb:hover:before {
+        opacity: 1;
+      }
+
+      .thumb:hover img {
+        opacity: 0.7;
+      }
+
+      /* Text Styles */
+      h1,
+      h2 {
+        font-family: "Roboto", sans-serif;
+        color: #fff;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 100;
+      }
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 300;
+      }
+
+      .main-heading-content h2 {
+        color: #333;
+        margin-bottom: 3rem;
+      }
+
+      /* Buttons */
+      .btn-custom-outline {
+        border-radius: 3px;
+        padding: 0.8em 1.8em;
+        color: #fff;
+        font-weight: 700;
+        transition: all 0.5s ease-out;
+        text-transform: uppercase;
+        background-color: transparent;
+        border: 2px solid #ffffff;
+      }
+
+      .btn-custom-outline:hover,
+      .btn-custom-outline:focus {
+        color: red;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .btn-bar a {
+        margin-right: 10px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
         .thumb {
-            flex: 0 0 auto;
-            width: 200px;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background: #fff;
-            border: 1px solid #ddd;
-            position: relative;
+          width: 150px;
         }
+      }
 
-        .thumb:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      @media (max-width: 576px) {
+        .thumb {
+          width: 100%;
         }
+      }
 
-        .thumb img {
-            width: 100%;
-            display: block;
-            transition: opacity 0.3s ease;
-        }
+      /* Background Gradients */
+      .one {
+        background: linear-gradient(
+          -45deg,
+          transparent 25%,
+          rgba(0, 0, 0, 0.7) 25%,
+          rgba(0, 0, 0, 0.7) 75%,
+          transparent 75%,
+          transparent 100%
+        );
+      }
 
-        .thumb:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .thumb:hover:before {
-            opacity: 1;
-        }
-
-        .thumb:hover img {
-            opacity: 0.7;
-        }
-
-        /* Text Styles */
-        h1,
-        h2 {
-            font-family: "Roboto", sans-serif;
-            color: #fff;
-            text-align: center;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 100;
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 300;
-        }
-
-        .main-heading-content h2 {
-            color: #333;
-            margin-bottom: 3rem;
-        }
-
-        /* Buttons */
-        .btn-custom-outline {
-            border-radius: 3px;
-            padding: 0.8em 1.8em;
-            color: #fff;
-            font-weight: 700;
-            transition: all 0.5s ease-out;
-            text-transform: uppercase;
-            background-color: transparent;
-            border: 2px solid #ffffff;
-        }
-
-        .btn-custom-outline:hover,
-        .btn-custom-outline:focus {
-            color: red;
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .btn-bar a {
-            margin-right: 10px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .thumb {
-                width: 150px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .thumb {
-                width: 100%;
-            }
-        }
-
-        /* Background Gradients */
-        .one {
-            background: linear-gradient(-45deg,
-                    transparent 25%,
-                    rgba(0, 0, 0, 0.7) 25%,
-                    rgba(0, 0, 0, 0.7) 75%,
-                    transparent 75%,
-                    transparent 100%);
-        }
-
-        .two {
-            background: linear-gradient(45deg,
-                    transparent 25%,
-                    rgba(0, 0, 0, 0.7) 25%,
-                    rgba(0, 0, 0, 0.7) 75%,
-                    transparent 75%,
-                    transparent 100%);
-            text-align: right;
-        }
+      .two {
+        background: linear-gradient(
+          45deg,
+          transparent 25%,
+          rgba(0, 0, 0, 0.7) 25%,
+          rgba(0, 0, 0, 0.7) 75%,
+          transparent 75%,
+          transparent 100%
+        );
+        text-align: right;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="fullpage">
-        <header class="fixed-top" id="header">
-            <h1>neurophet</h1>
-        </header>
+      <header class="fixed-top" id="header">
+        <h1>neurophet</h1>
+      </header>
+      <div class="section one">
         <main class="main">
-
-            <div class="section one" id="section1">
-                <section class="main-heading">
-                    <div class="overlay">
-                        <div class="container">
-                            <div class="row">
-                                <div class="main-heading-content col-md-12 text-center">
-                                    <h1>Meet Neurophet</h1>
-                                    <h2>at ESNR</h2>
-                                    <p>
-                                        Et harum quidem rerum facilis est et expedita distinctio.
-                                        Nam libero tempore, cum soluta nobis est eligendi optio
-                                        cumque nihil impedit quo facilis.
-                                    </p>
-                                    <div class="btn-bar">
-                                        <a href="#section2" class="btn btn-custom-outline">Get started</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+          <section class="main-heading" id="ebrochures">
+            <div class="overlay">
+              <div class="container">
+                <div class="row">
+                  <div class="main-heading-content col-md-12 text-center">
+                    <h1>Meet Neurophet</h1>
+                    <h2>at ESNR</h2>
+                    <p>
+                      Et harum quidem rerum facilis est et expedita distinctio.
+                      Nam libero tempore, cum soluta nobis est eligendi optio
+                      cumque nihil impedit quo facilis.
+                    </p>
+                    <div class="btn-bar">
+                      <a href="#" class="btn btn-custom-outline">Get started</a>
                     </div>
-                </section>
-            </div>
-
-
-            <div class="section two" id="section2">
-                <div class="container">
-                    <h2 class="text-left mb-4">Digital Brochures</h2>
-                    <div class="bookshelf">
-                        <div class="thumb"
-                            data-pdf="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈ዥ어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf">
-                            <img src="images/book2/01_NEUROPHET.png" alt="Neurophet" />
-                        </div>
-                        <div class="thumb" data-pdf="pdf/01. 회사소개서&리플렛/[MKT]회사소개서 업데이트(EN).pdf">
-                            <img src="images/book2/01_neurophet2.png" alt="Book Cover" />
-                        </div>
-                        <!-- 추가로 책을 여기다 넣으세요 -->
-                    </div>
-                    <footer class="footer">
-                        <p>&copy; 2024 Neurophet. All Rights Reserved.</p>
-                    </footer>
+                  </div>
                 </div>
+              </div>
             </div>
+          </section>
+        </main>
+      </div>
 
+      <div class="section two" id="section2">
+        <div class="container">
+          <h2 class="text-left mb-4">Digital Brochures</h2>
+          <div class="bookshelf">
+            <div
+              class="thumb"
+              data-pdf="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈ዥ어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf"
+            >
+              <img src="images/book2/01_NEUROPHET.png" alt="Neurophet" />
+            </div>
+            <div
+              class="thumb"
+              data-pdf="pdf/01. 회사소개서&리플렛/[MKT]회사소개서 업데이트(EN).pdf"
+            >
+              <img src="images/book2/01_neurophet2.png" alt="Book Cover" />
+            </div>
+            <!-- 추가로 책을 여기다 넣으세요 -->
+          </div>
+        </div>
+      </div>
     </div>
+    <footer class="footer">
+      <p>&copy; 2024 Neurophet. All Rights Reserved.</p>
+    </footer>
 
-    </main>
-    </div>
-</body>
-
+    <!-- JavaScript -->
+    <script>
+      window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+          header.classList.add('shrink');
+        } else {
+          header.classList.remove('shrink');
+        }
+      });
+    </script>
+  </body>
 </html>
