@@ -7,13 +7,11 @@
     <title>Neurophet E-brochures</title>
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" />
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Custom CSS file -->
     <style>
-        html,
-        body {
+        html, body {
             margin: 0;
             padding: 0;
             font-family: "Roboto", sans-serif;
@@ -28,22 +26,16 @@
 
         .header {
             padding: 10px;
-            transition: all 0.8s;
             background: #000;
             border-bottom: none;
             transition: all 0.4s ease-in;
-            -webkit-transition: all 0.4s ease-in;
-            -moz-transition: all 0.4s ease-in;
-            -ms-transition: all 0.4s ease-in;
             text-transform: uppercase;
             font-size: 1.5em;
             font-weight: 900;
             color: #fff;
         }
 
-        .header > a, 
-        .header > a:hover,
-        .header > a:focus {
+        .header.shrink {
             font-size: 10px;
             background-color: transparent;
             font-weight: 700;
@@ -71,33 +63,21 @@
 
         .section {
             height: calc(100vh - 60px);
-            /* Adjusts height based on header size */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .header.shrink+.section {
+        .header.shrink + .section {
             height: calc(100vh - 20px);
-            /* Adjusted height when header shrinks */
         }
 
         .one {
-            background: linear-gradient(-45deg,
-                    transparent 25%,
-                    rgba(0, 0, 0, 0.7) 25%,
-                    rgba(0, 0, 0, 0.7) 75%,
-                    transparent 75%,
-                    transparent 100%);
+            background: linear-gradient(-45deg, transparent 25%, rgba(0, 0, 0, 0.7) 25%, rgba(0, 0, 0, 0.7) 75%, transparent 75%, transparent 100%);
         }
 
         .two {
-            background: linear-gradient(45deg,
-                    transparent 25%,
-                    rgba(0, 0, 0, 0.7) 25%,
-                    rgba(0, 0, 0, 0.7) 75%,
-                    transparent 75%,
-                    transparent 100%);
+            background: linear-gradient(45deg, transparent 25%, rgba(0, 0, 0, 0.7) 25%, rgba(0, 0, 0, 0.7) 75%, transparent 75%, transparent 100%);
             text-align: right;
         }
 
@@ -204,13 +184,10 @@
 
 <body>
     <header class="header fixed-top" id="header">
-        <h1>
-            <a href='index.html'>neurophet</a>
-        </h1>
+        <h1><a href="#">neurophet</a></h1>
     </header>
 
     <div id="fullpage">
-
         <main class="main">
             <div class="section one" id="01">
                 <div class="overlay">
@@ -219,8 +196,7 @@
                             <div class="main-heading-content col-md-12 text-center">
                                 <h1>Meet Neurophet</h1>
                                 <h2>at ESNR</h2>
-                                <p> Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-                                    soluta nobis est eligendi optio cumque nihil impedit quo facilis. </p>
+                                <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo facilis.</p>
                                 <div class="btn-bar">
                                     <a href="#02" class="btn btn-custom-outline">Get started</a>
                                 </div>
@@ -235,12 +211,12 @@
                     <h2 class="text-left mb-4">Digital Brochures</h2>
                     <div class="bookshelf">
                         <div class="thumb">
-                            <img src="images/book2/01_NEUROPHET.png" alt="Neurophet Brochure" />
+                            <img src="images/book2/01_NEUROPHET.png" alt="Neurophet Brochure Cover" />
                         </div>
                         <div class="thumb">
                             <img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover" />
                         </div>
-                        <!-- 추가로 책을 여기다 넣으세요 -->
+                        <!-- Additional books can be added here -->
                     </div>
                 </div>
             </div>
@@ -258,7 +234,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const header = document.getElementById('header');
-            const sections = document.querySelectorAll('.section');
 
             function onScroll() {
                 if (window.scrollY > 50) {
