@@ -4,24 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neurophet E-brochures</title>
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/flipbook.style.css" />
-    <link rel="stylesheet" href="css/font-awesome.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap"
-    />
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.png" />
-
-    <!-- Custom Styles -->
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Custom CSS file -->
     <style>
       html,
       body {
@@ -34,30 +21,25 @@
         background: #f0f2f5;
       }
 
-      header {
+      .header {
         background-color: #212529;
         color: #e9ecef;
         padding: 1rem 0;
         text-align: center;
         box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
-        font-size: 0.875rem;
-        transition: all 0.3s ease;
+        font-size: 15px;
+        transition: padding 0.3s, font-size 0.3s;
       }
 
-      header.shrink {
+      .header.shrink {
         padding: 0.5rem 0;
-        font-size: 0.75rem;
+        font-size: 10px;
       }
 
       #fullpage {
         display: flex;
         flex-direction: column;
-        min-height: 100vh; /* 전체 높이를 100vh로 설정하여 페이지가 화면을 꽉 채우게 합니다. */
-      }
-
-      .main {
-        flex: 1; /* 푸터를 화면 하단에 고정하기 위해 이 속성이 필요합니다. */
-        padding: 120px 0 40px;
+        min-height: 100vh;
       }
 
       .footer {
@@ -74,10 +56,35 @@
       }
 
       .section {
-        height: 100vh;
+        height: calc(100vh - 60px);
+        /* 헤더의 높이를 빼줍니다 */
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+
+      .header.shrink~.section {
+        height: calc(100vh - 40px);
+        /* 축소된 헤더의 높이를 빼줍니다 */
+      }
+
+      .one {
+        background: linear-gradient(-45deg,
+            transparent 25%,
+            rgba(0, 0, 0, 0.7) 25%,
+            rgba(0, 0, 0, 0.7) 75%,
+            transparent 75%,
+            transparent 100%);
+      }
+
+      .two {
+        background: linear-gradient(45deg,
+            transparent 25%,
+            rgba(0, 0, 0, 0.7) 25%,
+            rgba(0, 0, 0, 0.7) 75%,
+            transparent 75%,
+            transparent 100%);
+        text-align: right;
       }
 
       .bookshelf {
@@ -148,31 +155,6 @@
         opacity: 0.7;
       }
 
-      /* Text Styles */
-      h1,
-      h2 {
-        font-family: "Roboto", sans-serif;
-        color: #fff;
-        text-align: center;
-        margin: 0 auto;
-      }
-
-      h1 {
-        font-size: 3rem;
-        font-weight: 100;
-      }
-
-      h2 {
-        font-size: 2rem;
-        font-weight: 300;
-      }
-
-      .main-heading-content h2 {
-        color: #333;
-        margin-bottom: 3rem;
-      }
-
-      /* Buttons */
       .btn-custom-outline {
         border-radius: 3px;
         padding: 0.8em 1.8em;
@@ -190,11 +172,6 @@
         background-color: rgba(255, 255, 255, 0.5);
       }
 
-      .btn-bar a {
-        margin-right: 10px;
-      }
-
-      /* Responsive Design */
       @media (max-width: 768px) {
         .thumb {
           width: 150px;
@@ -206,97 +183,89 @@
           width: 100%;
         }
       }
-
-      /* Background Gradients */
-      .one {
-        background: linear-gradient(
-          -45deg,
-          transparent 25%,
-          rgba(0, 0, 0, 0.7) 25%,
-          rgba(0, 0, 0, 0.7) 75%,
-          transparent 75%,
-          transparent 100%
-        );
-      }
-
-      .two {
-        background: linear-gradient(
-          45deg,
-          transparent 25%,
-          rgba(0, 0, 0, 0.7) 25%,
-          rgba(0, 0, 0, 0.7) 75%,
-          transparent 75%,
-          transparent 100%
-        );
-        text-align: right;
-      }
     </style>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png" />
   </head>
-
   <body>
-    <div id="fullpage">
-      <header class="fixed-top" id="header">
-        <h1>neurophet</h1>
-      </header>
-      <div class="section one" id="#01">
-        <main class="main">
-          <section class="main-heading" >
-            <div class="overlay">
-              <div class="container">
-                <div class="row">
-                  <div class="main-heading-content col-md-12 text-center">
-                    <h1>Meet Neurophet</h1>
-                    <h2>at ESNR</h2>
-                    <p>
-                      Et harum quidem rerum facilis est et expedita distinctio.
-                      Nam libero tempore, cum soluta nobis est eligendi optio
-                      cumque nihil impedit quo facilis.
-                    </p>
-                    <div class="btn-bar">
-                      <a href="#02" class="btn btn-custom-outline">Get started</a>
-                    </div>
-                  </div>
+    <header class="header fixed-top" id="header">
+      <h1>
+        <a href="index.html">neurophet</a>
+      </h1>
+    </header>
+    <main class="main" id="fullpage">
+      <div class="section one" id="01">
+        <div class="overlay">
+          <div class="container">
+            <div class="row">
+              <div class="main-heading-content col-md-12 text-center">
+                <h1>Meet Neurophet</h1>
+                <h2>at ESNR</h2>
+                <p> Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo facilis. </p>
+                <div class="btn-bar">
+                  <a href="#02" class="btn btn-custom-outline">Get started</a>
                 </div>
               </div>
             </div>
-          </section>
-        </main>
+          </div>
+        </div>
       </div>
-
       <div class="section two" id="02">
         <div class="container">
           <h2 class="text-left mb-4">Digital Brochures</h2>
           <div class="bookshelf">
-            <div
-              class="thumb"
-              data-pdf="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈ዥ어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf"
-            >
+            <div class="thumb">
               <img src="images/book2/01_NEUROPHET.png" alt="Neurophet" />
             </div>
-            <div
-              class="thumb"
-              data-pdf="pdf/01. 회사소개서&리플렛/[MKT]회사소개서 업데이트(EN).pdf"
-            >
+            <div class="thumb">
               <img src="images/book2/01_neurophet2.png" alt="Book Cover" />
             </div>
             <!-- 추가로 책을 여기다 넣으세요 -->
           </div>
         </div>
       </div>
-    </div>
+    </main>
     <footer class="footer">
       <p>&copy; 2024 Neurophet. All Rights Reserved.</p>
     </footer>
-
     <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Custom JavaScript file -->
     <script>
+      // Scripts for header shrink on scroll
+      let isScrolling = false;
       window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
-        if (window.scrollY > 50) {
-          header.classList.add('shrink');
-        } else {
-          header.classList.remove('shrink');
+        if (!isScrolling) {
+          window.requestAnimationFrame(() => {
+            const header = document.getElementById('header');
+            const sections = document.querySelectorAll('.section');
+            if (window.scrollY > 50) {
+              header.classList.add('shrink');
+            } else {
+              header.classList.remove('shrink');
+            }
+            sections.forEach(section => {
+              const headerHeight = header.classList.contains('shrink') ? '40px' : '60px';
+              section.style.height = `calc(100vh - ${headerHeight})`;
+            });
+            isScrolling = false;
+          });
+          isScrolling = true;
         }
+      });
+      // `.section`의 높이를 동적으로 조정
+      sections.forEach(section => {
+      const headerHeight = header.classList.contains('shrink') ? '40px' : '60px';
+      section.style.height = `calc(100vh - ${headerHeight})`;
+      });
+      });
+      new fullpage('#fullpage', {
+        // Fullpage.js options
+        autoScrolling: true,
+        scrollHorizontally: true
       });
     </script>
   </body>
