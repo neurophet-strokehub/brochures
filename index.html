@@ -23,27 +23,37 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100%;
         }
 
         .header {
-            background-color: #212529;
-            color: #e9ecef;
             padding: 10px;
-            text-align: center;
-            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-            transition: padding 0.3s, font-size 0.3s;
+            transition: all 0.8s;
+            background: #000;
+            border-bottom: none;
+            transition: all 0.4s ease-in;
+            -webkit-transition: all 0.4s ease-in;
+            -moz-transition: all 0.4s ease-in;
+            -ms-transition: all 0.4s ease-in;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            font-weight: 900;
+            color: #fff;
         }
 
-        .header.shrink {
-            padding: 0.5rem 0;
+        .header > a, 
+        .header > a:hover,
+        .header > a:focus {
             font-size: 10px;
+            background-color: transparent;
+            font-weight: 700;
         }
 
         #fullpage {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            width: 100%;
         }
 
         .footer {
@@ -68,7 +78,7 @@
         }
 
         .header.shrink+.section {
-            height: calc(100vh - 40px);
+            height: calc(100vh - 20px);
             /* Adjusted height when header shrinks */
         }
 
@@ -198,7 +208,9 @@
             <a href='index.html'>neurophet</a>
         </h1>
     </header>
+
     <div id="fullpage">
+
         <main class="main">
             <div class="section one" id="01">
                 <div class="overlay">
