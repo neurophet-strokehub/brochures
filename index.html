@@ -16,183 +16,168 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.png">
+<style>
+    header {
+	background-color: #fff;
+	transition: all .3s ease
+}
 
-    <!-- Custom Styles -->
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: #f0f2f5;
-        }
+.navbar {
+	transition: all .3s ease;
+	padding: .5rem 2rem
+}
 
-        /* Initial header styles */
-        header {
-            transition: all 0.3s ease;
-        }
+.scrolled .navbar {
+	background: #000;
+	padding: .5rem 2rem;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, .2)
+}
 
-        .navbar {
-            transition: all 0.3s ease;
-            padding: 1rem 2rem;
-        }
+.scrolled .navbar-brand img {
+	height: 20px
+}
 
-         .scrolled .navbar {
-            background: black;
-            padding: 0.5rem 2rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        }
+.navbar {
+	background: linear-gradient(to right, #fff, #f8f9fa);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, .1)
+}
 
-        .scrolled .navbar-brand img {
-            height: 20px;
-        }
+.navbar-brand img {
+	height: 50px
+}
 
-        .navbar {
-            background: linear-gradient(to right, #ffffff, #f8f9fa);
-            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid #ddd;
-        }
+.main {
+	padding: 120px 0 40px
+}
 
-        .navbar-brand img {
-            height: 50px;
-        }
+.container {
+	max-width: 1200px
+}
 
-        .main {
-            padding: 100px 0 40px;
-        }
+.bookshelf {
+	background-color: #fff;
+	display: flex;
+	overflow-x: auto;
+	padding: 1rem 0;
+	gap: 2rem;
+	margin-bottom: 2rem;
+	scroll-behavior: smooth;
+	padding-left: 2rem
+}
 
-        .container {
-            max-width: 1200px;
-        }
+.bookshelf::-webkit-scrollbar {
+	height: 8px
+}
 
-        .bookshelf {
-            background-color: white;
-            display: flex;
-            overflow-x: auto;
-            padding: 1rem 0;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            scroll-behavior: smooth;
-            padding-left: 2rem;
-        }
+.bookshelf::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 10px
+}
 
-        .bookshelf::-webkit-scrollbar {
-            height: 8px;
-        }
+.bookshelf::-webkit-scrollbar-thumb:hover {
+	background: #555
+}
 
-        .bookshelf::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
+.thumb {
+	flex: 0 0 auto;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: transform .3s ease, box-shadow .3s ease;
+	cursor: pointer;
+	width: 200px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+	background: #fff;
+	border: 1px solid #ddd;
+	position: relative
+}
 
-        .bookshelf::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
+.thumb:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, .3)
+}
 
-        .thumb {
-            flex: 0 0 auto;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            width: 200px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background: #fff;
-            border: 1px solid #ddd;
-            position: relative;
-        }
+.thumb img {
+	width: 100%;
+	display: block;
+	transition: opacity .3s ease
+}
 
-        .thumb:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
+.thumb:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .3);
+	opacity: 0;
+	transition: opacity .3s ease
+}
 
-        .thumb img {
-            width: 100%;
-            display: block;
-            transition: opacity 0.3s ease;
-        }
+.thumb:hover:before {
+	opacity: 1
+}
 
-        .thumb:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+.thumb:hover img {
+	opacity: .7
+}
 
-        .thumb:hover:before {
-            opacity: 1;
-        }
+.footer {
+	background-color: #212529;
+	color: #e9ecef;
+	padding: 1rem 0;
+	text-align: center;
+	box-shadow: 0 -1px 4px rgba(0, 0, 0, .1);
+	font-size: .875rem
+}
 
-        .thumb:hover img {
-            opacity: 0.7;
-        }
+h2 {
+	font-family: Roboto, sans-serif;
+	font-weight: 700;
+	color: #333;
+	margin-bottom: 3rem
+}
 
-        .footer {
-            background-color: #212529;
-            color: #e9ecef;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
-            font-size: 0.875rem;
-        }
+@media (max-width:768px) {
+	.thumb {
+		width: 150px
+	}
+}
 
-        h2 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 3rem;
-        }
+@media (max-width:576px) {
+	.thumb {
+		width: 100%
+	}
+}
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .thumb {
-                width: 150px;
-            }
-        }
+.btn-custom-outline {
+	border-radius: 3px;
+	padding: .8em 1.8em;
+	color: #fff;
+	font-weight: 700;
+	-webkit-transition: all .5s ease-out;
+	transition: all .5s ease-out;
+	text-transform: uppercase;
+	background-color: transparent;
+	border-color: #fff
+}
 
-        @media (max-width: 576px) {
-            .thumb {
-                width: 100%;
-            }
-        }
+.btn-custom-outline:focus,
+.btn-custom-outline:hover {
+	color: red;
+	background-color: rgba(255, 255, 255, .5)
+}
 
-        .btn-custom-outline {
-            border-radius: 3px;
-            padding: 0.8em 1.8em;
-            color: #fff;
-            font-weight: 700;
-            -webkit-transition: all .5s ease-out;
-            transition: all .5s ease-out;
-            text-transform: uppercase;
-            background-color: transparent;
-            border-color: #ffffff;
-        }
-
-        .btn-custom-outline:hover,
-        .btn-custom-outline:focus {
-            color: red;
-            background-color: rgba(255, 255, 255, .5);
-        }
-
-        .btn-bar a {
-            margin-right: 10px;
-        }
-    </style>
+.btn-bar a {
+	margin-right: 10px
+}
+</style>
 </head>
 
 <body> 
-    <header>
-        <nav class="navbar navbar-light fixed-top">
+    <header class="fixed-top">
             <h2>neurophet</h2> 
-        </nav>
-    </header>
+     </header>
 
     <main class="main">
         <!-- Main Content -->
@@ -222,6 +207,13 @@
                 <div class="thumb" data-pdf="pdf/01. 회사소개서&리플렛/[MKT]회사소개서 업데이트(EN).pdf">
                     <img src="images/book2/01_neurophet2.png" alt="Book Cover">
                 </div>
+                <div class="thumb"
+                    data-pdf="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf">
+                    <img src="images/book2/01_NEUROPHET.png" alt="Neurophet">
+                </div>
+                <div class="thumb" data-pdf="pdf/01. 회사소개서&리플렛/[MKT]회사소개서 업데이트(EN).pdf">
+                    <img src="images/book2/01_neurophet2.png" alt="Book Cover">
+                </div> 
             </div>
         </div>
   
