@@ -7,11 +7,13 @@
     <title>Neurophet E-brochures</title>
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" />
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Custom CSS file -->
     <style>
-        html, body {
+        html,
+        body {
             margin: 0;
             padding: 0;
             font-family: "Roboto", sans-serif;
@@ -22,7 +24,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-        } 
+        }
 
         .navbar {
             padding: 10px;
@@ -35,7 +37,7 @@
             color: #fff;
         }
 
-        .header.shrink {
+        .navbar {
             font-size: 10px;
             background-color: transparent;
             font-weight: 700;
@@ -68,7 +70,7 @@
             align-items: center;
         }
 
-        .header.shrink + .section {
+        .header.shrink+.section {
             height: calc(100vh - 20px);
         }
 
@@ -186,10 +188,10 @@
     <div id="fullpage">
 
         <nav class="navbar fixed-top bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Neurophet</a>
-        </div>
-      </nav> 
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Neurophet</a>
+            </div>
+        </nav>
 
         <main class="main">
             <div class="section one" id="01">
@@ -199,7 +201,8 @@
                             <div class="main-heading-content col-md-12 text-center">
                                 <h1>Meet Neurophet</h1>
                                 <h2>at ESNR</h2>
-                                <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo facilis.</p>
+                                <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
+                                    soluta nobis est eligendi optio cumque nihil impedit quo facilis.</p>
                                 <div class="btn-bar">
                                     <a href="#02" class="btn btn-custom-outline">Get started</a>
                                 </div>
@@ -234,21 +237,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const header = document.getElementById('header');
-
-            function onScroll() {
-                if (window.scrollY > 50) {
-                    header.classList.add('shrink');
-                } else {
-                    header.classList.remove('shrink');
-                }
-            }
-
-            window.addEventListener('scroll', onScroll);
-        });
-    </script>
+     
 </body>
 
 </html>
