@@ -286,38 +286,6 @@ body {
 
             setActiveFilter("all");
         });
-        $(document).ready(function() {
-            // Existing FlipBook Initialization and Filter Functionality code here...
-        
-            // Close Button Function
-            function closeFunction() {
-                console.log('Close action triggered');
-                // Implement the logic for closing the application or component here
-                // For demonstration, we'll just hide the button (or you can define the actual close functionality)
-                $("#btnClose").hide();
-            }
-        
-            // Add click event listener to the Close button
-            $("#btnClose").on("click", function() {
-                closeFunction();
-            });
-        
-            // Add keydown event listener for ESC key
-            $(document).on('keydown', function(event) {
-                if (event.key === 'Escape') {
-                    closeFunction(); // Trigger the close function
-                }
-            });
-        
-            // Initialize filter functionality
-            $(".filter-btn").on("click", function() {
-                setActiveFilter($(this).data("filter"));
-            });
-        
-            setActiveFilter("all");
-        });
-        
     </script>
-    
 </body>
 </html>
