@@ -11,6 +11,9 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUJEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -24,56 +27,72 @@
 
     <style>
         :root {
-            --primary-bg: #f6f6f6;
-            --gradient-start: rgba(255, 0, 0, 0.027);
-            --gradient-middle: rgba(240, 9, 9, 0.301);
-            --footer-bg: #343a40;
-            --footer-text: white;
-            --thumb-width: 20%;
-            --thumb-max-width: 150px;
+            --primary-bg: #f0f4f8;
+            --gradient-start: rgba(255, 0, 0, 0.05);
+            --gradient-middle: rgba(240, 9, 9, 0.4);
+            --footer-bg: #2c3e50;
+            --footer-text: #ecf0f1;
+            --thumb-width: 22%;
+            --thumb-max-width: 180px;
         }
-        html, body {
-            height: 100%;
+        body {
+            font-family: 'Poppins', sans-serif;
             margin: 0;
+            background: linear-gradient(-45deg, transparent 25%, var(--gradient-start) 25%, var(--gradient-middle) 75%, transparent 75%);
             background-color: var(--primary-bg);
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(-45deg, transparent 25%, var(--gradient-start) 25%, var(--gradient-middle) 75%, transparent 75%);
-        }
-        .content {
-            flex: 1;
-            padding-top: 56px;
         }
         .navbar {
             z-index: 1030;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .footer {
-            background-color: var(--footer-bg);
-            color: var(--footer-text);
-            padding: 1rem 0;
-            text-align: center;
+        .navbar-brand img {
+            max-height: 40px;
+        }
+        .content {
+            flex: 1;
+            padding: 60px 1rem 1rem;
         }
         .bookshelf {
-            margin-top: 3rem;
             text-align: center;
         }
         .covers {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 1rem;
+            gap: 1rem;
         }
         .thumb {
             cursor: pointer;
-            margin: 0 1%;
             width: var(--thumb-width);
             max-width: var(--thumb-max-width);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .thumb:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
         .thumb img {
             width: 100%;
             height: auto;
             display: block;
+            border-radius: 8px;
+        }
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -82,7 +101,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-white fixed-top">
         <a class="navbar-brand" href="#">
-            <img src="images/logo.png" width="125" alt="Neurophet Logo">
+            <img src="images/logo.png" alt="Neurophet Logo">
         </a>
     </nav>
 
@@ -98,8 +117,6 @@
                 <div class="thumb" data-pdf-url="pdf/01. 회사소개서&리플렛/product catalogue.pdf">
                     <img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover">
                 </div>
-            </div>
-            <div class="covers">
                 <div class="thumb" data-pdf-url="images/book2/pdf/AQUDAD.pdf">
                     <img src="images/book2/표지/AQUA_AD.png" alt="Aqua AD Brochure">
                 </div>
@@ -112,8 +129,6 @@
                 <div class="thumb" data-pdf-url="images/book2/pdf/AQUA PEDI.pdf">
                     <img src="images/book2/표지/AQUA_PEDI.png" alt="Aqua Pedi Brochure">
                 </div>
-            </div>
-            <div class="covers">
                 <div class="thumb" data-pdf-url="images/book2/pdf/tESLAB.pdf">
                     <img src="images/book2/pdf/TESLAB.png" alt="TESLAB Brochure">
                 </div>
@@ -129,7 +144,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p class="h6">&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
+        <p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
     </footer>
 
     <!-- JavaScript -->
@@ -144,11 +159,11 @@
                 if ($.fn.flipBook) {
                     $(this).flipBook({
                         pdfUrl: pdfUrl,
-                        btnColor: 'red',
-                        sideBtnRadius: 60,
-                        sideBtnSize: 60,
-                        sideBtnBackground: "rgba(0,0,0,.7)",
-                        sideBtnColor: 'red',
+                        btnColor: '#e74c3c',
+                        sideBtnRadius: 50,
+                        sideBtnSize: 50,
+                        sideBtnBackground: "rgba(0,0,0,.8)",
+                        sideBtnColor: '#e74c3c',
                         lightBox: true,
                         viewMode: "3d",
                         layout: 3,
