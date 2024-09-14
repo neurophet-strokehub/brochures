@@ -4,7 +4,7 @@ const { PDFDocument } = require('pdf-lib');
 const { PNG } = require('pngjs');
 
 // Path to the root directory containing PNG files
-const imagesDir = 'C:/AAA/brochures/images/book/05-innk,teslab/tESLAB';
+const imagesDir = 'C:/AAA/brochures/images/book/06-CRO';
 
 // Function to recursively get all PNG files from a directory and its subdirectories
 function getPngFiles(dir) {
