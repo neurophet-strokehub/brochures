@@ -21,6 +21,7 @@
     <style type="text/css">
         body {
             background-color: #f6f6f6;
+            padding-top: 56px; /* Add padding to avoid overlap */
         }
         .bookshelf .thumb {
             display: inline-block;
@@ -53,6 +54,9 @@
             text-align: center;
             padding: 0px;
         }
+        .navbar {
+            z-index: 1030; /* Ensure proper stacking */
+        }
     </style>
 </head>
 
@@ -68,10 +72,14 @@
     <div class="bookshelf">
         <div class="covers">
             <div class="thumb book-1" data-pdf-url="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf"><img src="images/book2/01_NEUROPHET.png" alt="Neurophet Brochure Cover" /></div>
+            <div class="thumb book-2" data-pdf-url="pdf/01. 회사소개서&리플렛/product catalogue.pdf"><img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover" /></div>
+            <!-- More books here -->
+        </div>
+        <div class="covers">
+            <div class="thumb book-1" data-pdf-url="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf"><img src="images/book2/01_NEUROPHET.png" alt="Neurophet Brochure Cover" /></div>
             <div class="thumb book-2" data-pdf-url="pdf/01. 회사소개서&리플렛/프로덕트 카탈로그_KO_v.1.1.3_발주(표지).pdf"><img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover" /></div>
             <!-- More books here -->
         </div>
-        <img class="shelf-img" src="images/shelf_wood.png">
     </div>
 
     <!-- Footer -->

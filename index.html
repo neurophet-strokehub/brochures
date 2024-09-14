@@ -1,224 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neurophet E-brochures</title>
-    <!-- External Stylesheets -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <!-- fullPage.js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
-    <!-- Custom CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neurophet e-brochures and marketing materials">
+    
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUJEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/flipbook.style.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+
+    <title>Neurophet E-Brochures</title>
+
     <style>
         html, body {
+            height: 100%;
             margin: 0;
-            padding: 0;
-            font-family: "Roboto", sans-serif;
-            line-height: 1.6;
-            background: #f0f2f5;
+        }
+        body {
+            background-color: #f6f6f6;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            background: linear-gradient(-45deg, transparent 25%, rgba(255, 0, 0, 0.027) 25%, rgba(240, 9, 9, 0.301) 75%, transparent 75%, transparent 100%);
+
         }
-        
-        #fullpage {
-            flex: 1;
+        .content {
+            flex: 1; /* Pushes footer to the bottom if content is short */
+            padding-top: 56px; /* Padding to avoid overlap with fixed navbar */
         }
-        
+        .navbar {
+            z-index: 1030; /* Ensure proper stacking */
+        }
         .footer {
-            background-color: #212529;
-            color: #e9ecef;
+            background-color: #343a40;
+            color: white;
             padding: 1rem 0;
             text-align: center;
-            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
-            font-size: 0.875rem;
-            width: 100%;
-            margin-top: auto; /* Ensure footer stays at the bottom */
         }
-        
-        .container {
-            max-width: 1200px;
-        }
-        
-        .section {
-            height: calc(100vh - 60px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .header.shrink + .section {
-            height: calc(100vh - 20px);
-        }
-        
-        .one {
-            background: linear-gradient(-45deg, transparent 25%, rgba(0, 0, 0, 0.7) 25%, rgba(0, 0, 0, 0.7) 75%, transparent 75%, transparent 100%);
-        }
-        
-        .two {
-            background: linear-gradient(45deg, transparent 25%, rgba(0, 0, 0, 0.7) 25%, rgba(0, 0, 0, 0.7) 75%, transparent 75%, transparent 100%);
-            text-align: right;
-        }
-        
         .bookshelf {
-            background-color: white;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .covers {
+            width: 100%;
+            text-align: center;
             display: flex;
-            overflow-x: auto;
-            padding: 1rem 0;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            scroll-behavior: smooth;
-            padding-left: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        
-        .bookshelf::-webkit-scrollbar {
-            height: 8px;
-        }
-        
-        .bookshelf::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-        
-        .bookshelf::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-        
         .thumb {
-            flex: 0 0 auto;
-            width: 200px;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background: #fff;
-            border: 1px solid #ddd;
-            position: relative;
+            margin: 0 1%; /* Increase margin */
+            width: 20%; /* Increase width */
+            max-width: 150px; /* Increase max-width */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
-        
-        .thumb:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-        
         .thumb img {
             width: 100%;
+            height: auto; /* Ensure aspect ratio is maintained */
             display: block;
-            transition: opacity 0.3s ease;
-        }
-        
-        .thumb:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .thumb:hover:before {
-            opacity: 1;
-        }
-        
-        .thumb:hover img {
-            opacity: 0.7;
-        }
-        
-        .btn-custom-outline {
-            border-radius: 3px;
-            padding: 0.8em 1.8em;
-            color: #fff;
-            font-weight: 700;
-            transition: all 0.5s ease-out;
-            text-transform: uppercase;
-            background-color: transparent;
-            border: 2px solid #ffffff;
-        }
-        
-        .btn-custom-outline:hover,
-        .btn-custom-outline:focus {
-            color: red;
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-        
-        @media (max-width: 768px) {
-            .thumb {
-                width: 150px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .thumb {
-                width: 100%;
-            }
         }
     </style>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.png" />
 </head>
+
 <body>
-    <div id="fullpage">
-        <div class="section one" id="01">
-            <nav class="navbar navbar-dark fixed-top bg-dark">
-                <div class="container">
-                    <a class="navbar-brand" href="#">Neurophet</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-white fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.png" width="125" alt="Neurophet Logo">
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="header">
+        
+    </div>
+    <div class="content">
+        <!-- Bookshelves -->
+        <div class="bookshelf">
+            <div class="covers">
+                <!-- Book Thumbnails -->
+                <div class="thumb" data-pdf-url="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf">
+                    <img src="images/book2/01_NEUROPHET.png" alt="Neurophet Brochure Cover">
                 </div>
-            </nav>
-            <div class="overlay">
-                <div class="container">
-                    <div class="row">
-                        <div class="main-heading-content col-md-12 text-center">
-                            <h1>Meet Neurophet</h1>
-                            <h2>at ESNR</h2>
-                            <p>
-                                Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo facilis.
-                            </p>
-                            <div class="btn-bar">
-                                <a href="#02" class="btn btn-custom-outline">E-brochures</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="thumb" data-pdf-url="pdf/01. 회사소개서&리플렛/product catalogue.pdf">
+                    <img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover">
                 </div>
-            </div>
-        </div>
-        <div class="section two" id="02">
-            <div class="container">
-                <h2 class="text-left mb-4">Digital Brochures</h2>
-                <div class="bookshelf">
-                    <div class="thumb">
-                        <img src="images/book2/01_NEUROPHET.png" alt="Neurophet Brochure Cover" />
-                    </div>
-                    <div class="thumb">
-                        <img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover" />
-                    </div>
-                    <div class="thumb">
-                        <img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover" />
-                    </div>
+                <div class="thumb" data-pdf-url="pdf/02. AQUA/AQUA 3.0.2_브로슈어_EN_v.2.5.1(low).pdf">
+                    <img src="images/book2/표지/AQUA 3.0.2_브로슈어_EN_v.2.5.1(low).pdf - Page 1 of 42.png" alt="AQUA Brochure Cover">
                 </div>
-            </div>
+                <!-- More books can be added here -->
+            </div> 
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="h6">&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
+    </footer>
+
     <!-- JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/flipbook.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("#fullpage").fullpage({
-                // Fullpage.js options here
-                sectionsColor: ["#fff", "#f0f2f5"],
-                navigation: true,
-                navigationPosition: "right",
-                scrollingSpeed: 1000
+            $(".thumb").on("click", function () {
+                var pdfUrl = $(this).data('pdf-url');
+                $(this).flipBook({
+                    pdfUrl: pdfUrl,
+                    btnColor: 'red',
+                    sideBtnRadius: 60,
+                    sideBtnSize: 60,
+                    sideBtnBackground: "rgba(0,0,0,.7)",
+                    sideBtnColor: 'red',
+                    lightBox: true,
+                    viewMode: "3d",
+                    layout: 3,
+                    btnSound: { vAlign: "top", hAlign: "left" },
+                    btnAutoplay: { vAlign: "top", hAlign: "left" },
+                    currentPage: { vAlign: "bottom", hAlign: "left" }
+                });
             });
         });
     </script>
 </body>
+
 </html>
