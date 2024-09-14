@@ -11,8 +11,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUJEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/flipbook.style.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <!-- Favicon -->
@@ -43,8 +43,8 @@
             z-index: 1030;
         }
 
-        .navbar-brand img {
-            max-height: 40px;
+        .navbar-brand h1 {
+            margin: 0;
         }
 
         .content {
@@ -60,18 +60,18 @@
         .covers {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 5rem;
             justify-content: center;
         }
 
         .thumb {
             cursor: pointer;
-            width: calc(33.333% - 2rem); /* 3 items per row with spacing */
-            max-width: 180px;
+            width: calc(33.333% - 2rem);
+            max-width: 200px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-            position: relative;
+            position: relative; 
         }
 
         .thumb img {
@@ -79,7 +79,14 @@
             height: auto;
             display: block;
             border-radius: 8px;
-        } 
+        }
+
+        .thumb:hover {
+            transform: scale(1.1) rotate(20deg);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0.9;
+        }
+
         .footer {
             background-color: var(--footer-bg);
             color: var(--footer-text);
@@ -104,15 +111,13 @@
             background-color: var(--btn-secondary-bg) !important;
             color: white !important;
         }
-
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-white fixed-top">
         <a class="navbar-brand" href="#">
-            <h1>Neurophet E-brochures</h1>
-            <!-- <img src="images/logo.png" alt="Neurophet Logo"> -->
+            <h1 style="font-weight: 800;">Neurophet E-brochures</h1>
         </a>
     </nav>
     <!-- Main Content -->
@@ -123,7 +128,6 @@
             <button class="btn btn-secondary filter-btn" data-filter="neurophet"> Neurophet </button>
             <button class="btn btn-secondary filter-btn" data-filter="neurodegenerative"> Neurodegenerative </button>
             <button class="btn btn-secondary filter-btn" data-filter="neuromodulation"> Neuromodulation </button>
-            <!-- <button class="btn btn-secondary filter-btn" data-filter="neurovascular"> Neurovascular </button> -->
             <button class="btn btn-secondary filter-btn" data-filter="imaging-corelab"> Imaging-corelab </button>
         </div>
         <!-- Bookshelves -->
