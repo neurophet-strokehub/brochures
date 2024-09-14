@@ -1,22 +1,38 @@
 const fs = require('fs');
 const path = require('path');
-const { PDFDocument, rgb } = require('pdf-lib');
+const { PDFDocument } = require('pdf-lib');
 const { PNG } = require('pngjs');
 
-// Path to the directory containing PNG files
-const imagesDir = 'C:/AAA/brochures/images/book/04-AQUAPEDI-ENG';
+// Path to the root directory containing PNG files
+const imagesDir = 'C:/AAA/brochures/images/book/03-SCALEPET-ENG';
+
+// Function to recursively get all PNG files from a directory and its subdirectories
+function getPngFiles(dir) {
+  let results = [];
+  const list = fs.readdirSync(dir);
+  
+  list.forEach(file => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+    
+    if (stat && stat.isDirectory()) {
+      results = results.concat(getPngFiles(filePath)); // Recurse into subdirectory
+    } else if (path.extname(file).toLowerCase() === '.png') {
+      results.push(filePath);
+    }
+  });
+
+  return results;
+}
 
 // Function to read PNG files and convert them to PDF pages
 async function mergePngToPdf() {
   const pdfDoc = await PDFDocument.create();
+  const pngFiles = getPngFiles(imagesDir);
 
-  // Read all PNG files from the directory
-  const files = fs.readdirSync(imagesDir).filter(file => path.extname(file).toLowerCase() === '.png');
-
-  for (const file of files) {
-    const filePath = path.join(imagesDir, file);
+  for (const filePath of pngFiles) {
     const pngData = fs.readFileSync(filePath);
-
+    
     // Load PNG data
     const png = PNG.sync.read(pngData);
 
