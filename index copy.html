@@ -1,61 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neurophet e-brochures and marketing materials">
+    <meta name="author" content="Neurophet Marketing Team">
+    <meta name="keywords" content="Neurophet, brochures, marketing, e-brochures">
 
     <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUJEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/flipbook.style.css">
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" href="css/flipbook.style.css">
+    <link rel="stylesheet" href="css/footer.css">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="icon" href="images/favicon.png" type="image/png">
 
-    <title>neurophet e-brochures</title>
+    <title>Neurophet E-Brochures</title>
 
-    <style type="text/css">
-        body {
-            background-color: #f6f6f6;
-            padding-top: 56px; /* Add padding to avoid overlap */
+    <style>
+        :root {
+            --primary-bg: #f6f6f6;
+            --gradient-start: rgba(255, 0, 0, 0.027);
+            --gradient-middle: rgba(240, 9, 9, 0.301);
+            --footer-bg: #343a40;
+            --footer-text: white;
+            --thumb-width: 20%;
+            --thumb-max-width: 150px;
         }
-        .bookshelf .thumb {
-            display: inline-block;
-            cursor: pointer;
-            margin: 0px 0.5%;
-            width: 15% !important;
-            box-shadow: 0px 1px 3px rgba(0,0,0,.3);
-            max-width: 100px;
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: var(--primary-bg);
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(-45deg, transparent 25%, var(--gradient-start) 25%, var(--gradient-middle) 75%, transparent 75%);
         }
-        .bookshelf .thumb img {
-            width: 100%;
-            display: block;
-            vertical-align: top;
+        .content {
+            flex: 1;
+            padding-top: 56px;
         }
-        .bookshelf .shelf-img {
-            z-index: 0;
-            height: auto;
-            max-width: 100%;
-            vertical-align: top;
-            margin-top: -12px;
+        .navbar {
+            z-index: 1030;
         }
-        .bookshelf .covers {
-            width: 100%;
-            height: auto;
-            z-index: 99;
-            position: relative;
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 1rem 0;
             text-align: center;
         }
         .bookshelf {
+            margin-top: 3rem;
             text-align: center;
-            padding: 0px;
         }
-        .navbar {
-            z-index: 1030; /* Ensure proper stacking */
+        .covers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .thumb {
+            cursor: pointer;
+            margin: 0 1%;
+            width: var(--thumb-width);
+            max-width: var(--thumb-max-width);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .thumb img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -64,82 +82,83 @@
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-white fixed-top">
         <a class="navbar-brand" href="#">
-            <img src="images/logo.png" width="125" alt="">
+            <img src="images/logo.png" width="125" alt="Neurophet Logo">
         </a>
     </nav>
 
-    <!-- Bookshelves -->
-    <div class="bookshelf">
-        <div class="covers">
-            <div class="thumb book-1" data-pdf-url="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf"><img src="images/book2/01_NEUROPHET.png" alt="Neurophet Brochure Cover" /></div>
-            <div class="thumb book-2" data-pdf-url="pdf/01. 회사소개서&리플렛/product catalogue.pdf"><img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover" /></div>
-            <!-- More books here -->
-        </div>
-        <div class="covers">
-            <div class="thumb book-1" data-pdf-url="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf"><img src="images/book2/01_NEUROPHET.png" alt="Neurophet Brochure Cover" /></div>
-            <div class="thumb book-2" data-pdf-url="pdf/01. 회사소개서&리플렛/프로덕트 카탈로그_KO_v.1.1.3_발주(표지).pdf"><img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover" /></div>
-            <!-- More books here -->
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Bookshelves -->
+        <div class="bookshelf">
+            <!-- Book Thumbnails -->
+            <div class="covers">
+                <div class="thumb" data-pdf-url="pdf/01. 회사소개서&리플렛/[뉴로핏] 회사브로슈어_최종_240716/[뉴로핏] 회사브로슈어_최종_240715/[뉴로핏] 회사브로슈어(확인용)_v5_240716.pdf">
+                    <img src="images/book2/01_NEUROPHET.png" alt="Neurophet Brochure Cover">
+                </div>
+                <div class="thumb" data-pdf-url="pdf/01. 회사소개서&리플렛/product catalogue.pdf">
+                    <img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover">
+                </div>
+            </div>
+            <div class="covers">
+                <div class="thumb" data-pdf-url="images/book2/pdf/AQUDAD.pdf">
+                    <img src="images/book2/표지/AQUA_AD.png" alt="Aqua AD Brochure">
+                </div>
+                <div class="thumb" data-pdf-url="images/book2/pdf/AQUA.pdf">
+                    <img src="images/book2/표지/Aqua.png" alt="Aqua Brochure">
+                </div>
+                <div class="thumb" data-pdf-url="images/book2/pdf/SCALEPET.pdf">
+                    <img src="images/book2/표지/SCLAE PET.png" alt="Scale Pet Brochure">
+                </div>
+                <div class="thumb" data-pdf-url="images/book2/pdf/AQUA PEDI.pdf">
+                    <img src="images/book2/표지/AQUA_PEDI.png" alt="Aqua Pedi Brochure">
+                </div>
+            </div>
+            <div class="covers">
+                <div class="thumb" data-pdf-url="images/book2/pdf/tESLAB.pdf">
+                    <img src="images/book2/pdf/TESLAB.png" alt="TESLAB Brochure">
+                </div>
+                <div class="thumb" data-pdf-url="images/book2/pdf/innk.pdf">
+                    <img src="images/book2/표지/innk.png" alt="InnK Brochure">
+                </div>
+                <div class="thumb" data-pdf-url="images/book2/pdf/IMAGING CORELAB.pdf">
+                    <img src="images/book2/표지/CRO.png" alt="Imaging CoreLab Brochure">
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <section id="footer" class="footer mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p class="h6">&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <footer class="footer">
+        <p class="h6">&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
+    </footer>
 
     <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/flipbook.min.js"></script>
-    <script type="text/javascript">
+    <script>
         $(document).ready(function () {
-            $(".thumb").click(function () {
+            $(".thumb").on("click", function () {
                 var pdfUrl = $(this).data('pdf-url');
-                $(this).flipBook({
-                    pages: [
-                        {src: "images/book2/1.jpg", thumb: "images/book2/1.jpg", title: "Cover"},
-                        {src: "images/book2/2.jpg", thumb: "images/book2/2.jpg", title: "Page 2"},
-                        {src: "images/book2/3.jpg", thumb: "images/book2/3.jpg", title: "Page 3"},
-                        {src: "images/book2/4.jpg", thumb: "images/book2/4.jpg", title: "Page 4"},
-                        {src: "images/book2/5.jpg", thumb: "images/book2/5.jpg", title: "Page 5"},
-                        {src: "images/book2/6.jpg", thumb: "images/book2/6.jpg", title: "Page 6"},
-                        {src: "images/book2/7.jpg", thumb: "images/book2/7.jpg", title: "Page 7"},
-                        {src: "images/book2/8.jpg", thumb: "images/book2/8.jpg", title: "Page 8"},
-                        {src: "images/book2/9.jpg", thumb: "images/book2/9.jpg", title: "Page 9"},
-                        {src: "images/book2/10.jpg", thumb: "images/book2/10.jpg", title: "Page 10"},
-                        {src: "images/book2/11.jpg", thumb: "images/book2/11.jpg", title: "Page 11"},
-                        {src: "images/book2/12.jpg", thumb: "images/book2/12.jpg", title: "Page 12"}
-                    ],
-                    btnShare: { enabled: false },
-                    btnPrint: { hideOnMobile: true },
-                    btnDownloadPages: {
-                        enabled: true,
-                        title: "Download pages",
-                        icon: "fa-download",
-                        icon2: "file_download",
-                        url: "images/pdf.rar",
-                        name: "allPages.zip",
-                        hideOnMobile: false
-                    },
-                    pdfUrl: pdfUrl, // Use the pdfUrl from data attribute
-                    btnColor: 'red',
-                    sideBtnRadius: 60,
-                    sideBtnSize: 60,
-                    sideBtnBackground: "rgba(0,0,0,.7)",
-                    sideBtnColor: 'red',
-                    lightBox: true,
-                    viewMode: "3d",
-                    layout: 3,
-                    btnSound: { vAlign: "top", hAlign: "left" },
-                    btnAutoplay: { vAlign: "top", hAlign: "left" },
-                    currentPage: { vAlign: "bottom", hAlign: "left" }
-                });
+                // Ensure the flipBook plugin is correctly initialized and available
+                if ($.fn.flipBook) {
+                    $(this).flipBook({
+                        pdfUrl: pdfUrl,
+                        btnColor: 'red',
+                        sideBtnRadius: 60,
+                        sideBtnSize: 60,
+                        sideBtnBackground: "rgba(0,0,0,.7)",
+                        sideBtnColor: 'red',
+                        lightBox: true,
+                        viewMode: "3d",
+                        layout: 3,
+                        btnSound: { vAlign: "top", hAlign: "left" },
+                        btnAutoplay: { vAlign: "top", hAlign: "left" },
+                        currentPage: { vAlign: "bottom", hAlign: "left" }
+                    });
+                } else {
+                    console.error("flipBook plugin is not loaded.");
+                }
             });
         });
     </script>
