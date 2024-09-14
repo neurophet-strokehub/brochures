@@ -142,6 +142,55 @@
              box-shadow: none !important;
 
         }
+
+
+p {
+	text-transform: uppercase;
+	letter-spacing: .5em;
+	display: inline-block;
+	border: 4px double rgba(255,255,255,.25);
+	border-width: 4px 0;
+	padding: 1.5em 0em;
+	position: absolute;
+	top: 18%;
+	left: 50%;
+	width: 40em;
+	margin: 0 0 0 -20em;
+  
+  span {
+
+  	font: 700 4em/1 "Oswald", sans-serif;
+  	letter-spacing: 0;
+  	padding: .25em 0 .325em;
+	  display: block;
+	  margin: 0 auto;
+  	text-shadow: 0 0 80px rgba(255,255,255,.5);
+
+/* Clip Background Image */
+
+	  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+	  -webkit-background-clip: text;
+	  background-clip: text;
+
+/* Animate Background Image */
+
+	  -webkit-text-fill-color: transparent;
+	  -webkit-animation: aitf 80s linear infinite;
+
+/* Activate hardware acceleration for smoother animations */
+
+	  -webkit-transform: translate3d(0,0,0);
+	  -webkit-backface-visibility: hidden;
+
+  }
+}
+
+/* Animate Background Image */
+
+@-webkit-keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+}
     </style>
 </head>
 <body>
@@ -169,28 +218,28 @@
                 <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
                     <img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
                 </div>
-                <div class="thumb" data-category="neurophet" data-pdf-url="pdf/01. 회사소개서&리플렛/product catalogue.pdf">
+                <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/02.pdf">
                     <img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
                 </div>
-                <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book2/pdf/AQUDAD.pdf">
+                <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/03.pdff">
                     <img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
                 </div>
-                <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book2/pdf/AQUA.pdf">
+                <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/04.pdf">
                     <img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
                 </div>
-                <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book2/pdf/SCALEPET.pdf">
+                <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/05.pdf">
                     <img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
                 </div>
-                <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book2/pdf/AQUA PEDI.pdf">
+                <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/06.pdf">
                     <img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
                 </div>
-                <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book2/pdf/tESLAB.pdf">
+                <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
                     <img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
                 </div>
-                <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book2/pdf/innk.pdf">
+                <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
                     <img src="images/book/coverpage/08.png" alt="InnK Brochure" />
                 </div>
-                <div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book2/pdf/IMAGING CORELAB.pdf">
+                <div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
                     <img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
                 </div>
             </div>
