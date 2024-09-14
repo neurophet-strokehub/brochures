@@ -25,6 +25,10 @@
             --btn-secondary-bg: #6c757d;
             --footer-bg: #2c3e50;
             --footer-text: #ecf0f1;
+            --header-bg: #ffffff;
+            --header-bg-hover: #f8f9fa;
+            --brand-text-color: #333;
+            --brand-text-hover: #e74c3c;
         }
 
         body {
@@ -39,13 +43,27 @@
         .navbar {
             justify-content: center;
             padding: 0.5rem 1rem;
+            background-color: var(--header-bg);
+            transition: background-color 0.3s ease, transform 0.3s ease;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             z-index: 1030;
+        }
+
+        .navbar:hover {
+            background-color: var(--header-bg-hover);
+            transform: translateY(-5px);
         }
 
         .navbar-brand h2 {
             margin: 0;
             font-weight: 800;
+            color: var(--brand-text-color);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .navbar-brand h2:hover {
+            color: var(--brand-text-hover);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .content {
@@ -122,9 +140,9 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-light bg-white fixed-top">
+    <nav class="navbar navbar-light fixed-top">
         <a class="navbar-brand" href="#">
-            <h2>Neurophet E-brochures</h2>
+            <h2>Neurophet Digital brochures</h2>
         </a>
     </nav>
     <!-- Main Content -->
