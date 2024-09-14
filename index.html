@@ -63,9 +63,19 @@
 			padding: .1rem 0; /* 패딩 추가 */
 			box-sizing: border-box;
 			z-index: 100;
-			animation: font-size-animation 5s infinite; /* 애니메이션 추가 */
+			animation: text-shadow-animation 5s infinite;
 		  }
-		  
+		  @keyframes text-shadow-animation {
+			0% {
+			  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+			}
+			50% {
+			  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+			}
+			100% {
+			  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+			}
+		  }  
       .content {
         flex: 1;
         padding: 60px 1rem;
