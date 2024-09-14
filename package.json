@@ -1,5 +1,17 @@
 {
   "dependencies": {
-    "bootstrap": "^5.3.3"
-  }
+    "bootstrap": "^5.3.3",
+    "pdfkit": "^0.15.0",
+    "sharp": "^0.33.5"
+  },
+  "name": "brochures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
