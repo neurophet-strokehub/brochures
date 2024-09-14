@@ -43,8 +43,9 @@
             z-index: 1030;
         }
 
-        .navbar-brand h1 {
+        .navbar-brand h2 {
             margin: 0;
+            font-weight: 800;
         }
 
         .content {
@@ -91,7 +92,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2);
             border-radius: 8px;
             z-index: -1;
             transform: rotateY(0deg);
@@ -99,16 +99,18 @@
         }
 
         .thumb:hover:before {
-            transform: rotateY(10deg);
+            transform: rotateY(5deg); /* Reduced rotation */
         }
 
         .thumb:hover img {
-            transform: rotateY(10deg);
+            transform: rotateY(5deg); /* Reduced rotation */
         }
 
         .thumb:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            transform: scale(1.03); /* Reduced scale */
+            box-shadow: rgba(0, 0, 0, 0.1) 4px 8px,
+                        rgba(0, 0, 0, 0.2) 8px 16px,
+                        rgba(0, 0, 0, 0.3) 12px 24px; /* Adjusted shadow */
             opacity: 0.9;
         }
 
@@ -130,11 +132,14 @@
         .filter-buttons .btn.active {
             background-color: var(--btn-primary-bg) !important;
             color: white !important;
-         }
+            box-shadow: none !important;
+        }
 
         .filter-buttons .btn-secondary {
             background-color: rgba(0, 0, 0, 0.1) !important;
             color: white !important;
+             box-shadow: none !important;
+
         }
     </style>
 </head>
@@ -142,28 +147,29 @@
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-white fixed-top">
         <a class="navbar-brand" href="#">
-            <h2 style="font-weight: 800;">Neurophet E-brochures</h2>
+            <h2>Neurophet E-brochures</h2>
         </a>
     </nav>
     <!-- Main Content -->
     <div class="content">
         <!-- Filter Buttons -->
         <div class="filter-buttons text-center mb-4">
-            <button class="btn btn-primary filter-btn active" data-filter="all"> All </button>
-            <button class="btn btn-secondary filter-btn" data-filter="neurophet"> Neurophet </button>
-            <button class="btn btn-secondary filter-btn" data-filter="neurodegenerative"> Neurodegenerative </button>
-            <button class="btn btn-secondary filter-btn" data-filter="neuromodulation"> Neuromodulation </button>
-            <button class="btn btn-secondary filter-btn" data-filter="imaging-corelab"> Imaging-corelab </button>
+            <button class="btn btn-primary filter-btn active" data-filter="all">All</button>
+            <button class="btn btn-secondary filter-btn" data-filter="neurophet">Neurophet</button>
+            <button class="btn btn-secondary filter-btn" data-filter="neurodegenerative">Neurodegenerative</button>
+            <button class="btn btn-secondary filter-btn" data-filter="neuromodulation">Neuromodulation</button>
+            <button class="btn btn-secondary filter-btn" data-filter="imaging-corelab">Imaging-corelab</button>
         </div>
         <!-- Bookshelves -->
         <div class="bookshelf">
             <!-- Book Thumbnails -->
             <div class="covers">
+                <!-- Thumbnails with proper alt text -->
                 <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/neurophet_eng.pdf">
                     <img src="images/book2/01_NEUROPHET.png" alt="Neurophet Brochure Cover" />
                 </div>
                 <div class="thumb" data-category="neurophet" data-pdf-url="pdf/01. 회사소개서&리플렛/product catalogue.pdf">
-                    <img src="images/book2/01_neurophet2.png" alt="Neurophet Book Cover" />
+                    <img src="images/book2/01_neurophet2.png" alt="Neurophet Product Catalogue" />
                 </div>
                 <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book2/pdf/AQUDAD.pdf">
                     <img src="images/book2/표지/AQUA_AD.png" alt="Aqua AD Brochure" />
@@ -230,14 +236,13 @@
             });
             // Filter Functionality
             function setActiveFilter(filterValue) {
-                $(".filter-btn").removeClass("active btn-primary").addClass("btn-secondary");
-                $(".filter-btn[data-filter='" + filterValue + "']").addClass("active btn-primary").removeClass("btn-secondary");
-                $(".thumb").each(function() {
-                    if (filterValue === "all" || $(this).data("category") === filterValue) {
-                        $(this).show();
-                    } else {
-                        $(this).hide();
-                    }
+                var $buttons = $(".filter-btn");
+                var $thumbs = $(".thumb");
+                $buttons.removeClass("active btn-primary").addClass("btn-secondary");
+                $buttons.filter("[data-filter='" + filterValue + "']").addClass("active btn-primary").removeClass("btn-secondary");
+                $thumbs.each(function() {
+                    var $thumb = $(this);
+                    $thumb.toggle(filterValue === "all" || $thumb.data("category") === filterValue);
                 });
             }
             $(".filter-btn").on("click", function() {
