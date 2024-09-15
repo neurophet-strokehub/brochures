@@ -1,0 +1,134 @@
+<body>
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="#">
+            <div class="navbar-headerfix">Neurophet e-brochures</div>
+        </a>
+    </nav>
+    <header>
+        <h1 data-text="Neurophet e-brochures">
+            <span data-text="Neurophet e-brochures">Neurophet e-brochures</span>
+        </h1>
+    </header>
+    <div class="content">
+        <div class="filter-buttons text-center mb-4">
+            <button class="btn filter-btn active" data-filter="all">ALL</button>
+            <button class="btn filter-btn" data-filter="neurophet">Neurophet</button>
+            <button class="btn filter-btn" data-filter="neurodegenerative">Neurodegenerative</button>
+            <button class="btn filter-btn" data-filter="neuromodulation">Neuromodulation</button>
+            <button class="btn filter-btn" data-filter="imaging-corelab">Imaging-corelab</button>
+        </div>
+                <div class="covers">
+            <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
+                <img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
+                <div class="overlay">
+                    <p>Introduce our company and products</p>
+                </div>
+            </div>
+            <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/02.pdf">
+                <img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
+                <div class="overlay">
+                    <p>Comprehensive information about Neruopet products, including features, specifications, and intended use.</p>
+                </div>
+            </div>
+            <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/03.pdf">
+                <img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
+                <div class="overlay">
+                    <p>Improve the safety monitoring and management of patients with Alzheimer's diseases</p>
+                </div>
+            </div>
+            <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/04.pdf">
+                <img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
+                <div class="overlay">
+                    <p>Quantitative Atrophy & WMH Analysis Solution using brain MRI(T1/T2-FLAIR)</p>
+                </div>
+            </div>
+            <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/05.pdf">
+                <img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
+                <div class="overlay">
+                    <p>Regional SUVR quantification of brain PET scan</p>
+                </div>
+            </div>
+            <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/06.pdf">
+                <img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
+                <div class="overlay">
+                    <p>Automated analysis of brain MRI images from 0 to 24 months</p>
+                </div>
+            </div>
+            <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
+                <img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
+                <div class="overlay">
+                    <p>AI-Powered software to generate a 3D model using brain MRI and simulate electrical stimulation for treatment planning</p>
+                </div>
+            </div>
+            <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
+                <img src="images/book/coverpage/08.png" alt="InnK Brochure" />
+                <div class="overlay">
+                    <p>Non-invasive electrical stimulation device designed to aid in the functional recovery and rehabilitation of patients with brain diseases.</p>
+                </div>
+            </div>
+            <div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
+                <img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
+                <div class="overlay">
+                    <p>Data management and analytics services specializing in brain imaging for clinical trials</p>
+                </div>
+            </div>
+        </div> 
+    <footer class="footer">
+        <p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
+    </footer>
+    <script src="js/flipbook.min.js"></script>
+    <script src="js/googlescripts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".thumb").on("click", function () {
+                var pdfUrl = $(this).data("pdf-url");
+                if ($.fn.flipBook) {
+                    $(this).flipBook({
+                        pdfUrl: pdfUrl,
+                        btnColor: "#e74c3c",
+                        sideBtnRadius: 50,
+                        sideBtnSize: 50,
+                        sideBtnBackground: "rgba(0,0,0,.8)",
+                        sideBtnColor: "#e74c3c",
+                        lightBox: true,
+                        viewMode: "3d",
+                        layout: 3,
+                        btnSound: { vAlign: "top", hAlign: "left" },
+                        btnAutoplay: { vAlign: "top", hAlign: "left" },
+                        currentPage: { vAlign: "bottom", hAlign: "left" }
+                    });
+                } else {
+                    console.error("flipBook plugin is not loaded.");
+                }
+            });
+
+            function setActiveFilter(filterValue) {
+                $(".filter-btn").each(function () {
+                    $(this)
+                        .toggleClass("active", $(this).data("filter") === filterValue)
+                        .toggleClass("btn-secondary", $(this).data("filter") !== filterValue);
+                });
+                $(".thumb").each(function () {
+                    $(this).toggle(filterValue === "all" || $(this).data("category") === filterValue);
+                });
+            }
+
+            $(".filter-btn").on("click", function () {
+                setActiveFilter($(this).data("filter"));
+            });
+
+            setActiveFilter("all");
+
+            function adjustBodyHeight() {
+                var navbarHeight = $(".navbar").outerHeight();
+                var footerHeight = $(".footer").outerHeight();
+                var viewportHeight = $(window).height();
+                var contentHeight = viewportHeight - navbarHeight - footerHeight;
+                $(".content").css("min-height", contentHeight + "px");
+            }
+
+            adjustBodyHeight();
+            $(window).resize(adjustBodyHeight);
+        });
+    </script>
+</body>
