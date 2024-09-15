@@ -52,7 +52,7 @@ $(document).ready(function () {
     function restartTypingAnimation() {
         var container = document.querySelector('.navbar-headerfix');
         if (container) {
-            container.style.animation = 'none';
+            contai  ner.style.animation = 'none';
             container.offsetHeight; // trigger reflow
             container.style.animation = 'typing 4s steps(40, end) 1s normal both, blink-caret 0.75s step-end infinite';
         }
