@@ -90,11 +90,74 @@
       <p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
   </footer>
   <script src="js/flipbook.min.js" defer></script>
+  <script src="js/flipbook.min.js" defer></script>
   <script src="js/googlescripts.js" defer></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDLKBWQFTH"></script>
   <script>
       $(document).ready(function() {
-          // JavaScript code here
+          // Flipbook 클릭 이벤트 핸들러
+          $(".thumb").on("click", function() {
+              var pdfUrl = $(this).data("pdf-url");
+              if ($.fn.flipBook) {
+                  $(this).flipBook({
+                      pdfUrl: pdfUrl,
+                      btnColor: "#e74c3c",
+                      sideBtnRadius: 50,
+                      sideBtnSize: 50,
+                      sideBtnBackground: "rgba(0,0,0,.8)",
+                      sideBtnColor: "#e74c3c",
+                      lightBox: true,
+                      viewMode: "3d",
+                      layout: 3,
+                      btnSound: {
+                          vAlign: "top",
+                          hAlign: "left"
+                      },
+                      btnAutoplay: {
+                          vAlign: "top",
+                          hAlign: "left"
+                      },
+                      currentPage: {
+                          vAlign: "bottom",
+                          hAlign: "left"
+                      }
+                  });
+              } else {
+                  console.error("flipBook plugin is not loaded.");
+              }
+          });
+
+          // 필터 버튼 클릭 이벤트 핸들러
+          $(".filter-btn").on("click", function() {
+              var filterValue = $(this).data("filter");
+              $(".filter-btn").removeClass("active").removeClass("btn-secondary");
+              $(this).addClass("active").addClass("btn-secondary");
+              $(".thumb").each(function() {
+                  $(this).toggle(filterValue === "all" || $(this).data("category") === filterValue);
+              });
+          });
+
+          // 초기 필터 설정
+          $(".filter-btn.active").trigger("click");
+
+          // 콘텐츠 높이 조정
+          function adjustBodyHeight() {
+              var navbarHeight = $(".navbar").outerHeight();
+              var footerHeight = $(".footer").outerHeight();
+              var viewportHeight = $(window).height();
+              var contentHeight = viewportHeight - navbarHeight - footerHeight;
+              $(".content").css("min-height", contentHeight + "px");
+          }
+          adjustBodyHeight();
+          $(window).resize(adjustBodyHeight);
+
+          // Google Analytics 초기화
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+              dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "G-VDLKBWQFTH");
       });
   </script>
 </body>
