@@ -1,235 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Neurophet e-brochures and marketing materials">
-    <meta name="author" content="Neurophet Marketing Team">
-    <meta name="keywords" content="Neurophet, brochures, marketing, e-brochures">
-    <title>Neurophet E-Brochures</title>
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/flipbook.style.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="icon" href="images/favicon.png" type="image/png">
-    <style>
-        :root {
-            --primary-bg: #f0f4f8;
-            --btn-primary-bg: #e74c3c;
-            --btn-secondary-bg: #6c757d;
-            --footer-bg: #2c3e50;
-            --footer-text: #ecf0f1;
-            --header-bg: #ffffff;
-			--navbar-height: 60px;  
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Neurophet e-brochures and marketing materials">
+	<meta name="author" content="Neurophet Marketing Team">
+	<meta name="keywords" content="Neurophet, brochures, marketing, e-brochures">
+	<title>Neurophet E-Brochures</title>
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/flipbook.style.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<link rel="icon" href="images/favicon.png" type="image/png">
+	<style>
+		:root {
+			--primary-bg: #f0f4f8;
+			--btn-primary-bg: #e74c3c;
+			--btn-secondary-bg: #6c757d;
+			--footer-bg: #2c3e50;
+			--footer-text: #ecf0f1;
+			--header-bg: #ffffff;
+			--navbar-height: 60px;
 			--footer-height: 50px;
-        }
+		}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--primary-bg);
-            display: flex;
-            flex-direction: column;
-         }
+		body {
+			font-family: 'Poppins', sans-serif;
+			background-color: var(--primary-bg);
+			display: flex;
+			flex-direction: column;
+		}
 
-        .navbar {
-            display: flex;
-            justify-content: center;
-            padding: 0.5rem;
-            background-color: var(--header-bg);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1030;
-        }
+		.navbar {
+			display: flex;
+			justify-content: center;
+			padding: 0.5rem;
+			background-color: var(--header-bg);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			z-index: 1030;
+		}
 
-        .navbar-headerfix {
-            font-family: "Arial Rounded MT Bold", Arial, sans-serif;
-            font-size: 25px;
-            color: white;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-            font-weight: bold;
-            letter-spacing: -0.5px;
-            text-align: center;
-            width: 100%;
-            padding: .1rem 0;
-            animation: text-shadow-animation 5s ease infinite;
-        }
+		.navbar-headerfix {
+			font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+			font-size: 25px;
+			color: white;
+			text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+			font-weight: bold;
+			letter-spacing: -0.5px;
+			text-align: center;
+			width: 100%;
+			padding: .1rem 0;
+			animation: text-shadow-animation 5s ease infinite;
+		}
 
-        @keyframes text-shadow-animation {
-            0%, 100% {
-                text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-            }
-            50% {
-                text-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
-            }
-        }
-        .content {
-            flex: 1;
-            padding: 60px 60px;
+		@keyframes text-shadow-animation {
+
+			0%,
+			100% {
+				text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+			}
+
+			50% {
+				text-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+			}
+		}
+
+		.content {
+			flex: 1;
+			padding: 60px 60px;
 			min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
-         }
+		}
 
-        .filter-buttons .btn {
-            border: none;
-            background-color: transparent;
-            transition: background-color .5s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-size: 0.875rem;
-            cursor: pointer;
-        }
+		.filter-buttons .btn {
+			border: none;
+			background-color: transparent;
+			transition: background-color .5s ease;
+			padding: 1rem 1rem;
+			border-radius: 4px;
+			font-size: 1rem;
+			cursor: pointer;
+			width: 200px;
+ 			height: 50px; 
+ 		}
 
-        .filter-buttons .btn.active {
-            background-color: var(--btn-primary-bg) !important;
-            color: white !important;
-            box-shadow: none !important;
-        }
-        .filter-buttons .btn:hover {
-			background-color: var(--btn-primary-bg) !important; 
+		.filter-buttons .btn.active {
+			background-color: var(--btn-primary-bg) !important;
+			color: white !important;
+			box-shadow: none !important;
+		}
+
+		.filter-buttons .btn:hover {
+			background-color: var(--btn-primary-bg) !important;
 			opacity: 25%;
 		}
-        .filter-buttons .btn-secondary {
-            background-color: rgba(0, 0, 0, 0.1) !important;
-            color: white !important;
-            box-shadow: none !important;
-        }
 
-        .covers {
+		.filter-buttons .btn-secondary {
+			background-color: rgba(0, 0, 0, 0.1) !important;
+ 			color: white !important;
+			box-shadow: none !important;
+		}
+
+		.covers {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 5rem; 
+			gap: 5rem;
 			justify-content: center;
 		}
-		  
-        .thumb {
-            position: relative;
-            cursor: pointer;
-            max-width: 200px;
-            border-radius: 8px;
-            transform-style: preserve-3d;
-            transition: all 500ms ease-in;
-            transform: rotateY(15deg) rotateX(50deg) rotateZ(-15deg);
-            box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
-            display: inline-block;
-            overflow: hidden;
-        }
 
-        .thumb img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+		.thumb {
+			position: relative;
+			cursor: pointer;
+			max-width: 200px;
+			border-radius: 8px;
+			transform-style: preserve-3d;
+			transition: all 500ms ease-in;
+			transform: rotateY(15deg) rotateX(50deg) rotateZ(-15deg);
+			box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
+			display: inline-block;
+			overflow: hidden;
+		}
 
-        .bottom, .left {
-            position: absolute;
-            display: block;
-            transition: all 1s linear;
-            overflow: hidden;
-            border-radius: 3px;
-            background-color: var(--footer-bg);
-            filter: brightness(80%);
-            transform: translateZ(16px);
-        }
+		.thumb img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
 
-        .left {
-            top: 0;
-            left: 0;
-            width: 18px;
-            height: 100%;
-            transform: rotateY(270deg) translateX(-1px);
-            transform-origin: center left;
-        }
+		.bottom,
+		.left {
+			position: absolute;
+			display: block;
+			transition: all 1s linear;
+			overflow: hidden;
+			border-radius: 3px;
+			background-color: var(--footer-bg);
+			filter: brightness(80%);
+			transform: translateZ(16px);
+		}
 
-        .bottom {
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 18px;
-            transform: rotateX(90deg) translateY(15px) translateZ(-480px);
-            transform-origin: bottom center;
-        }
+		.left {
+			top: 0;
+			left: 0;
+			width: 18px;
+			height: 100%;
+			transform: rotateY(270deg) translateX(-1px);
+			transform-origin: center left;
+		}
 
-        .bottom img {
-            transform: rotateX(180deg);
-            width: 100%;
-            left: 0;
-            filter: brightness(70%);
-        }
+		.bottom {
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 18px;
+			transform: rotateX(90deg) translateY(15px) translateZ(-480px);
+			transform-origin: bottom center;
+		}
 
-        .left img {
-            filter: brightness(70%);
-        }
+		.bottom img {
+			transform: rotateX(180deg);
+			width: 100%;
+			left: 0;
+			filter: brightness(70%);
+		}
 
-        .thumb:hover {
-            transform: scale(1.03);
-            opacity: 0.9;
-        }
+		.left img {
+			filter: brightness(70%);
+		}
 
-        .footer {
-            background-color: var(--footer-bg);
-            color: var(--footer-text);
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-        }
+		.thumb:hover {
+			transform: scale(1.03);
+			opacity: 0.9;
+		}
 
-        @media (max-width: 768px) {
-            .navbar-headerfix {
-                font-size: 2rem;
-            }
+		.footer {
+			background-color: var(--footer-bg);
+			color: var(--footer-text);
+			padding: 1rem 0;
+			text-align: center;
+			box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+		}
 
-            .content {
-                padding: 30px 1rem;
-                margin-top: 60px;
-            }
+		@media (max-width: 768px) {
+			.navbar-headerfix {
+				font-size: 2rem;
+			}
 
-            .thumb {
-                max-width: 120px;
-            }
+			.content {
+				padding: 30px 1rem;
+				margin-top: 60px;
+			}
 
-            .covers {
-                gap: 1rem;
-            }
-        }
+			.thumb {
+				max-width: 120px;
+			}
 
-        @media (max-width: 480px) {
-            .navbar-headerfix {
-                font-size: 1.5rem;
-            }
+			.covers {
+				gap: 1rem;
+			}
+		}
 
-            .filter-buttons .btn {
-                display: block;
-                margin: 0.5rem auto;
-            }
+		@media (max-width: 480px) {
+			.navbar-headerfix {
+				font-size: 1.5rem;
+			}
 
-            .thumb {
-                max-width: 100px;
-            }
-        }
-    </style>
+			.filter-buttons .btn {
+				display: block;
+				margin: 0.5rem auto;
+			}
+
+			.thumb {
+				max-width: 100px;
+			}
+		}
+	</style>
 </head>
+
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-light">
-        <a class="navbar-brand" href="#">
-            <div class="navbar-headerfix">Neurophet Digital Brochures</div>
-        </a>
-    </nav>
-    <!-- Main Content -->
-    <div class="content">
-        <!-- Filter Buttons -->
-        <div class="filter-buttons text-center mb-4" style="font-size:x-large;">
-            <button class="btn filter-btn active" data-filter="all">ALL</button>
-            <button class="btn filter-btn" data-filter="neurophet">Neurophet</button>
-            <button class="btn filter-btn" data-filter="neurodegenerative">Neurodegenerative</button>
-            <button class="btn filter-btn" data-filter="neuromodulation">Neuromodulation</button>
-            <button class="btn filter-btn" data-filter="imaging-corelab">Imaging-corelab</button>
-        </div>
-        <!-- Bookshelves -->
-        <div class="covers">
+	<!-- Navbar -->
+	<nav class="navbar navbar-light">
+		<a class="navbar-brand" href="#">
+			<div class="navbar-headerfix">Neurophet Digital Brochures</div>
+		</a>
+	</nav>
+	<!-- Main Content -->
+	<div class="content">
+		<!-- Filter Buttons -->
+		<div class="filter-buttons text-center mb-4" style="font-size:x-large;">
+			<button class="btn filter-btn active" data-filter="all">ALL</button>
+			<button class="btn filter-btn" data-filter="neurophet">Neurophet</button>
+			<button class="btn filter-btn" data-filter="neurodegenerative">Neurodegenerative</button>
+			<button class="btn filter-btn" data-filter="neuromodulation">Neuromodulation</button>
+			<button class="btn filter-btn" data-filter="imaging-corelab">Imaging-corelab</button>
+		</div>
+		<!-- Bookshelves -->
+		<div class="covers">
 			<div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
 				<img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
 				<div class="bottom"><img src="images/book/coverpage/01.png" /></div>
@@ -281,12 +292,12 @@
 	<footer class="footer">
 		<p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
 	</footer>
- 	<!-- JavaScript -->
+	<!-- JavaScript -->
 	<script src="js/flipbook.min.js"></script>
 	<script>
-		$(document).ready(function() {
+		$(document).ready(function () {
 			// FlipBook Initialization
-			$(".thumb").on("click", function() {
+			$(".thumb").on("click", function () {
 				var pdfUrl = $(this).data("pdf-url");
 				if ($.fn.flipBook) {
 					$(this).flipBook({
@@ -318,14 +329,14 @@
 			});
 			// Filter Functionality
 			function setActiveFilter(filterValue) {
-				$(".filter-btn").each(function() {
+				$(".filter-btn").each(function () {
 					$(this).toggleClass("active", $(this).data("filter") === filterValue).toggleClass("btn-secondary", $(this).data("filter") !== filterValue).toggleClass("btn-primary", $(this).data("filter") === filterValue);
 				});
-				$(".thumb").each(function() {
+				$(".thumb").each(function () {
 					$(this).toggle(filterValue === "all" || $(this).data("category") === filterValue);
 				});
 			}
-			$(".filter-btn").on("click", function() {
+			$(".filter-btn").on("click", function () {
 				setActiveFilter($(this).data("filter"));
 			});
 			setActiveFilter("all");
@@ -335,13 +346,13 @@
 				console.log("Flipbook closed");
 			}
 			$(document).on("click", ".btnClose", closeFlipbook);
-			$(document).on("keydown", function(e) {
+			$(document).on("keydown", function (e) {
 				if (e.key === "Escape") {
 					closeFlipbook();
 				}
 			});
 		});
-		$(document).ready(function() {
+		$(document).ready(function () {
 			function adjustBodyHeight() {
 				var navbarHeight = $(".navbar").outerHeight();
 				var footerHeight = $(".footer").outerHeight();
@@ -349,11 +360,11 @@
 				var contentHeight = viewportHeight - navbarHeight - footerHeight;
 				$(".content").css("min-height", contentHeight + "px");
 			}
-			
+
 			adjustBodyHeight();
 			$(window).resize(adjustBodyHeight); // Adjust on window resize
 		});
-		
+
 	</script>
 </body>
 
