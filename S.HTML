@@ -3,98 +3,118 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      .book-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        perspective: 600px;
-      }
 
-      .book {
-        width: 200px;
-        height: 300px;
-        position: relative;
-        transform-style: preserve-3d;
-        transform: rotateY(-30deg); /* Initial state with 3D effect */
-        transition: transform 1s ease;
-      }
-
-      .book-container:hover .book,
-      .book-container:focus .book {
-        transform: rotateY(0deg); /* Flat on hover */
-      }
-
-      .book > img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transform: translateZ(15px);
-        border-radius: 0 2px 2px 0;
-        box-shadow: 5px 5px 20px #666;
-      }
-
-      .book::before {
-        position: absolute;
-        content: " ";
-        background-color: blue;
-        left: 0;
-        top: 0;
-        width: 30px; /* Slightly adjusted width */
-        height: 100%;
-        transform: translateX(200px) rotateY(90deg); /* Adjusted transform */
-        background: linear-gradient(
-          90deg,
-          #fff 0%,
-          #f9f9f9 5%,
-          #fff 10%,
-          #f9f9f9 15%,
-          #fff 20%,
-          #f9f9f9 25%,
-          #fff 30%,
-          #f9f9f9 35%,
-          #fff 40%,
-          #f9f9f9 45%,
-          #fff 50%,
-          #f9f9f9 55%,
-          #fff 60%,
-          #f9f9f9 65%,
-          #fff 70%,
-          #f9f9f9 75%,
-          #fff 80%,
-          #f9f9f9 85%,
-          #fff 90%,
-          #f9f9f9 95%,
-          #fff 100%
-        );
-      }
-
-      .book::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: " ";
-        width: 100%;
-        height: 100%;
-        transform: translateZ(-15px);
-        background-color: #01060f;
-        border-radius: 0 2px 2px 0;
-        box-shadow: -10px 0 50px 10px #666;
-      }
+    <link rel="stylesheet" href="style.css" />
+    <title>CSS 3D transformation</title>
+    <style> 
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      
+          <link rel="stylesheet" href="style.css" />
+          <title>CSS 3D transformation</title>
+          <style> 
+            body {
+              background-color: rgb(99, 86, 127);
+            }
+            
+            .perspective {
+              position: relative;
+              width: 200px; /* Adjusted for better fit */
+              height: 300px; /* Adjusted for better fit */
+              transform-style: preserve-3d;
+              transition: all 500ms ease-in;
+              transform: rotateY(20deg) rotateX(60deg);
+              box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
+              cursor: pointer;
+              display: inline-block;
+              margin: 20px;
+            }
+            
+            .perspective img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              transform: translateZ(8px); /* Adjusted depth */
+            }
+            
+            .bottom,
+            .left {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: block;
+              transition: all 1s linear;
+              overflow: hidden;
+              border-radius: 3px;
+            }
+            
+            .left {
+              transform: rotateY(-90deg) translateX(-100%);
+              transform-origin: center left;
+              width: 18px; /* Adjusted for better fit */
+              height: 100%;
+            }
+            
+            .bottom {
+              transform: rotateX(90deg) translateY(100%) translateZ(-8px); /* Adjusted Z-depth */
+              transform-origin: bottom center;
+              height: 18px; /* Adjusted for better fit */
+            }
+            
+            .bottom img {
+              transform: rotateX(180deg);
+              width: 100%;
+              height: 100%;
+              left: 0;
+            }
+            
+          </style>
+        </head>
+        <body>
+          <div class="perspective">
+            <img src="images/book/coverpage/01.png" />
+            <div class="bottom"><img src="images/book/coverpage/01.png" /></div>
+            <div class="left"><img src="images/book/coverpage/01.png" /></div>
+          </div>
+          <div class="perspective">
+            <img src="images/book/coverpage/01.png" />
+            <div class="bottom"><img src="images/book/coverpage/01.png" /></div>
+            <div class="left"><img src="images/book/coverpage/01.png" /></div>
+          </div>
+      
+          <div class="perspective">
+            <img src="images/book/coverpage/01.png" />
+            <div class="bottom"><img src="images/book/coverpage/01.png" /></div>
+            <div class="left"><img src="images/book/coverpage/01.png" /></div>
+          </div>
+      
+        </body>
+      </html>
+      
     </style>
-    <title>Document</title>
   </head>
   <body>
-    <a class="book-container" href="" target="_blank" rel="noreferrer noopener">
-      <div class="book">
-        <img
-          alt="Book Cover"
-          src="images\book\01-neurophet-ko\01.png"
-        />
-      </div>
-    </a>
+    <div class="perspective">
+      <img src="images/book/coverpage/01.png" />
+      <div class="bottom"><img src="images/book/coverpage/01.png" /></div>
+      <div class="left"><img src="images/book/coverpage/01.png" /></div>
+    </div>
+    <div class="perspective">
+      <img src="images/book/coverpage/01.png" />
+      <div class="bottom"><img src="images/book/coverpage/01.png" /></div>
+      <div class="left"><img src="images/book/coverpage/01.png" /></div>
+    </div>
+
+    <div class="perspective">
+      <img src="images/book/coverpage/01.png" />
+      <div class="bottom"><img src="images/book/coverpage/01.png" /></div>
+      <div class="left"><img src="images/book/coverpage/01.png" /></div>
+    </div>
+
   </body>
 </html>
