@@ -32,198 +32,207 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="icon" href="images/favicon.png" type="image/png">
 	<style>
-		<style>
-			* {
-			  margin: 0;
-			  padding: 0;
-			  box-sizing: border-box;
-			}
-	  
-			body {
-			  font-family: "Poppins", sans-serif;
-			  background-color: #f0f4f8;
-			  overflow-x: hidden;
-			}
-	  
-			.navbar {
-			  background-color: white;
-			  text-align: center;
-			  padding: 15px;
-			  font-weight: bold;
-			  display: flex;
-			  justify-content: center;
-			  align-items: center;
-			}
-	  
-			.navbar-headerfix {
-			  font-size: 2rem;
-			  overflow: hidden;
-			  white-space: nowrap;
-			  border-right: 0.15em solid black;
-			  color: black;
-			  letter-spacing: 0.05em;
-			  width: 100%;
-			  box-sizing: border-box;
-			  animation: typing 4s steps(40, end) 1s normal both, blink-caret 0.75s step-end infinite, highlight 4s infinite;
-			}
-	  
-			@keyframes typing {
-			  from { width: 0; }
-			  to { width: 100%; }
-			}
-	  
-			@keyframes blink-caret {
-			  from, to { border-color: transparent; }
-			  50% { border-color: red; }
-			}
-	  
-			@keyframes highlight {
-			  0%, 100% { color: black; text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
-			  50% { color: #e74c3c; text-shadow: 0 0 15px rgba(255, 0, 0, 0.7); }
-			}
-	  
-			.content {
-			  padding: 20px 40px;
-			  min-height: calc(100vh - 110px);
-			}
-	  
-			.filter-buttons .btn {
-			  margin: 0.5rem;
-			  border: none;
-			  background-color: #bdc3c73f;
-			  border-radius: 4px;
-			  font-size: 1rem;
-			  cursor: pointer;
-			  height: 45px;
-			  transition: background-color 0.5s ease;
-			  color: white;
-			  box-shadow: none;
-			}
-	  
-			.filter-buttons .btn.active {
-			  background-color: #e74c3c;
-			  color: white;
-			}
-	  
-			.filter-buttons .btn:hover {
-			  background-color: #e74c3c;
-			  opacity: 0.25;
-			}
-	  
-			.covers {
-			  display: flex;
-			  flex-wrap: wrap;
-			  gap: 2rem;
-			  justify-content: center;
-			  margin: 0 2rem;
-			}
-	  
-			.thumb {
-			  position: relative;
-			  cursor: pointer;
-			  max-width: 200px;
-			  border-radius: 8px;
-			  transform: rotateY(15deg) rotateX(50deg) rotateZ(-15deg);
-			  transition: transform 500ms ease-in;
-			  box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
-			  overflow: hidden;
-			}
-	  
-			.thumb img {
-			  width: 100%;
-			  height: 100%;
-			  object-fit: cover;
-			}
-	  
-			.thumb:hover {
-			  transform: scale(1.03);
-			  opacity: 0.9;
-			}
-	  
-			.thumb .overlay {
-			  position: absolute;
-			  top: 0;
-			  left: 0;
-			  right: 0;
-			  bottom: 0;
-			  background-color: rgba(0, 0, 0, 0.6);
-			  color: white;
-			  display: flex;
-			  justify-content: center;
-			  align-items: center;
-			  text-align: center;
-			  opacity: 0;
-			  transition: opacity 0.3s ease;
-			  font-size: 1rem;
-			  padding: 10px;
-			}
-	  
-			.thumb:hover .overlay {
-			  opacity: 1;
-			}
-	  
-			.overlay p {
-			  margin: 0;
-			  padding: 0;
-			  line-height: 1.5;
-			}
-	  
-			.footer {
-			  background-color: #2c3e50;
-			  color: #ecf0f1;
-			  text-align: center;
-			  height: 50px;
-			  line-height: 50px;
-			  padding: 0;
-			  margin: 0;
-			}
-	  
-			@media (max-width: 768px) {
-			  .navbar-headerfix {
-				font-size: 1.75rem;
-			  }
-	  
-			  .content {
-				padding: 20px 10px;
-				margin-top: 60px;
-			  }
-	  
-			  .thumb {
-				max-width: 150px;
-			  }
-	  
-			  .covers {
-				gap: 1rem;
-			  }
-			}
-	  
-			@media (max-width: 480px) {
-			  .navbar-headerfix {
-				font-size: 1.5rem;
-			  }
-			  .thumb .overlay {
-				font-size: 0.8rem; /* 폰트 크기 조정 */
-				padding: 5px; /* 패딩 조정 */
-			  }
-			}
-	  
-			  .filter-buttons .btn {
-				display: block;
-				margin: 0.5rem auto;
-				font-size: 0.875rem;
-				height: 40px;
-			  }
-	  
-			  .thumb {
-				max-width: 120px;
-			  }
-	  
-			  .covers {
-				margin: 0 1rem;
-			  }
-			}
-		  </style>
+		/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f0f4f8;
+    overflow-x: hidden;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: white;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-headerfix {
+    font-size: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid black;
+    color: black;
+    letter-spacing: 0.05em;
+    width: 100%;
+    box-sizing: border-box;
+    animation: typing 4s steps(40, end) 1s normal both, blink-caret 0.75s step-end infinite, highlight 4s infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: red; }
+}
+
+@keyframes highlight {
+    0%, 100% { color: black; text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+    50% { color: #e74c3c; text-shadow: 0 0 15px rgba(255, 0, 0, 0.7); }
+}
+
+/* Content styles */
+.content {
+    padding: 20px 40px;
+    min-height: calc(100vh - 110px);
+}
+
+/* Filter buttons styles */
+.filter-buttons .btn {
+    margin: 0.5rem;
+    border: none;
+    background-color: #bdc3c7;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    height: 45px;
+    transition: background-color 0.5s ease;
+    color: white;
+    box-shadow: none;
+}
+
+.filter-buttons .btn.active {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.filter-buttons .btn:hover {
+    background-color: #e74c3c;
+    opacity: 0.25;
+}
+
+/* Thumbnail styles */
+.covers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin: 0 2rem;
+}
+
+.thumb {
+    position: relative;
+    cursor: pointer;
+    max-width: 200px;
+    border-radius: 8px;
+    transform: rotateY(15deg) rotateX(50deg) rotateZ(-15deg);
+    transition: transform 500ms ease-in;
+    box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumb:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+/* Overlay styles */
+.thumb .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.thumb:hover .overlay {
+    opacity: 1;
+}
+
+.overlay p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar-headerfix {
+        font-size: 1.75rem;
+    }
+
+    .content {
+        padding: 20px 10px;
+        margin-top: 60px;
+    }
+
+    .thumb {
+        max-width: 150px;
+    }
+
+    .covers {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-headerfix {
+        font-size: 1.5rem;
+    }
+
+    .thumb .overlay {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+
+    .filter-buttons .btn {
+        display: block;
+        margin: 0.5rem auto;
+        font-size: 0.875rem;
+        height: 40px;
+    }
+
+    .thumb {
+        max-width: 120px;
+    }
+
+    .covers {
+        margin: 0 1rem;
+    }
+}
+
 	</style>
+
 </head>
 <body>
 	<nav class="navbar navbar-light">
