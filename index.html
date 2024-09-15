@@ -24,189 +24,203 @@
 			padding: 0;
 			box-sizing: border-box;
 		}
+/* General Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 
-		body {
-			font-family: 'Poppins', sans-serif;
-			background-color: #f0f4f8;
-			margin: 0;
-			padding: 0;
-			overflow-x: hidden;
-		}
+/* Body Styles */
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #f0f4f8;
+	overflow-x: hidden;
+}
 
-		.navbar {
-			background-color: white;
-			text-align: center;
-			padding: 15px;
-			font-weight: bold;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
+/* Navbar Styles */
+.navbar {
+	background-color: white;
+	text-align: center;
+	padding: 15px;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
-		.navbar-headerfix {
-			font-size: 2rem;
-			display: inline-block;
-			overflow: hidden;
-			white-space: nowrap;
-			border-right: .15em solid black;
-			color: black;
-			letter-spacing: 0.05em;
-			width: 100%;
-			box-sizing: border-box;
-			animation: typing 4s steps(40, end) 1s normal both, blink-caret 0.75s step-end infinite;
-		}
+.navbar-headerfix {
+	font-size: 2rem;
+	overflow: hidden;
+	white-space: nowrap;
+	border-right: .15em solid black;
+	color: black;
+	letter-spacing: 0.05em;
+	width: 100%;
+	box-sizing: border-box;
+	animation: typing 4s steps(40, end) 1s normal both, blink-caret 0.75s step-end infinite;
+}
 
-		@keyframes typing {
-			from {
-				width: 0;
-			}
+/* Typing Animation */
+@keyframes typing {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
 
-			to {
-				width: 100%;
-			}
-		}
+@keyframes blink-caret {
+	from, to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: red;
+	}
+}
 
-		@keyframes blink-caret {
+/* Content Styles */
+.content {
+	padding: 20px 40px;
+	min-height: calc(100vh - 110px);
+}
 
-			from,
-			to {
-				border-color: transparent;
-			}
+/* Filter Buttons Styles */
+.filter-buttons .btn {
+	margin: 0.5rem;
+	border: none;
+	background-color: #bdc3c73f;
+	border-radius: 4px;
+	font-size: 1rem;
+	cursor: pointer;
+	height: 45px;
+	transition: background-color .5s ease;
+	color: white;
+	box-shadow: none;
+}
 
-			50% {
-				border-color: red;
-			}
-		}
+.filter-buttons .btn.active {
+	background-color: #e74c3c;
+	color: white;
+}
 
-		.content {
-			padding: 20px 40px;
-			min-height: calc(100vh - 110px);
-		}
+.filter-buttons .btn:hover {
+	background-color: #e74c3c;
+	opacity: 0.25;
+}
 
-		.filter-buttons .btn {
-			margin-right: 1rem;
-			border: none;
-			background-color: #bdc3c73f;
-			border-radius: 4px;
-			font-size: 1rem;
-			cursor: pointer;
-			height: 45px;
-			transition: background-color .5s ease;
-			color: white;
-			box-shadow: none;
-		}
+/* Cover Thumbnails Styles */
+.covers {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	justify-content: center;
+	margin: 0 2rem;
+}
 
-		.filter-buttons .btn.active {
-			background-color: #e74c3c;
-			color: white;
-		}
+.thumb {
+	position: relative;
+	cursor: pointer;
+	max-width: 200px;
+	border-radius: 8px;
+	transform: rotateY(15deg) rotateX(50deg) rotateZ(-15deg);
+	transition: transform 500ms ease-in;
+	box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
+	overflow: hidden;
+}
 
-		.filter-buttons .btn:hover {
-			background-color: #e74c3c;
-			opacity: 0.25;
-		}
+.thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 
-		.covers {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 7rem;
-			justify-content: center;
-			margin: 0 7rem;
-		}
+.thumb:hover {
+	transform: scale(1.03);
+	opacity: 0.9;
+}
 
-		.thumb {
-			position: relative;
-			cursor: pointer;
-			max-width: 200px;
-			border-radius: 8px;
-			transform: rotateY(15deg) rotateX(50deg) rotateZ(-15deg);
-			transition: transform 500ms ease-in;
-			box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
-			overflow: hidden;
-		}
+.thumb .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	font-size: 1rem;
+	padding: 10px;
+}
 
-		.thumb img {
-			width: 100%;
-			height: 102%;
-		}
+.thumb:hover .overlay {
+	opacity: 1;
+}
 
-		.thumb:hover {
-			transform: scale(1.03);
-			opacity: 0.9;
-		}
+.overlay p {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+}
 
-		.thumb .overlay {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0, 0, 0, 0.6);
-			color: white;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-			opacity: 0;
-			transition: opacity 0.3s ease;
-			font-size: 1rem;
-			padding: 10px;
-		}
+/* Footer Styles */
+.footer {
+	background-color: #2c3e50;
+	color: #ecf0f1;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	padding: 0;
+	margin: 0;
+}
 
-		.thumb:hover .overlay {
-			opacity: 1;
-		}
+/* Media Queries */
+@media (max-width: 768px) {
+	.navbar-headerfix {
+		font-size: 1.75rem;
+	}
 
-		.overlay p {
-			margin: 0;
-			padding: 0;
-			line-height: 1.5;
-		}
+	.content {
+		padding: 20px 10px;
+		margin-top: 60px;
+	}
 
+	.thumb {
+		max-width: 150px;
+	}
 
-		.footer {
-			background-color: #2c3e50;
-			color: #ecf0f1;
-			text-align: center;
-			height: 50px;
-			line-height: 50px;
-			padding: 0;
-			margin: 0;
-		}
+	.covers {
+		gap: 1rem;
+	}
+}
 
-		@media (max-width: 768px) {
-			.navbar-headerfix {
-				font-size: 2rem;
-			}
+@media (max-width: 480px) {
+	.navbar-headerfix {
+		font-size: 1.5rem;
+	}
 
-			.content {
-				padding: 30px 1rem;
-				margin-top: 60px;
-			}
+	.filter-buttons .btn {
+		display: block;
+		margin: 0.5rem auto;
+		font-size: 0.875rem;
+		height: 40px;
+	}
 
-			.thumb {
-				max-width: 120px;
-			}
+	.thumb {
+		max-width: 120px;
+	}
 
-			.covers {
-				gap: 1rem;
-			}
-		}
+	.covers {
+		margin: 0 1rem;
+	}
+}
 
-		@media (max-width: 480px) {
-			.navbar-headerfix {
-				font-size: 1.5rem;
-			}
-
-			.filter-buttons .btn {
-				display: block;
-				margin: 0.5rem auto;
-			}
-
-			.thumb {
-				max-width: 100px;
-			}
-		}
 	</style>
 </head>
 
@@ -274,9 +288,10 @@
 			<div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
 				<img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
 				<div class="overlay">
-					<p>TESLAB Brochure</p>
-					<p>Cutting-edge neuromodulation techniques for therapeutic applications.</p>
-				</div>
+					<p>
+						AI-Powered software to generate a 3D model using brain MRI and simulate electrical stimulation for treatment planning
+					</p>
+					</div>
 			</div>
 			<div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
 				<img src="images/book/coverpage/08.png" alt="InnK Brochure" />
@@ -289,7 +304,8 @@
 			<div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
 				<img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
 				<div class="overlay">
-					<p>Data management and analytics services specializing in brain imaging for clinical trials
+					<p>
+						Data management and analytics services specializing in brain imaging for clinical trials
 					</p>
 				</div>
 			</div>
