@@ -33,7 +33,7 @@
             background-color: var(--primary-bg);
             display: flex;
             flex-direction: column;
-            height: calc(100vh - 110px);
+            min-height: 100vh;
         }
 
         .navbar {
@@ -75,7 +75,7 @@
             margin: 0 0.5rem;
             border: none;
             background-color: transparent;
-            transition: background-color 0.5s ease;
+            transition: background-color 0.3s ease;
             padding: 0.5rem 1rem;
             border-radius: 4px;
             font-size: 0.875rem;
@@ -83,26 +83,20 @@
         }
 
         .filter-buttons .btn.active {
-            background-color: var(--btn-primary-bg) !important;
-            color: white !important;
-            box-shadow: none !important;
+            background-color: var(--btn-primary-bg);
+            color: white;
         }
 
         .filter-buttons .btn:hover {
-            background-color: var(--btn-primary-bg) !important;
-            opacity: 25%;
-        }
-
-        .filter-buttons .btn-secondary {
-            background-color: rgba(0, 0, 0, 0.1) !important;
-            color: white !important;
-            box-shadow: none !important;
+            background-color: var(--btn-primary-bg);
+			opacity: 20%;
+            color: white;
         }
 
         .covers {
             display: flex;
             flex-wrap: wrap;
-            gap: 4rem;
+            gap: 2rem;
             justify-content: center;
         }
 
@@ -111,14 +105,14 @@
             cursor: pointer;
             max-width: 200px;
             border-radius: 8px;
-            box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
-            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .thumb img {
             width: 100%;
             height: auto;
-            display: block;
+            border-radius: 8px;
         } 
 
         .thumb:hover {
@@ -141,7 +135,6 @@
 
             .content {
                 padding: 30px 1rem;
-                margin-top: 60px;
             }
 
             .thumb {
@@ -179,91 +172,52 @@
     <!-- Main Content -->
     <div class="content">
         <!-- Filter Buttons -->
-        <div class="filter-buttons text-center mb-4" style="font-size:x-large;">
+        <div class="filter-buttons text-center mb-4" style="font-size: large;">
             <button class="btn filter-btn active" data-filter="all">ALL</button>
             <button class="btn filter-btn" data-filter="neurophet">Neurophet</button>
             <button class="btn filter-btn" data-filter="neurodegenerative">Neurodegenerative</button>
             <button class="btn filter-btn" data-filter="neuromodulation">Neuromodulation</button>
             <button class="btn filter-btn" data-filter="imaging-corelab">Imaging-corelab</button>
         </div>
-        <!-- Bookshelves -->
+        <!-- Covers -->
         <div class="covers">
-            <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
-                <img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
-                
-            </div>
-            <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/02.pdf">
-                <img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
-            
-            </div>
-            <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/03.pdf">
-                <img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
-                 
-            </div>
-            <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/04.pdf">
-                <img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
-                
-            </div>
-            <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/05.pdf">
-                <img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
-                 
-            </div>
-            <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/06.pdf">
-                <img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
-                 
-            </div>
-            <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
-                <img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
-                <div class="bottom"></div>
-                <div class="left"></div>
-            </div>
-            <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
-                <img src="images/book/coverpage/08.png" alt="InnK Brochure" />
-                 
-            </div>
-            <div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
-                <img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
-                 
-            </div>
-        </div>     
+			<div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
+				<img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
+				 </div>
+			<div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/02.pdf">
+				<img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
+				 </div>
+			<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/03.pdf">
+				<img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
+			 </div>
+			<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/04.pdf">
+				<img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
+			 </div>
+			<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/05.pdf">
+				<img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
+			 </div>
+			<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/06.pdf">
+				<img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
+			 </div>
+			<div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
+				<img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
+			 </div>
+			<div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
+				<img src="images/book/coverpage/08.png" alt="InnK Brochure" />
+			 </div>
+			<div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
+				<img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
+			 </div>
+		</div>    
     </div>
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
     </footer>
-    <!-- Hidden Canvas for Color Extraction -->
-    <canvas id="color-canvas" style="display: none;"></canvas>
     <!-- JavaScript -->
     <script src="js/flipbook.min.js"></script>
     <script>
         $(document).ready(function() {
-            function updateLeftBackgroundColor() {
-                var canvas = document.getElementById('color-canvas');
-                var context = canvas.getContext('2d');
-                var images = document.querySelectorAll('.thumb img');
-                
-                images.forEach(function(img) {
-                    img.onload = function() {
-                        var width = img.width;
-                        var height = img.height;
-                        
-                        canvas.width = width;
-                        canvas.height = height;
-                        context.drawImage(img, 0, 0);
-                        
-                        var imageData = context.getImageData(0, 0, 1, height);
-                        var leftEdgeColor = imageData.data[0]; // red
-                        
-                        // Set background color based on left edge color
-                        var leftDiv = img.parentElement.querySelector('.left');
-                        var color = `rgba(${leftEdgeColor}, ${leftEdgeColor}, ${leftEdgeColor}, 1)`;
-                        leftDiv.style.backgroundColor = color;
-                    };
-                });
-            }
-            
-            updateLeftBackgroundColor();
-            
             // FlipBook Initialization
             $(".thumb").on("click", function() {
                 var pdfUrl = $(this).data("pdf-url");
@@ -278,64 +232,40 @@
                         lightBox: true,
                         viewMode: "3d",
                         layout: 3,
-                        btnSound: {
-                            vAlign: "top",
-                            hAlign: "left",
-                        },
-                        btnAutoplay: {
-                            vAlign: "top",
-                            hAlign: "left",
-                        },
-                        currentPage: {
-                            vAlign: "bottom",
-                            hAlign: "left",
-                        },
+                        btnSound: { vAlign: "top", hAlign: "left" },
+                        btnAutoplay: { vAlign: "top", hAlign: "left" },
+                        currentPage: { vAlign: "bottom", hAlign: "left" }
                     });
                 } else {
                     console.error("flipBook plugin is not loaded.");
                 }
             });
-            
+
             // Filter Functionality
             function setActiveFilter(filterValue) {
                 $(".filter-btn").each(function() {
-                    $(this).toggleClass("active", $(this).data("filter") === filterValue).toggleClass("btn-secondary", $(this).data("filter") !== filterValue).toggleClass("btn-primary", $(this).data("filter") === filterValue);
+                    $(this).toggleClass("active", $(this).data("filter") === filterValue);
                 });
                 $(".thumb").each(function() {
                     $(this).toggle(filterValue === "all" || $(this).data("category") === filterValue);
                 });
             }
-            
+
             $(".filter-btn").on("click", function() {
                 setActiveFilter($(this).data("filter"));
             });
             setActiveFilter("all");
-            
-            // Close Flipbook
-            function closeFlipbook() {
-                $(".flipbook-container").hide();
-                console.log("Flipbook closed");
-            }
-            $(document).on("click", ".btnClose", closeFlipbook);
-            $(document).on("keydown", function(e) {
-                if (e.key === "Escape") {
-                    closeFlipbook();
-                }
-            });
-        });
-        
-        $(document).ready(function() {
-            function adjustBodyHeight() {
+
+            // Adjust Content Height
+            function adjustContentHeight() {
                 var navbarHeight = $(".navbar").outerHeight();
                 var footerHeight = $(".footer").outerHeight();
-                var viewportHeight = $(window).height();
-                var contentHeight = viewportHeight - navbarHeight - footerHeight;
-                $(".content").css("min-height", contentHeight + "px");
+                $(".content").css("min-height", `calc(100vh - ${navbarHeight + footerHeight}px)`);
             }
             
-            adjustBodyHeight();
-            $(window).resize(adjustBodyHeight); // Adjust on window resize
+            adjustContentHeight();
+            $(window).resize(adjustContentHeight);
         });
     </script>
 </body>
-</html>
+</html
