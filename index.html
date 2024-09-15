@@ -39,20 +39,22 @@
 			color: #6c757d;
 			font-weight: bold;
 			font-size: 2rem;
-			animation: shine 1.5s infinite; /* 샤이닝 애니메이션 추가 */
+			overflow: hidden; /* Ensures that the text does not overflow during typing effect */
+			white-space: nowrap; /* Keeps the text in a single line */
+			border-right: .15em solid red; /* Creates the cursor effect */
+			animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
 		}
 		
-		@keyframes shine {
-			0% {
-				text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(255, 255, 255, 0.2);
-			}
-			50% {
-				text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5), 0 0 45px rgba(255, 255, 255, 0.3);
-			}
-			100% {
-				text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3), 0 0 15px rgba(255, 255, 255, 0.2);
-			}
+		@keyframes typing {
+			from { width: 0; }
+			to { width: 100%; }
 		}
+		
+		@keyframes blink-caret {
+			from, to { border-color: transparent; }
+			50% { border-color:  red; }
+		}
+		
 		
 		.content {
 			flex: 1;
