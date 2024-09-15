@@ -55,7 +55,7 @@
 			font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 			font-size: 2.5rem; /* 기본 폰트 크기 */
 			color: white; /* 기본 텍스트 색상 */
-			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 기본 그림자 */
+			text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* 기본 그림자 */
 			font-weight: bold;
 			letter-spacing: -0.5px; /* 문자 간격 조정 */
 			text-align: center; 
@@ -63,19 +63,20 @@
 			padding: .1rem 0; /* 패딩 추가 */
 			box-sizing: border-box;
 			z-index: 100;
-			animation: text-shadow-animation 5s infinite;
+			animation: text-shadow-animation 5s ease infinite;
 		}
+		
 		@keyframes text-shadow-animation {
 			0% {
-			text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+				text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 			}
 			50% {
-			text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+				text-shadow: 0 4px 8px rgba(255, 0, 0, 0.5); /* 부드럽고 덜 강렬한 빨간색 그림자 */
 			}
 			100% {
-			text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+				text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 			}
-		}  
+		} 
 	.content {
 		flex: 1;
 		padding: 60px 1rem;
