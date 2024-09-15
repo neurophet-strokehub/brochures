@@ -135,7 +135,7 @@
           console.error("flipBook plugin is not loaded.");
         }
       });
-
+    
       function setActiveFilter(filterValue) {
         $(".filter-btn").each(function () {
           $(this).toggleClass("active", $(this).data("filter") === filterValue)
@@ -145,11 +145,12 @@
           $(this).toggle(filterValue === "all" || $(this).data("category") === filterValue);
         });
       }
+      
       $(".filter-btn").on("click", function () {
         setActiveFilter($(this).data("filter"));
       });
       setActiveFilter("all");
-
+    
       function adjustBodyHeight() {
         var navbarHeight = $(".navbar").outerHeight();
         var footerHeight = $(".footer").outerHeight();
@@ -157,16 +158,18 @@
         var contentHeight = viewportHeight - navbarHeight - footerHeight;
         $(".content").css("min-height", contentHeight + "px");
       }
+      
       adjustBodyHeight();
       $(window).resize(adjustBodyHeight);
+    
       window.dataLayer = window.dataLayer || [];
-
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
       gtag("config", "G-VDLKBWQFTH");
     });
+    
   </script>
 </body>
 
