@@ -14,15 +14,13 @@
 }
 
 body {
-  background: linear-gradient(141deg, #ccc 75%, #eee 90%, #ddd 95%);
-  color: #555;
+   color: #555;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 20px;
   padding-top: 60px; /* 네비게이션 바 높이만큼 여백 추가 */
   height: 100vh;
-  overflow: hidden;
-  text-align: center;
+   text-align: center;
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
   -webkit-transform: translate3d(0, 0, 0);
