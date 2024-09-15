@@ -32,16 +32,16 @@ body {
   font-size: 25px;
   left: 0;
   width: 100%;
-  background-color: white; /* 배경색 설정 */
-  box-shadow: 0 0 5px grey; /* 그림자 설정 (선택 사항) */
-  z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
+  background-color: white;  
+  box-shadow: 0 0 5px grey; 
+  z-index: 1000;  
 }
 
 .navbar .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 1px;
   }
   
   .navbar .container > div {
@@ -98,7 +98,7 @@ body {
 
 .filter-buttons {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem;c
 }
 
 .filter-buttons .btn {
@@ -110,25 +110,25 @@ body {
   cursor: pointer;
   height: 45px;
   color: white;
-  box-shadow: none;
+  box-shadow: none !important ;
   transition: background-color 0.5s ease;
 }
 
 .filter-buttons .btn.active {
-  background-color: #e74c3c;
+  background-color: #e74c3c;  
 }
 
 .filter-buttons .btn:hover {
   background-color: #e74c3c;
-  opacity: 0.75;
+  opacity: 0.25;  
 }
 
 .covers {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 5rem;
   justify-content: center;
-  margin: 0 2rem;
+  margin: 3 3rem;
 }
 
 .thumb {
@@ -188,6 +188,7 @@ body {
   line-height: 50px;
   padding: 0;
   margin: 0;
+  font-size: 14px;
 }
 
 @media (max-width: 768px) {
