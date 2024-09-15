@@ -1,7 +1,8 @@
 /* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 .footer{
-    padding: 60px 0;
+margin: 0;
+padding: 0;
 }
 
 .footer .section-title {
