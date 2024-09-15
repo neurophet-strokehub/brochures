@@ -15,7 +15,8 @@
 		<link rel="icon" href="images/favicon.png" type="image/png" />
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-VDLKBWQFTH"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<style>@font-face {
+		<style>
+			@font-face {
 			font-family: "Spoqa Han Sans Neo";
 			src: url(path/to/spoqa-han-sans-neo.woff2) format("woff2"), url(path/to/spoqa-han-sans-neo.woff) format("woff");
 			font-weight: 400;
@@ -27,15 +28,14 @@
 			padding: 0;
 			box-sizing: border-box;
 			box-shadow: none;
-		}
-
+		} 
+			
 		body {
 			background-color: #ecf0f1;
 			font-family: "Spoqa Han Sans Neo", sans-serif;
 			font-weight: 300;
 			font-size: 20px;
-			padding-top: 60px;
-			min-height: 100vh;
+ 			min-height: 100vh;
 			text-align: center;
 		}
 
@@ -178,6 +178,8 @@
 		}
 
 		.thumb {
+			margin-left: 3rem;
+			margin-right: 3rem;
 			position: relative;
 			cursor: pointer;
 			max-width: 200px;
@@ -215,6 +217,9 @@
 
 		.thumb:hover .overlay {
 			opacity: 1;
+		}
+		.thumb .overlay p{
+			font-size: 14px;
 		}
 
 		.footer {
