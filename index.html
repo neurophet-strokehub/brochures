@@ -8,22 +8,22 @@
     <meta name="author" content="Neurophet Marketing Team" />
     <meta name="keywords" content="Neurophet, brochures, marketing, e-brochures" />
     <title>Neurophet E-Brochures</title>
-    
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-    
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/flipbook.style.css" />
     <link rel="stylesheet" href="css/footer.css" />
-    
+
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.png" type="image/png" />
-    
+
     <style>
         :root {
             --primary-bg: #f0f4f8;
@@ -40,8 +40,7 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-        }
+         }
 
         .navbar {
             display: flex;
@@ -77,8 +76,7 @@
         .content {
             flex: 1;
             padding: 60px 1rem;
-            margin-top: 80px;
-        }
+         }
 
         .covers {
             display: flex;
@@ -118,65 +116,62 @@
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
         }
 
-		.filter-buttons .btn {
-			margin: 0 0.5rem;
-			border: none;
-			background-color: transparent;
-			transition: background-color 0.5s ease;
-			padding: 0.5rem 1rem;
-			border-radius: 4px;
-			font-size: 0.875rem;
-			cursor: pointer;
-		}
-	
-		.filter-buttons .btn.active {
-			background-color: var(--btn-primary-bg) !important;
-			color: white !important;
-			box-shadow: none !important;
-		}
-	
-		.filter-buttons .btn-secondary {
-			background-color: rgba(0, 0, 0, 0.1) !important;
-			color: white !important;
-			box-shadow: none !important;
-		}
-	
-		/* Media Queries for Responsiveness */
-		@media (max-width: 768px) {
-			.navbar-headerfix {
-			font-size: 2rem; /* 폰트 크기 조정 */
-			}
-	
-			.content {
-			padding: 30px 1rem;
-			margin-top: 60px; /* Navbar 높이 증가에 맞춰서 조정 */
-			}
-	
-			.thumb {
-			max-width: 100%; /* 너비 조정 */
-			}
-	
-			.covers {
-			gap: 1rem;
-			}
-		}
-	
-		@media (max-width: 480px) {
-			.navbar-headerfix {
-			font-size: 1.5rem; /* 폰트 크기 조정 */
-			}
-	
-			.thumb {
-			max-width: 100%;
-			}
-	
-			.filter-buttons .btn {
-			display: block;
-			margin: 0.5rem auto;
-			}
-		}
+        .filter-buttons .btn {
+            margin: 0 0.5rem;
+            border: none;
+            background-color: transparent;
+            transition: background-color 0.5s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+
+        .filter-buttons .btn.active {
+            background-color: var(--btn-primary-bg) !important;
+            color: white !important;
+            box-shadow: none !important;
+        }
+
+        .filter-buttons .btn-secondary {
+            background-color: rgba(0, 0, 0, 0.1) !important;
+            color: white !important;
+            box-shadow: none !important;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .navbar-headerfix {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 1rem;
+                margin-top: 60px;
+            }
+
+            .thumb {
+                max-width: 100%;
+            }
+
+            .covers {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-headerfix {
+                font-size: 1.5rem;
+            }
+
+            .filter-buttons .btn {
+                display: block;
+                margin: 0.5rem auto;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-light">
@@ -195,37 +190,36 @@
             <button class="btn filter-btn" data-filter="neuromodulation">Neuromodulation</button>
             <button class="btn filter-btn" data-filter="imaging-corelab">Imaging-corelab</button>
         </div>
-        
+
         <!-- Bookshelves -->
         <div class="covers">
-          <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
-						<img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
-					</div>
-					<div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/02.pdf">
-						<img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
-					</div>
-					<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/03.pdf">
-						<img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
-					</div>
-					<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/04.pdf">
-						<img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
-					</div>
-					<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/05.pdf">
-						<img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
-					</div>
-					<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/06.pdf">
-						<img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
-					</div>
-					<div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
-						<img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
-					</div>
-					<div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
-						<img src="images/book/coverpage/08.png" alt="InnK Brochure" />
-					</div>
-					<div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
-						<img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
-					</div>
-            <!-- Additional book thumbnails here... -->
+			<div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
+				<img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
+			  </div>
+			  <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/02.pdf">
+				<img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
+			  </div>
+			  <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/03.pdf">
+				<img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
+			  </div>
+			  <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/04.pdf">
+				<img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
+			  </div>
+			  <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/05.pdf">
+				<img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
+			  </div>
+			  <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/06.pdf">
+				<img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
+			  </div>
+			  <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
+				<img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
+			  </div>
+			  <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
+				<img src="images/book/coverpage/08.png" alt="InnK Brochure" />
+			  </div>
+			  <div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
+				<img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
+			  </div>
         </div>
     </div>
 
@@ -274,8 +268,8 @@
             function setActiveFilter(filterValue) {
                 $(".filter-btn").each(function () {
                     $(this).toggleClass("active", $(this).data("filter") === filterValue)
-                           .toggleClass("btn-secondary", $(this).data("filter") !== filterValue)
-                           .toggleClass("btn-primary", $(this).data("filter") === filterValue);
+                        .toggleClass("btn-secondary", $(this).data("filter") !== filterValue)
+                        .toggleClass("btn-primary", $(this).data("filter") === filterValue);
                 });
                 $(".thumb").each(function () {
                     $(this).toggle(filterValue === "all" || $(this).data("category") === filterValue);
@@ -303,4 +297,5 @@
         });
     </script>
 </body>
+
 </html>
