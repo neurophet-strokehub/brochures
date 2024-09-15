@@ -1,311 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .book-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 600px;
+      }
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="Neurophet e-brochures and marketing materials" />
-	<meta name="author" content="Neurophet Marketing Team" />
-	<meta name="keywords" content="Neurophet, brochures, marketing, e-brochures" />
-	<title>Neurophet E-Brochures</title>
-	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/flipbook.style.css" />
-	<link rel="stylesheet" href="css/footer.css" />
-	<!-- Favicon -->
-	<link rel="icon" href="images/favicon.png" type="image/png" />
-	<style>
-		:root {
-			--primary-bg: #f0f4f8;
-			--btn-primary-bg: #e74c3c;
-			--btn-secondary-bg: #6c757d;
-			--footer-bg: #2c3e50;
-			--footer-text: #ecf0f1;
-			--header-bg: #ffffff;
-		}
+      .book {
+        width: 200px;
+        height: 300px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateY(-30deg); /* Initial state with 3D effect */
+        transition: transform 1s ease;
+      }
 
-		body {
-			font-family: 'Poppins', sans-serif;
-			background-color: var(--primary-bg);
-			margin: 0;
-			display: flex;
-			flex-direction: column;
-		}
+      .book-container:hover .book,
+      .book-container:focus .book {
+        transform: rotateY(0deg); /* Flat on hover */
+      }
 
-		.navbar {
-			display: flex;
-			justify-content: center;
-			padding: 0.5rem 1rem;
-			background-color: var(--header-bg);
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			z-index: 1030;
-		}
+      .book > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translateZ(15px);
+        border-radius: 0 2px 2px 0;
+        box-shadow: 5px 5px 20px #666;
+      }
 
-		.navbar-headerfix {
-			font-family: "Arial Rounded MT Bold", Arial, sans-serif;
-			font-size: 2.5rem;
-			color: white;
-			text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-			font-weight: bold;
-			letter-spacing: -0.5px;
-			text-align: center;
-			width: 100%;
-			padding: .1rem 0;
-			animation: text-shadow-animation 5s ease infinite;
-		}
+      .book::before {
+        position: absolute;
+        content: " ";
+        background-color: blue;
+        left: 0;
+        top: 0;
+        width: 30px; /* Slightly adjusted width */
+        height: 100%;
+        transform: translateX(200px) rotateY(90deg); /* Adjusted transform */
+        background: linear-gradient(
+          90deg,
+          #fff 0%,
+          #f9f9f9 5%,
+          #fff 10%,
+          #f9f9f9 15%,
+          #fff 20%,
+          #f9f9f9 25%,
+          #fff 30%,
+          #f9f9f9 35%,
+          #fff 40%,
+          #f9f9f9 45%,
+          #fff 50%,
+          #f9f9f9 55%,
+          #fff 60%,
+          #f9f9f9 65%,
+          #fff 70%,
+          #f9f9f9 75%,
+          #fff 80%,
+          #f9f9f9 85%,
+          #fff 90%,
+          #f9f9f9 95%,
+          #fff 100%
+        );
+      }
 
-		@keyframes text-shadow-animation {
-
-			0%,
-			100% {
-				text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-			}
-
-			50% {
-				text-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
-			}
-		}
-
-		.content {
-			flex: 1;
-			padding: 60px 1rem;
-		}
-
-		.covers {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 1.5rem;
-			justify-content: center;
-		}
-
-/* Flipbook Effect */
-.thumb {
-  perspective: 1000px;
-  position: relative;
-  margin-top: 1rem;
-  cursor: pointer;
-  width: 100%;
-  max-width: 300px;
-}
-
-.thumb-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.thumb:hover .thumb-inner {
-  transform: rotateY(10deg);
-}
-
-.thumb-front, .thumb-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 8px;
-}
-
-.thumb-front {
-  z-index: 2;
-  transform: rotateY(0deg);
-}
-
-.thumb-back {
-  transform: rotateY(180deg);
-}
-
-.thumb img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-}
-
-		.footer {
-			background-color: var(--footer-bg);
-			color: var(--footer-text);
-			padding: 1rem 0;
-			text-align: center;
-			box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-		}
-
-		.filter-buttons .btn {
-			margin: 0 0.5rem;
-			border: none;
-			background-color: transparent;
-			transition: background-color 0.5s ease;
-			padding: 0.5rem 1rem;
-			border-radius: 4px;
-			font-size: 0.875rem;
-			cursor: pointer;
-		}
-
-		.filter-buttons .btn.active {
-			background-color: var(--btn-primary-bg) !important;
-			color: white !important;
-			box-shadow: none !important;
-		}
-
-		.filter-buttons .btn-secondary {
-			background-color: rgba(0, 0, 0, 0.1) !important;
-			color: white !important;
-			box-shadow: none !important;
-		}
-
-		/* Media Queries for Responsiveness */
-		@media (max-width: 768px) {
-			.navbar-headerfix {
-				font-size: 2rem;
-			}
-
-			.content {
-				padding: 30px 1rem;
-				margin-top: 60px;
-			}
-
-			.thumb {
-				max-width: 100%;
-			}
-
-			.covers {
-				gap: 1rem;
-			}
-		}
-
-		@media (max-width: 480px) {
-			.navbar-headerfix {
-				font-size: 1.5rem;
-			}
-
-			.filter-buttons .btn {
-				display: block;
-				margin: 0.5rem auto;
-			}
-		}
-	</style>
-</head>
-
-<body>
-	<!-- Navbar -->
-	<nav class="navbar navbar-light">
-		<a class="navbar-brand" href="#">
-			<div class="navbar-headerfix">Neurophet Digital Brochures</div>
-		</a>
-	</nav>
-	<!-- Main Content -->
-	<div class="content">
-		<!-- Filter Buttons -->
-		<div class="filter-buttons text-center mb-4">
-			<button class="btn filter-btn active" data-filter="all">ALL</button>
-			<button class="btn filter-btn" data-filter="neurophet">Neurophet</button>
-			<button class="btn filter-btn" data-filter="neurodegenerative">Neurodegenerative</button>
-			<button class="btn filter-btn" data-filter="neuromodulation">Neuromodulation</button>
-			<button class="btn filter-btn" data-filter="imaging-corelab">Imaging-corelab</button>
-		</div>
-		<!-- Bookshelves -->
-		<div class="covers">
-			<div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
-				<img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
-			</div>
-			<div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/02.pdf">
-				<img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
-			</div>
-			<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/03.pdf">
-				<img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
-			</div>
-			<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/04.pdf">
-				<img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
-			</div>
-			<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/05.pdf">
-				<img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
-			</div>
-			<div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/06.pdf">
-				<img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
-			</div>
-			<div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
-				<img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
-			</div>
-			<div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
-				<img src="images/book/coverpage/08.png" alt="InnK Brochure" />
-			</div>
-			<div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
-				<img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
-			</div>
-		</div>
-	</div>
-	<!-- Footer -->
-	<footer class="footer">
-		<p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
-	</footer>
-	<!-- JavaScript -->
-	<script src="js/flipbook.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			// FlipBook Initialization
-			$(".thumb").on("click", function() {
-				var pdfUrl = $(this).data("pdf-url");
-				if ($.fn.flipBook) {
-					$(this).flipBook({
-						pdfUrl: pdfUrl,
-						btnColor: "#e74c3c",
-						sideBtnRadius: 50,
-						sideBtnSize: 50,
-						sideBtnBackground: "rgba(0,0,0,.8)",
-						sideBtnColor: "#e74c3c",
-						lightBox: true,
-						viewMode: "3d",
-						layout: 3,
-						btnSound: {
-							vAlign: "top",
-							hAlign: "left",
-						},
-						btnAutoplay: {
-							vAlign: "top",
-							hAlign: "left",
-						},
-						currentPage: {
-							vAlign: "bottom",
-							hAlign: "left",
-						},
-					});
-				} else {
-					console.error("flipBook plugin is not loaded.");
-				}
-			});
-			// Filter Functionality
-			function setActiveFilter(filterValue) {
-				$(".filter-btn").each(function() {
-					$(this).toggleClass("active", $(this).data("filter") === filterValue).toggleClass("btn-secondary", $(this).data("filter") !== filterValue).toggleClass("btn-primary", $(this).data("filter") === filterValue);
-				});
-				$(".thumb").each(function() {
-					$(this).toggle(filterValue === "all" || $(this).data("category") === filterValue);
-				});
-			}
-			$(".filter-btn").on("click", function() {
-				setActiveFilter($(this).data("filter"));
-			});
-			setActiveFilter("all");
-			// Close Flipbook
-			function closeFlipbook() {
-				$(".flipbook-container").hide();
-				console.log("Flipbook closed");
-			}
-			$(document).on("click", ".btnClose", closeFlipbook);
-			$(document).on("keydown", function(e) {
-				if (e.key === "Escape") {
-					closeFlipbook();
-				}
-			});
-		});
-	</script>
-</body>
-
+      .book::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: " ";
+        width: 100%;
+        height: 100%;
+        transform: translateZ(-15px);
+        background-color: #01060f;
+        border-radius: 0 2px 2px 0;
+        box-shadow: -10px 0 50px 10px #666;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <a class="book-container" href="" target="_blank" rel="noreferrer noopener">
+      <div class="book">
+        <img
+          alt="Book Cover"
+          src="images\book\01-neurophet-ko\01.png"
+        />
+      </div>
+    </a>
+  </body>
 </html>

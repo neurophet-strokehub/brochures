@@ -183,6 +183,41 @@
           margin: 0.5rem auto;
         }
       }
+	  
+span:not(.light) {
+	opacity: 0;
+	animation: flashText .5s ease-out alternate infinite;
+  }
+  
+  span.light {
+	position: relative;
+	display: inline-block;
+	
+	&:before {
+	  position: absolute;
+	  left: 0;
+	  top: -10%;
+	  width: 100%;
+	  height: 120%;
+	  background: #fff;
+	  filter: blur(10px);
+	  content: "";
+	  opacity: 0;
+	  animation: flash .5s ease-out alternate infinite;
+	}
+  }
+  
+  @keyframes flash{
+	to {
+	  opacity: 1;
+	}
+  }
+  
+  @keyframes flashText {
+	to {
+	  opacity: 0.15;
+	}
+  }
     </style>
   </head>
 
