@@ -162,7 +162,8 @@
         padding: 10px 20px;
         border: 1px solid;
         border-radius: 8px;
-          background-color: #ecf0f1;
+        background-color: #ecf0f1;
+		color: white;
         cursor: pointer;
         font-size: 14px;
         transition: background-color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -288,17 +289,17 @@
     </nav>
     <div class="content">
       <div class="filter-buttons text-center mb-4">
-        <button class="btn filter-btn active" data-filter="all">ALL</button>
-        <button class="btn filter-btn" data-filter="neurophet">
+        <button class="btn filter-btn active" data-filter="all" id="필터버튼_ALL">ALL</button>
+        <button class="btn filter-btn" data-filter="neurophet" id="필터버튼_Neurophet">
           Neurophet
         </button>
-        <button class="btn filter-btn" data-filter="neurodegenerative">
+        <button class="btn filter-btn" data-filter="neurodegenerative" id="필터버튼_neurodegenerative">
           Neurodegenerative
         </button>
-        <button class="btn filter-btn" data-filter="neuromodulation">
+        <button class="btn filter-btn" data-filter="neuromodulation" id="필터버튼_neuromodulation">
           Neuromodulation
         </button>
-        <button class="btn filter-btn" data-filter="imaging-corelab">
+        <button class="btn filter-btn" data-filter="imaging-corelab" id="CRO">
           Imaging-corelab
         </button>
       </div>
