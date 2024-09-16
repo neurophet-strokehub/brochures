@@ -1,4 +1,3 @@
-// scripts.js
 $(document).ready(function () {
     var startTime;
     var endTime;
@@ -20,11 +19,10 @@ $(document).ready(function () {
 
         if ($.fn.flipBook) {
             $(this).flipBook({
-                pdfUrl: pdfUrl,
-                btnColor: "#e74c3c",
+                pdfUrl: pdfUrl, 
                 sideBtnRadius: 50,
                 sideBtnSize: 50,
-                sideBtnBackground: "rgba(0,0,0,.8)",
+                sideBtnBackground: "rgba(0,0,0,.2)",
                 sideBtnColor: "#e74c3c",
                 lightBox: true,
                 viewMode: "3d",
@@ -85,7 +83,6 @@ $(document).ready(function () {
 
     // Typing animation handling
     function restartTypingAnimation() {
-        var container = document.querySelector('.navbar-headerfix');
         if (container) {
             container.style.animation = 'none';
             container.offsetHeight; // trigger reflow
