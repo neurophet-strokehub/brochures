@@ -1,6 +1,8 @@
 // scripts.js
-
 $(document).ready(function () {
+    var startTime;
+    var endTime;
+
     // Handle click event for flipbook
     $(".thumb").on("click", function () {
         var pdfUrl = $(this).data("pdf-url");
@@ -12,6 +14,9 @@ $(document).ready(function () {
             'event_label': pdfUrl,
             'value': 1
         });
+
+        // Record start time
+        startTime = new Date().getTime();
 
         if ($.fn.flipBook) {
             $(this).flipBook({
@@ -91,4 +96,19 @@ $(document).ready(function () {
     // Restart animation every 10 seconds
     restartTypingAnimation();
     setInterval(restartTypingAnimation, 10000);
+
+    // Track time spent on the page for the clicked thumbnail
+    $(window).on("beforeunload", function () {
+        if (startTime) {
+            endTime = new Date().getTime();
+            var timeSpent = (endTime - startTime) / 1000; // Convert time to seconds
+
+            // Google Analytics event tracking for time spent on page
+            gtag('event', 'time_spent_on_page', {
+                'event_category': 'Thumbnail Click',
+                'event_label': 'Time Spent',
+                'value': timeSpent
+            });
+        }
+    });
 });
