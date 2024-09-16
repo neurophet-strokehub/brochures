@@ -367,7 +367,26 @@
               console.error("flipBook plugin is not loaded.");
           }
       });
-   
+  
+      function setActiveFilter(filterValue) {
+          $(".filter-btn").each(function () {
+              $(this)
+                  .toggleClass("active", $(this).data("filter") === filterValue)
+                  .toggleClass(
+                      "btn-secondary",
+                      $(this).data("filter") !== filterValue
+                  );
+          });
+          $(".thumb").each(function () {
+              $(this).toggle(
+                  filterValue === "all" || $(this).data("category") === filterValue
+              );
+          });
+      }
+      $(".filter-btn").on("click", function () {
+          setActiveFilter($(this).data("filter"));
+      });
+      setActiveFilter("all");
   
       function adjustBodyHeight() {
           var navbarHeight = $(".navbar").outerHeight();
