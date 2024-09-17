@@ -1,3 +1,4 @@
+/* styles.css */
 :root {
   --primary-color: #e74c3c;
   --background-color: #f0f4f8;
@@ -6,7 +7,13 @@
   --text-color: #333;
   --overlay-bg-color: rgba(0, 0, 0, 0.6);
   --btn-hover-opacity: 0.75;
-} 
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans Neo";
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
   width: 100%;
@@ -19,7 +26,6 @@ body {
 }
 
 .navbar {
-  height: 60px;
   font-size: 25px;
   width: 100%;
   background-color: white;
@@ -31,7 +37,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .5px;
+  padding: 1px;
 }
 
 .navbar .container>div {
@@ -57,30 +63,69 @@ body {
 }
 
 @keyframes showup {
-  0% { opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+      opacity: 0;
+  }
+
+  20% {
+      opacity: 1;
+  }
+
+  80% {
+      opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+  }
 }
 
 @keyframes slidein {
-  0% { transform: translateX(-355px); }
-  20% { transform: translateX(-355px); }
-  35% { transform: translateX(0); }
-  100% { transform: translateX(0); }
+  0% {
+      transform: translateX(-355px);
+  }
+
+  20% {
+      transform: translateX(-355px);
+  }
+
+  35% {
+      transform: translateX(0);
+  }
+
+  100% {
+      transform: translateX(0);
+  }
 }
 
 @keyframes reveal {
-  0% { opacity: 0; width: 0; }
-  20% { opacity: 1; width: 0; }
-  35% { width: 355px; }
-  80% { opacity: 1; }
-  100% { opacity: 0; width: 355px; }
+  0% {
+      opacity: 0;
+      width: 0;
+  }
+
+  20% {
+      opacity: 1;
+      width: 0;
+  }
+
+  35% {
+      width: 355px;
+  }
+
+  80% {
+      opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+      width: 355px;
+  }
 }
 
 .content {
   padding: 20px 40px;
-  height: calc(100vh - 110px); /* 변경됨 */
+  min-height: calc(100vh - 110px);
 }
 
 .filter-buttons {
@@ -94,7 +139,7 @@ body {
 .filter-buttons .btn {
   margin: 0 5px;
   padding: 10px 20px;
-  border: 1px solid var(--primary-color); /* 색상 명확히 설정 */
+  border: 1px solid;
   border-radius: 8px;
   background-color: var(--navbar-bg-color);
   color: rgba(0, 0, 0, 0.2);
@@ -131,10 +176,10 @@ body {
 .thumb {
   position: relative;
   cursor: pointer;
-  max-width: 250px;
-  border-radius: 10px;
+  max-width: 200px;
+  border-radius: 8px;
   transform: rotateY(15deg) rotateX(50deg) rotateZ(-15deg);
-  transition: transform 200ms ease-in;
+  transition: transform 500ms ease-in;
   box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
   overflow: hidden;
 }
@@ -190,38 +235,37 @@ body {
 
 @media (max-width: 768px) {
   .content {
-    padding: 20px 10px;
-    margin-top: 60px;
+      padding: 20px 10px;
+      margin-top: 60px;
   }
 
   .thumb {
-    max-width: 150px;
+      max-width: 150px;
   }
 
   .covers {
-    gap: 1rem;
+      gap: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .thumb .overlay {
-    font-size: 0.8rem;
-    padding: 5px;
+      font-size: 0.8rem;
+      padding: 5px;
   }
 
   .filter-buttons .btn {
-    display: block;
-    margin: 0.5rem auto;
-    font-size: 0.875rem;
-    height: 40px;
+      display: block;
+      margin: 0.5rem auto;
+      font-size: 0.875rem;
+      height: 40px;
   }
 
   .thumb {
-    max-width: 120px;
+      max-width: 120px;
   }
 
   .covers {
-    margin: 0 1rem;
+      margin: 0 1rem;
   }
 }
-
