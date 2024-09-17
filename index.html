@@ -10,7 +10,6 @@
  <title>Neurophet E-Brochures</title>
  <!-- jQuery -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
- <script src="js/chrome.js"></script>
  <!-- Google Analytics -->
  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDLKBWQFTH"></script>
  <script>
@@ -26,10 +25,289 @@
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
  <link rel="stylesheet" href="css/flipbook.style.css" />
- <link rel="stylesheet" href="css/font-awesome.css" />
  <link rel="icon" href="images/favicon.png" type="image/png" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
- <link rel="stylesheet" href="css/style.css" />
+ <style>
+  /* Root Variables */
+  :root {
+   --primary-color: #e74c3c;
+   --background-color: #f0f4f8;
+   --navbar-bg-color: #fff;
+   --footer-bg-color: #2c3e50;
+   --text-color: #333;
+   --overlay-bg-color: rgba(0, 0, 0, 0.6);
+   --btn-hover-opacity: 0.75;
+  }
+
+  /* Body Styling */
+  body {
+   width: 100%;
+   background-color: var(--background-color);
+   overflow-x: hidden;
+   font-family: "Spoqa Han Sans Neo", Arial, sans-serif;
+   font-weight: 300;
+   font-size: calc(18px + 0.5vw);
+   text-align: center;
+  }
+
+  /* Navbar Styling */
+  .navbar {
+   height: 60px;
+   font-size: 25px;
+   width: 100%;
+   background-color: var(--navbar-bg-color);
+   box-shadow: 0 0 5px grey;
+   z-index: 1000;
+  }
+
+  .navbar .container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0.5px;
+  }
+
+  .navbar .container>div {
+   display: inline-block;
+   overflow: hidden;
+   white-space: nowrap;
+   position: relative;
+  }
+
+  .navbar .container>div:first-of-type {
+   animation: showup 7s infinite;
+  }
+
+  .navbar .container>div:last-of-type {
+   width: 355px;
+   animation: reveal 7s infinite;
+  }
+
+  .navbar .container>div:last-of-type span {
+   display: inline-block;
+   white-space: nowrap;
+   animation: slidein 7s infinite;
+  }
+
+  @keyframes showup {
+   0% {
+    opacity: 0;
+   }
+
+   20% {
+    opacity: 1;
+   }
+
+   80% {
+    opacity: 1;
+   }
+
+   100% {
+    opacity: 0;
+   }
+  }
+
+  @keyframes slidein {
+   0% {
+    transform: translateX(-355px);
+   }
+
+   20% {
+    transform: translateX(-355px);
+   }
+
+   35% {
+    transform: translateX(0);
+   }
+
+   100% {
+    transform: translateX(0);
+   }
+  }
+
+  @keyframes reveal {
+   0% {
+    opacity: 0;
+    width: 0;
+   }
+
+   20% {
+    opacity: 1;
+    width: 0;
+   }
+
+   35% {
+    width: 355px;
+   }
+
+   80% {
+    opacity: 1;
+   }
+
+   100% {
+    opacity: 0;
+    width: 355px;
+   }
+  }
+
+  /* Content Styling */
+  .content {
+   padding: 20px 40px;
+   min-height: calc(100vh - 110px);
+  }
+
+  /* Filter Buttons Styling */
+  .filter-buttons {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-bottom: 20px;
+   gap: 3rem;
+  }
+
+  .filter-buttons .btn {
+   margin: 0 5px;
+   padding: 10px 20px;
+   border: 1px solid rgba(0, 0, 0, 0.2);
+   border-radius: 8px;
+   background-color: var(--navbar-bg-color);
+   color: rgba(0, 0, 0, 0.2);
+   cursor: pointer;
+   font-size: 15px;
+   transition: background-color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+
+  .filter-buttons .btn.active {
+   background-color: var(--primary-color);
+   transform: scale(1.05);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   color: white;
+  }
+
+  .filter-buttons .btn:hover {
+   background-color: var(--primary-color);
+   opacity: var(--btn-hover-opacity);
+  }
+
+  /* Thumbnail Styling */
+  .covers {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 5rem;
+   justify-content: center;
+   margin: 3rem;
+  }
+
+  .thumb {
+   position: relative;
+   cursor: pointer;
+   max-width: 250px;
+   border-radius: 10px;
+   transform: rotateY(15deg) rotateX(50deg) rotateZ(-15deg);
+   transition: transform 200ms ease-in;
+   box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
+   overflow: hidden;
+  }
+
+  .thumb img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+  }
+
+  .thumb:hover {
+   transform: scale(1.03);
+   opacity: 0.9;
+  }
+
+  .thumb .overlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: var(--overlay-bg-color);
+   color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   opacity: 0;
+   transition: opacity 0.3s ease;
+   font-size: 1rem;
+   padding: 10px;
+  }
+
+  .thumb:hover .overlay {
+   opacity: 1;
+  }
+
+  .overlay p {
+   margin: 1rem;
+   line-height: 1.5; 
+   text-align: left;
+  }
+
+  /* Footer Styling */
+  .footer {
+   background-color: var(--footer-bg-color);
+   color: #ecf0f1;
+   text-align: center;
+   height: 50px;
+   line-height: 50px;
+   margin: 0;
+   font-size: 14px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+   .content {
+    padding: 20px 10px;
+    margin-top: 60px;
+   }
+
+   .thumb {
+    max-width: 150px;
+   }
+
+   .covers {
+    gap: 1rem;
+   }
+  }
+
+  @media (max-width: 480px) {
+   .thumb .overlay {
+    font-size: 0.8rem;
+    padding: 5px;
+   }
+
+   .filter-buttons .btn {
+    display: block;
+    margin: 0.5rem auto;
+    font-size: 0.875rem;
+    height: 40px;
+   }
+
+   .thumb {
+    max-width: 120px;
+   }
+
+   .covers {
+    margin: 0 1rem;
+   }
+  }
+
+  /* Flipbook Container */
+  #flipbook-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: white;
+   z-index: 1000;
+   display: none;
+  }
+ </style>
 </head>
 
 <body>
@@ -43,94 +321,75 @@
  </nav>
  <div class="content">
   <div class="filter-buttons text-center">
-   <button class="btn filter-btn active" data-filter="all" id="filter-btn-all" aria-label="Show All brochures">ALL</button>
-   <button class="btn filter-btn" data-filter="neurophet" id="filter-btn-neurophet" aria-label="Show Neurophet brochures">Neurophet</button>
-   <button class="btn filter-btn" data-filter="neurodegenerative" id="filter-btn-neurodegenerative" aria-label="Show Neurodegenerative brochures">Neurodegenerative</button>
-   <button class="btn filter-btn" data-filter="neuromodulation" id="filter-btn-neuromodulation" aria-label="Show Neuromodulation brochures">Neuromodulation</button>
-   <button class="btn filter-btn" data-filter="imaging-corelab" id="filter-btn-corelab" aria-label="Show Imaging Corelab brochures">Imaging CoreLab</button>
+   <button class="btn filter-btn active" data-filter="all" aria-label="Show All brochures">ALL</button>
+   <button class="btn filter-btn" data-filter="neurophet" aria-label="Show Neurophet brochures">Neurophet</button>
+   <button class="btn filter-btn" data-filter="neurodegenerative" aria-label="Show Neurodegenerative brochures">Neurodegenerative</button>
+   <button class="btn filter-btn" data-filter="neuromodulation" aria-label="Show Neuromodulation brochures">Neuromodulation</button>
+   <button class="btn filter-btn" data-filter="imaging-corelab" aria-label="Show Imaging Corelab brochures">Imaging CoreLab</button>
   </div>
   <div class="covers">
    <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
-    <img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
+    <img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover">
     <div class="overlay">
      <p>Introduce our company and products</p>
     </div>
    </div>
    <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/02.pdf">
-    <img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
+    <img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue">
     <div class="overlay">
-     <p>
-      Comprehensive information about Neurophet products, including
-      features, specifications, and intended use.
-     </p>
+     <p>Comprehensive information about Neurophet products, including features, specifications, and intended use.</p>
     </div>
    </div>
    <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/03.pdf">
-    <img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
+    <img src="images/book/coverpage/03.png" alt="Aqua AD Brochure">
     <div class="overlay">
-     <p>
-      Improve the safety monitoring and management of patients with
-      Alzheimer's diseases
-     </p>
+     <p>Improve the safety monitoring and management of patients with Alzheimer's diseases</p>
     </div>
    </div>
    <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/04.pdf">
-    <img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
+    <img src="images/book/coverpage/04.png" alt="Aqua Brochure">
     <div class="overlay">
-     <p>
-      Quantitative Atrophy & WMH Analysis Solution using brain
-      MRI(T1/T2-FLAIR)
-     </p>
+     <p>Quantitative Atrophy & WMH Analysis Solution using brain MRI (T1/T2-FLAIR)</p>
     </div>
    </div>
    <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/05.pdf">
-    <img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
+    <img src="images/book/coverpage/05.png" alt="Scale Pet Brochure">
     <div class="overlay">
      <p>Regional SUVR quantification of brain PET scan</p>
     </div>
    </div>
    <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/06.pdf">
-    <img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
+    <img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure">
     <div class="overlay">
      <p>Automated analysis of brain MRI images from 0 to 24 months</p>
     </div>
    </div>
    <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
-    <img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
+    <img src="images/book/coverpage/07.png" alt="TESLAB Brochure">
     <div class="overlay">
-     <p>
-      AI-Powered software to generate a 3D model using brain MRI and
-      simulate electrical stimulation for treatment planning
-     </p>
+     <p>AI-Powered software to generate a 3D model using brain MRI and simulate electrical stimulation for treatment planning</p>
     </div>
    </div>
    <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
-    <img src="images/book/coverpage/08.png" alt="InnK Brochure" />
+    <img src="images/book/coverpage/08.png" alt="InnK Brochure">
     <div class="overlay">
-     <p>
-      Non-invasive electrical stimulation device designed to aid in the
-      functional recovery and rehabilitation of patients with brain
-      diseases.
-     </p>
+     <p>Non-invasive electrical stimulation device designed to aid in the functional recovery and rehabilitation of patients with brain diseases.</p>
     </div>
    </div>
    <div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
-    <img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
+    <img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure">
     <div class="overlay">
-     <p>
-      Data management and analytics services specializing in brain
-      imaging for clinical trials
-     </p>
+     <p>Data management and analytics services specializing in brain imaging for clinical trials</p>
     </div>
    </div>
   </div>
  </div>
+ <div id="flipbook-container"></div>
  <footer class="footer">
   <p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
  </footer>
  <!-- JavaScript -->
  <script src="js/flipbook.min.js"></script>
- <script src="js/chrome.js"></script>
  <script>
   $(document).ready(function() {
    var $window = $(window);
@@ -139,49 +398,42 @@
    var $content = $(".content");
    var $filterBtns = $(".filter-btn");
    var $thumbs = $(".thumb");
-   var $flipbookContainer = $("#flipbook-container");
+   var $flipbook = $("#flipbook-container");
 
-   // Function to set active filter
    function setActiveFilter(filterValue) {
-    $filterBtns.each(function() {
-     var $this = $(this);
-     $this.toggleClass("active", $this.data("filter") === filterValue);
-    });
+    $filterBtns.removeClass("active");
+    $('.filter-btn[data-filter="' + filterValue + '"]').addClass("active");
 
     $thumbs.each(function() {
      var $this = $(this);
-     $this.toggle(filterValue === "all" || $this.data("category") === filterValue);
+     var shouldShow = filterValue === "all" || $this.data("category") === filterValue;
+     $this.toggle(shouldShow);
     });
    }
 
-   // Handle filter button click
    $filterBtns.on("click", function() {
     var filterValue = $(this).data("filter");
     setActiveFilter(filterValue);
    });
 
-   // Set initial filter
    setActiveFilter("all");
 
-   // Handle click event for thumbnails
    $thumbs.on("click", function() {
     var pdfUrl = $(this).data("pdf-url");
 
-    // Show the flipbook container
-    $flipbookContainer.show();
+    // 플립북 컨테이너 표시 및 초기화
+    $flipbook.show();
 
-    // Initialize the flipbook
     if ($.fn.flipBook) {
-     $flipbookContainer.flipBook({
-      pdfUrl: pdfUrl,
-      // Add any additional flipBook options if needed
+     $flipbook.flipBook({
+      pdfUrl: pdfUrl
+      // 플립북 옵션 추가 가능
      });
     } else {
      console.error("flipBook plugin is not loaded.");
     }
    });
 
-   // Adjust body height based on navbar and footer height
    function adjustBodyHeight() {
     var navbarHeight = $navbar.outerHeight();
     var footerHeight = $footer.outerHeight();
@@ -190,9 +442,16 @@
     $content.css("min-height", contentHeight + "px");
    }
 
-   // Initial adjustment and on resize
    adjustBodyHeight();
    $window.resize(adjustBodyHeight);
+
+   // 이미지 지연 로딩 설정
+   document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll("img");
+    images.forEach(img => {
+     img.setAttribute("loading", "lazy");
+    });
+   });
   });
  </script>
 </body>
