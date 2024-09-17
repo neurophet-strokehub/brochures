@@ -1,197 +1,200 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Neurophet Marketing Team" />
-    <meta name="description" content="Explore Neurophet's e-brochures for ESNR2024, featuring a range of innovative solutions in neurology." />
-    <meta name="keywords" content="Neurophet, e-brochures, ESNR2024, neurology, neurodegenerative, neuromodulation, imaging corelab" />
-    <title>Neurophet E-Brochures</title>
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/chrome.js"></script>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDLKBWQFTH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-VDLKBWQFTH');
-    </script>
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/flipbook.style.css" />
-    <link rel="stylesheet" href="css/font-awesome.css" />
-    <link rel="icon" href="images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-</head> 
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <meta name="author" content="Neurophet Marketing Team" />
+ <meta name="description" content="Explore Neurophet's e-brochures for ESNR2024, featuring a range of innovative solutions in neurology." />
+ <meta name="keywords" content="Neurophet, e-brochures, ESNR2024, neurology, neurodegenerative, neuromodulation, imaging corelab" />
+ <title>Neurophet E-Brochures</title>
+ <!-- jQuery -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script src="js/chrome.js"></script>
+ <!-- Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDLKBWQFTH"></script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+   dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-VDLKBWQFTH');
+ </script>
+ <!-- Stylesheets -->
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+ <link rel="stylesheet" href="css/flipbook.style.css" />
+ <link rel="stylesheet" href="css/font-awesome.css" />
+ <link rel="icon" href="images/favicon.png" type="image/png" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+ <link rel="stylesheet" href="css/style.css" />
+</head>
+
 <body>
-    <nav class="navbar" aria-label="Main Navigation">
-        <div class="container">
-            <div>neurophet</div>
-            <div>
-                <span style="font-weight: bold">E-brochures for ESNR2024</span>
-            </div>
-        </div>
-    </nav>
-    <div class="content">
-        <div class="filter-buttons text-center">
-            <button class="btn filter-btn active" data-filter="all" id="filter-btn-all" aria-label="Show All brochures">ALL</button>
-            <button class="btn filter-btn" data-filter="neurophet" id="filter-btn-neurophet" aria-label="Show Neurophet brochures">Neurophet</button>
-            <button class="btn filter-btn" data-filter="neurodegenerative" id="filter-btn-neurodegenerative" aria-label="Show Neurodegenerative brochures">Neurodegenerative</button>
-            <button class="btn filter-btn" data-filter="neuromodulation" id="filter-btn-neuromodulation" aria-label="Show Neuromodulation brochures">Neuromodulation</button>
-            <button class="btn filter-btn" data-filter="imaging-corelab" id="filter-btn-corelab" aria-label="Show Imaging Corelab brochures">Imaging CoreLab</button>
-        </div>
-        <div class="covers">
-          <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
-           <img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
-           <div class="overlay">
-            <p>Introduce our company and products</p>
-           </div>
-          </div>
-          <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/02.pdf">
-           <img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
-           <div class="overlay">
-            <p>
-             Comprehensive information about Neurophet products, including
-             features, specifications, and intended use.
-            </p>
-           </div>
-          </div>
-          <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/03.pdf">
-           <img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
-           <div class="overlay">
-            <p>
-             Improve the safety monitoring and management of patients with
-             Alzheimer's diseases
-            </p>
-           </div>
-          </div>
-          <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/04.pdf">
-           <img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
-           <div class="overlay">
-            <p>
-             Quantitative Atrophy & WMH Analysis Solution using brain
-             MRI(T1/T2-FLAIR)
-            </p>
-           </div>
-          </div>
-          <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/05.pdf">
-           <img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
-           <div class="overlay">
-            <p>Regional SUVR quantification of brain PET scan</p>
-           </div>
-          </div>
-          <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/06.pdf">
-           <img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
-           <div class="overlay">
-            <p>Automated analysis of brain MRI images from 0 to 24 months</p>
-           </div>
-          </div>
-          <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
-           <img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
-           <div class="overlay">
-            <p>
-             AI-Powered software to generate a 3D model using brain MRI and
-             simulate electrical stimulation for treatment planning
-            </p>
-           </div>
-          </div>
-          <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
-           <img src="images/book/coverpage/08.png" alt="InnK Brochure" />
-           <div class="overlay">
-            <p>
-             Non-invasive electrical stimulation device designed to aid in the
-             functional recovery and rehabilitation of patients with brain
-             diseases.
-            </p>
-           </div>
-          </div>
-          <div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
-           <img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
-           <div class="overlay">
-            <p>
-             Data management and analytics services specializing in brain
-             imaging for clinical trials
-            </p>
-           </div>
-          </div>
-         </div>
+ <nav class="navbar" aria-label="Main Navigation">
+  <div class="container">
+   <div>neurophet</div>
+   <div>
+    <span style="font-weight: bold">E-brochures for ESNR2024</span>
+   </div>
+  </div>
+ </nav>
+ <div class="content">
+  <div class="filter-buttons text-center">
+   <button class="btn filter-btn active" data-filter="all" id="filter-btn-all" aria-label="Show All brochures">ALL</button>
+   <button class="btn filter-btn" data-filter="neurophet" id="filter-btn-neurophet" aria-label="Show Neurophet brochures">Neurophet</button>
+   <button class="btn filter-btn" data-filter="neurodegenerative" id="filter-btn-neurodegenerative" aria-label="Show Neurodegenerative brochures">Neurodegenerative</button>
+   <button class="btn filter-btn" data-filter="neuromodulation" id="filter-btn-neuromodulation" aria-label="Show Neuromodulation brochures">Neuromodulation</button>
+   <button class="btn filter-btn" data-filter="imaging-corelab" id="filter-btn-corelab" aria-label="Show Imaging Corelab brochures">Imaging CoreLab</button>
+  </div>
+  <div class="covers">
+   <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/01.pdf">
+    <img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
+    <div class="overlay">
+     <p>Introduce our company and products</p>
     </div>
-    <footer class="footer">
-        <p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
-    </footer>
-     <!-- JavaScript -->
-     <script src="js/flipbook.min.js"></script>
-     <script src="js/chrome.js"></script>
-     <script>
-         $(document).ready(function() {
-             var $window = $(window);
-             var $navbar = $(".navbar");
-             var $footer = $(".footer");
-             var $content = $(".content");
-             var $filterBtns = $(".filter-btn");
-             var $thumbs = $(".thumb");
-             var $flipbookContainer = $("#flipbook-container");
- 
-             // Function to set active filter
-             function setActiveFilter(filterValue) {
-                 $filterBtns.each(function() {
-                     var $this = $(this);
-                     $this.toggleClass("active", $this.data("filter") === filterValue);
-                 });
- 
-                 $thumbs.each(function() {
-                     var $this = $(this);
-                     $this.toggle(filterValue === "all" || $this.data("category") === filterValue);
-                 });
-             }
- 
-             // Handle filter button click
-             $filterBtns.on("click", function() {
-                 var filterValue = $(this).data("filter");
-                 setActiveFilter(filterValue);
-             });
- 
-             // Set initial filter
-             setActiveFilter("all");
- 
-             // Handle click event for thumbnails
-             $thumbs.on("click", function() {
-                 var pdfUrl = $(this).data("pdf-url");
- 
-                 // Show the flipbook container
-                 $flipbookContainer.show();
- 
-                 // Initialize the flipbook
-                 if ($.fn.flipBook) {
-                     $flipbookContainer.flipBook({
-                         pdfUrl: pdfUrl,
-                         // Add any additional flipBook options if needed
-                     });
-                 } else {
-                     console.error("flipBook plugin is not loaded.");
-                 }
-             });
- 
-             // Adjust body height based on navbar and footer height
-             function adjustBodyHeight() {
-                 var navbarHeight = $navbar.outerHeight();
-                 var footerHeight = $footer.outerHeight();
-                 var viewportHeight = $window.height();
-                 var contentHeight = viewportHeight - navbarHeight - footerHeight;
-                 $content.css("min-height", contentHeight + "px");
-             }
- 
-             // Initial adjustment and on resize
-             adjustBodyHeight();
-             $window.resize(adjustBodyHeight);
-         });
-     </script>
- </body>
- 
- </html>
+   </div>
+   <div class="thumb" data-category="neurophet" data-pdf-url="images/book/pdf/02.pdf">
+    <img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
+    <div class="overlay">
+     <p>
+      Comprehensive information about Neurophet products, including
+      features, specifications, and intended use.
+     </p>
+    </div>
+   </div>
+   <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/03.pdf">
+    <img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
+    <div class="overlay">
+     <p>
+      Improve the safety monitoring and management of patients with
+      Alzheimer's diseases
+     </p>
+    </div>
+   </div>
+   <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/04.pdf">
+    <img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
+    <div class="overlay">
+     <p>
+      Quantitative Atrophy & WMH Analysis Solution using brain
+      MRI(T1/T2-FLAIR)
+     </p>
+    </div>
+   </div>
+   <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/05.pdf">
+    <img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
+    <div class="overlay">
+     <p>Regional SUVR quantification of brain PET scan</p>
+    </div>
+   </div>
+   <div class="thumb" data-category="neurodegenerative" data-pdf-url="images/book/pdf/06.pdf">
+    <img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
+    <div class="overlay">
+     <p>Automated analysis of brain MRI images from 0 to 24 months</p>
+    </div>
+   </div>
+   <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/07.pdf">
+    <img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
+    <div class="overlay">
+     <p>
+      AI-Powered software to generate a 3D model using brain MRI and
+      simulate electrical stimulation for treatment planning
+     </p>
+    </div>
+   </div>
+   <div class="thumb" data-category="neuromodulation" data-pdf-url="images/book/pdf/08.pdf">
+    <img src="images/book/coverpage/08.png" alt="InnK Brochure" />
+    <div class="overlay">
+     <p>
+      Non-invasive electrical stimulation device designed to aid in the
+      functional recovery and rehabilitation of patients with brain
+      diseases.
+     </p>
+    </div>
+   </div>
+   <div class="thumb" data-category="imaging-corelab" data-pdf-url="images/book/pdf/09.pdf">
+    <img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
+    <div class="overlay">
+     <p>
+      Data management and analytics services specializing in brain
+      imaging for clinical trials
+     </p>
+    </div>
+   </div>
+  </div>
+ </div>
+ <footer class="footer">
+  <p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
+ </footer>
+ <!-- JavaScript -->
+ <script src="js/flipbook.min.js"></script>
+ <script src="js/chrome.js"></script>
+ <script>
+  $(document).ready(function() {
+   var $window = $(window);
+   var $navbar = $(".navbar");
+   var $footer = $(".footer");
+   var $content = $(".content");
+   var $filterBtns = $(".filter-btn");
+   var $thumbs = $(".thumb");
+   var $flipbookContainer = $("#flipbook-container");
+
+   // Function to set active filter
+   function setActiveFilter(filterValue) {
+    $filterBtns.each(function() {
+     var $this = $(this);
+     $this.toggleClass("active", $this.data("filter") === filterValue);
+    });
+
+    $thumbs.each(function() {
+     var $this = $(this);
+     $this.toggle(filterValue === "all" || $this.data("category") === filterValue);
+    });
+   }
+
+   // Handle filter button click
+   $filterBtns.on("click", function() {
+    var filterValue = $(this).data("filter");
+    setActiveFilter(filterValue);
+   });
+
+   // Set initial filter
+   setActiveFilter("all");
+
+   // Handle click event for thumbnails
+   $thumbs.on("click", function() {
+    var pdfUrl = $(this).data("pdf-url");
+
+    // Show the flipbook container
+    $flipbookContainer.show();
+
+    // Initialize the flipbook
+    if ($.fn.flipBook) {
+     $flipbookContainer.flipBook({
+      pdfUrl: pdfUrl,
+      // Add any additional flipBook options if needed
+     });
+    } else {
+     console.error("flipBook plugin is not loaded.");
+    }
+   });
+
+   // Adjust body height based on navbar and footer height
+   function adjustBodyHeight() {
+    var navbarHeight = $navbar.outerHeight();
+    var footerHeight = $footer.outerHeight();
+    var viewportHeight = $window.height();
+    var contentHeight = viewportHeight - navbarHeight - footerHeight;
+    $content.css("min-height", contentHeight + "px");
+   }
+
+   // Initial adjustment and on resize
+   adjustBodyHeight();
+   $window.resize(adjustBodyHeight);
+  });
+ </script>
+</body>
+
+</html>
