@@ -215,8 +215,9 @@ body {
 
 .overlay a{
   background-color: white;
-  color: red !important ;
-  font-weight: 900; 
+  color: black !important ;
+  font-weight: 1000; 
+  margin-right: .3rem ;
 }
 
 
