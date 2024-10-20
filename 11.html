@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <title>Neurophet E-brochures</title>
+
+    <!-- jQuery and jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="src/css/flipbook.style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+    <!-- Flipbook JS -->
+    <script src="src/js/flipbook.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Initialize the flipbook
+            $("#flipbookContainer").flipBook({
+                pdfUrl: 'src/books/11.pdf',
+                lightBox: false,
+                layout: 3,
+                currentPage: {
+                    vAlign: "top",
+                    hAlign: "left"
+                },
+                btnShare: { enabled: false },
+                btnPrint: { hideOnMobile: true },
+                btnColor: "red", 
+                sideBtnColor: "rgba(255,255,255)",
+                sideBtnSize: 40,
+                sideBtnBackground: "red",
+                sideBtnRadius: 40,
+                btnSound: { vAlign: "top", hAlign: "left" },
+                btnAutoplay: { vAlign: "top", hAlign: "left" },
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="flipbookContainer" style="width: 100%; height: 600px;"></div>
+    </div>
+</body>
+
+</html>
