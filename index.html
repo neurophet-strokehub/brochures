@@ -30,6 +30,13 @@
  </head>
 
  <body>
+    <div class="modal" id="pdfModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="pdfFrame" src="" width="100%" height="100%"></iframe>
+        </div>
+    </div>
+        
   <nav class="navbar" aria-label="Main Navigation">
    <div class="container">
     <div>neurophet</div>
@@ -120,8 +127,10 @@
    <p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
   </footer>
   <!-- JavaScript -->
-  <script>
-   $(document).ready(function () {
+  <script src="js/flipbook.min.js"></script>
+  <script src="js/chrome.js"></script>
+  <script src="js/analytics.js"></script>
+  <script>$(document).ready(function () {
     var $window = $(window);
     var $navbar = $(".navbar");
     var $footer = $(".footer");
@@ -131,21 +140,21 @@
 
     // Function to set active filter
     function setActiveFilter(filterValue) {
-     $filterBtns.each(function () {
-      var $this = $(this);
-      $this.toggleClass("active", $this.data("filter") === filterValue);
-     });
+        $filterBtns.each(function () {
+            var $this = $(this);
+            $this.toggleClass("active", $this.data("filter") === filterValue);
+        });
 
-     $thumbs.each(function () {
-      var $this = $(this);
-      $this.toggle(filterValue === "all" || $this.data("category") === filterValue);
-     });
+        $thumbs.each(function () {
+            var $this = $(this);
+            $this.toggle(filterValue === "all" || $this.data("category") === filterValue);
+        });
     }
 
     // Handle filter button click
     $filterBtns.on("click", function () {
-     var filterValue = $(this).data("filter");
-     setActiveFilter(filterValue);
+        var filterValue = $(this).data("filter");
+        setActiveFilter(filterValue);
     });
 
     // Set initial filter
@@ -153,29 +162,50 @@
 
     // Handle click event for thumbnails
     $thumbs.on("click", function () {
-     var pdfUrl = $(this).data("pdf-url");
+        var pdfUrl = $(this).data("pdf-url");
+        
+        // Set PDF URL in the modal and show it
+        $("#pdfFrame").attr("src", pdfUrl);
+        $("#pdfModal").show();
+    });
 
-     // Open the PDF in a new tab
-     window.open(pdfUrl, "_blank");
+    // Modal close function
+    $(".close").on("click", function () {
+        $("#pdfModal").hide();
+        $("#pdfFrame").attr("src", ""); // Clear the PDF source
+    });
+
+    // Close modal when clicking outside of it
+    $(window).on("click", function (event) {
+        if (event.target.id === "pdfModal") {
+            $("#pdfModal").hide();
+            $("#pdfFrame").attr("src", ""); // Clear the PDF source
+        }
+    });
+
+    // Close modal with ESC key
+    $(document).on("keydown", function (event) {
+        if (event.key === "Escape") {
+            $("#pdfModal").hide();
+            $("#pdfFrame").attr("src", ""); // Clear the PDF source
+        }
     });
 
     // Adjust body height based on navbar and footer height
     function adjustBodyHeight() {
-     var navbarHeight = $navbar.outerHeight();
-     var footerHeight = $footer.outerHeight();
-     var viewportHeight = $window.height();
-     var contentHeight = viewportHeight - navbarHeight - footerHeight;
-     $content.css("min-height", contentHeight + "px");
+        var navbarHeight = $navbar.outerHeight();
+        var footerHeight = $footer.outerHeight();
+        var viewportHeight = $window.height();
+        var contentHeight = viewportHeight - navbarHeight - footerHeight;
+        $content.css("min-height", contentHeight + "px");
     }
 
     // Initial adjustment and on resize
     adjustBodyHeight();
     $window.resize(adjustBodyHeight);
-   });
+});
+
+
   </script>
-  <script src="js/flipbook.min.js"></script>
-  <script src="js/chrome.js"></script>
-  <script src="js/analytics.js"></script>
-  
  </body>
 </html>
