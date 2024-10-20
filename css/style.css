@@ -48,18 +48,18 @@ body {
 }
 
 .navbar .container>div:first-of-type {
-  animation: showup 3s infinite;
+  animation: showup 7s infinite;
 }
 
 .navbar .container>div:last-of-type {
   width: 355px;
-  animation: reveal 3s infinite;
+  animation: reveal 7s infinite;
 }
 
 .navbar .container>div:last-of-type span {
   display: inline-block;
   white-space: nowrap;
-  animation: slidein 3s infinite;
+  animation: slidein 7s infinite;
 }
 
 @keyframes showup {
