@@ -295,8 +295,8 @@ body {
     top: 50%; /* 수직 중앙 */
     left: 50%; /* 수평 중앙 */
     transform: translate(-50%, -50%); /* 중앙 정렬 */
-    width: 90%; /* 너비 */
-    height: 90%; /* 높이 */
+    width: 95%; /* 너비 */
+    height: 95%; /* 높이 */
 }
 
 .close {
