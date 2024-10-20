@@ -175,12 +175,13 @@ body {
 .thumb {
   position: relative;
   cursor: pointer;
-  max-width: 200px;
+  max-width: 180px;
   border-radius: 8px;
   transform: rotateY(15deg) rotateX(50deg) rotateZ(-15deg);
   transition: transform 200ms ease-in;
   box-shadow: -40px 80px 80px -10px rgba(0, 0, 0, 0.7);
   overflow: hidden;
+  gap: 1.5rem;
 }
 
 .thumb img {
@@ -190,7 +191,7 @@ body {
 }
 
 .thumb:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
   opacity: 0.9;
 }
 
@@ -205,12 +206,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: left;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
   font-size: 1rem;
   padding: 10px;
 }
+
+.overlay a{
+  background-color: #e74c3c;
+}
+
 
 .thumb:hover .overlay {
   opacity: 1;
@@ -219,7 +225,7 @@ body {
 .overlay p {
   margin: 0;
   line-height: 1.5;
-  font-size: 12px;
+  font-size: 0.8rem;
 }
 
 .footer {
