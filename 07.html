@@ -16,17 +16,16 @@
 
     <!-- Flipbook JS -->
     <script src="src/js/flipbook.min.js"></script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             // Initialize the flipbook
             $("#flipbookContainer").flipBook({
                 pdfUrl: 'src/books/07.pdf',
                 lightBox: false,
-                layout: 3,
+                layout: 2,
                 currentPage: {
-                    vAlign: "top",
-                    hAlign: "left"
+                    vAlign: "bottom",
+                    hAlign: "center"
                 },
                 btnShare: { enabled: false },
                 btnPrint: { hideOnMobile: true },
@@ -35,6 +34,7 @@
                 sideBtnSize: 40,
                 sideBtnBackground: "red",
                 sideBtnRadius: 40,
+                btnclose: { enabled: false },
                 btnSound: { vAlign: "top", hAlign: "left" },
                 btnAutoplay: { vAlign: "top", hAlign: "left" },
             });

@@ -23,10 +23,10 @@
             $("#flipbookContainer").flipBook({
                 pdfUrl: 'src/books/09.pdf',
                 lightBox: false,
-                layout: 3,
+                layout: 2,
                 currentPage: {
-                    vAlign: "top",
-                    hAlign: "left"
+                    vAlign: "bottom",
+                    hAlign: "center"
                 },
                 btnShare: { enabled: false },
                 btnPrint: { hideOnMobile: true },
@@ -35,6 +35,7 @@
                 sideBtnSize: 40,
                 sideBtnBackground: "red",
                 sideBtnRadius: 40,
+                btnclose: { enabled: false },
                 btnSound: { vAlign: "top", hAlign: "left" },
                 btnAutoplay: { vAlign: "top", hAlign: "left" },
             });
