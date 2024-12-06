@@ -2,76 +2,14 @@
 <html lang="en">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F38MF73BW0"></script>
     <script>
       // 구글 애널리틱스 설정
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'G-F38MF73BW0');
-      
-      $(document).ready(function () {
-        // 브로셔 클릭 시 이벤트 추적
-        $(".thumb").on("click", function () {
-            var pdfUrl = $(this).data("pdf-url");
-            
-            // 구글 애널리틱스 이벤트 전송
-            gtag('event', 'click', {
-                'event_category': 'Brochure',
-                'event_label': pdfUrl,
-                'value': 1
-            });
-            
-            // PDF URL을 모달에 설정하고 모달을 표시
-            $("#pdfFrame").attr("src", pdfUrl);
-            $("#pdfModal").show();
-        });
-      
-        // 모달 닫기 기능
-        $(".close").on("click", function () {
-            $("#pdfModal").hide();
-            $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
-        });
-      
-        // 모달 외부 클릭 시 닫기
-        $(window).on("click", function (event) {
-            if (event.target.id === "pdfModal") {
-                $("#pdfModal").hide();
-                $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
-            }
-        });
-      
-        // ESC 키로 모달 닫기
-        $(document).on("keydown", function (event) {
-            if (event.key === "Escape") {
-                $("#pdfModal").hide();
-                $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
-            }
-        });
-      });
-    </script>
-    <!-- NEWNEW Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F38MF73BW0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'G-F38MF73BW0');
-      $thumbs.on("click", function () {
-        var pdfUrl = $(this).data("pdf-url");
-        
-        // 구글 애널리틱스 이벤트 전송
-        gtag('event', 'click', {
-            'event_category': 'Brochure',
-            'event_label': pdfUrl,
-            'value': 1
-        });
-        
-        // Set PDF URL in the modal and show it
-        $("#pdfFrame").attr("src", pdfUrl);
-        $("#pdfModal").show();
-      });
-      
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -79,19 +17,7 @@
     <meta name="description" content="Explore Neurophet's e-brochures for KCR2024 featuring a range of innovative solutions in neurology." />
     <meta name="keywords" content="Neurophet, neurophet stroke, neurophet vascular, e-brochures, KIMES2024, neurology, icsu2024, neurodegenerative, neuromodulation, imaging corelab" />
     <title>Neurophet E-Brochures</title>
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VE41QDGP8C"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-       dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      
-      gtag("config", "G-VE41QDGP8C");
-    </script>
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/flipbook.style.css" />
