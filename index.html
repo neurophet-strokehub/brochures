@@ -9,6 +9,21 @@
   gtag('js', new Date());
 
   gtag('config', 'G-F38MF73BW0');
+ $thumbs.on("click", function () {
+    var pdfUrl = $(this).data("pdf-url");
+    
+    // 구글 애널리틱스 이벤트 전송
+    gtag('event', 'click', {
+        'event_category': 'Brochure',
+        'event_label': pdfUrl,
+        'value': 1
+    });
+    
+    // Set PDF URL in the modal and show it
+    $("#pdfFrame").attr("src", pdfUrl);
+    $("#pdfModal").show();
+});
+
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
