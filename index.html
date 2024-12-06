@@ -1,202 +1,200 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F38MF73BW0"></script>
-    <script>
-      // 구글 애널리틱스 설정
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-F38MF73BW0');
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Neurophet Marketing Team" />
-    <meta name="description" content="Explore Neurophet's e-brochures for KCR2024 featuring a range of innovative solutions in neurology." />
-    <meta name="keywords" content="Neurophet, neurophet stroke, neurophet vascular, e-brochures, KIMES2024, neurology, icsu2024, neurodegenerative, neuromodulation, imaging corelab" />
-    <title>Neurophet E-Brochures</title>
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/flipbook.style.css" />
-    <link rel="stylesheet" href="css/font-awesome.css" />
-    <link rel="icon" href="images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-
-
-  <body>
-    <div class="modal" id="pdfModal">
-      <div class="modal-content">
-        <span class="close" style="font-size: 30px; color: white;">&times;</span>
-        <iframe id="pdfFrame" src="" width="100%" height="100%"></iframe>
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-F38MF73BW0"></script>
+      <script>
+         // 구글 애널리틱스 설정
+         window.dataLayer = window.dataLayer || [];
+         function gtag() { dataLayer.push(arguments); }
+         gtag('js', new Date());
+         gtag('config', 'G-F38MF73BW0');
+      </script>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="author" content="Neurophet Marketing Team" />
+      <meta name="description" content="Explore Neurophet's e-brochures for KCR2024 featuring a range of innovative solutions in neurology." />
+      <meta name="keywords" content="Neurophet, neurophet stroke, neurophet vascular, e-brochures, KIMES2024, neurology, icsu2024, neurodegenerative, neuromodulation, imaging corelab" />
+      <title>Neurophet E-Brochures</title>
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="css/flipbook.style.css" />
+      <link rel="stylesheet" href="css/font-awesome.css" />
+      <link rel="icon" href="images/favicon.png" type="image/png" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+   <body>
+      <div class="modal" id="pdfModal">
+         <div class="modal-content">
+            <span class="close" style="font-size: 30px; color: white;">&times;</span>
+            <iframe id="pdfFrame" src="" width="100%" height="100%"></iframe>
+         </div>
       </div>
-    </div>
-    <nav class="navbar" aria-label="Main Navigation">
-      <div class="container">
-        <div>neurophet</div>
-        <div>
-          <span style="font-weight: bold">E-brochures for KSIN 2024</span>
-        </div>
+      <nav class="navbar" aria-label="Main Navigation">
+         <div class="container">
+            <div>neurophet</div>
+            <div>
+               <span style="font-weight: bold">E-brochures for KSIN 2024</span>
+            </div>
+         </div>
+      </nav>
+      <div class="content">
+         <div class="filter-buttons text-center">
+            <button class="btn filter-btn active" data-filter="all" id="filter-btn-all" aria-label="Show All brochures">ALL</button>
+            <button class="btn filter-btn" data-filter="neurophet" id="filter-btn-neurophet" aria-label="Show Neurophet brochures">Neurophet</button>
+            <button class="btn filter-btn" data-filter="neurodegenerative" id="filter-btn-neurodegenerative" aria-label="Show Neurodegenerative brochures">Neurodegenerative</button>
+            <button class="btn filter-btn" data-filter="neuromodulation" id="filter-btn-neuromodulation" aria-label="Show Neuromodulation brochures">Neuromodulation</button>
+            <button class="btn filter-btn" data-filter="imaging-corelab" id="filter-btn-corelab" aria-label="Show Imaging Corelab brochures">Imaging CoreLab</button>
+         </div>
+         <div class="covers">
+            <div class="thumb" data-category="neurophet" data-pdf-url="01.html" data-title="Neurophet Brochure">
+               <img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
+               <div class="overlay">
+                  <p><a>ENG</a> 뉴로핏과 주요제품에 대해 간략히 소개합니다</p>
+               </div>
+            </div>
+            <div class="thumb" data-category="neurophet" data-pdf-url="02.html" data-title="Neurophet Product Catalogue">
+               <img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
+               <div class="overlay">
+                  <p><a>KOR</a> 뉴로핏 출시 제품들의 기능, 사양, 사용목적 등 제품 관련 종합적인 정보를 제공합니다</p>
+               </div>
+            </div>
+            <div class="thumb" data-category="neurodegenerative" data-pdf-url="03.html" data-title="Aqua AD Brochure">
+               <img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
+               <div class="overlay">
+                  <p><a>ENG</a> 뇌 MRI,PET 영상 정량 분석을 통해 항아밀로이드 치료제 투약 과정에서 필요한 모든 뇌 영상 분석 기능을 제공하는 AI 솔루션, AQUA AD를 소개합니다</p>
+               </div>
+            </div>
+            <div class="thumb" data-category="neurodegenerative" data-pdf-url="04.html" data-title="Aqua Brochure">
+               <img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
+               <div class="overlay">
+                  <p><a>ENG</a> 뇌 MRI(T1/T2-FLAIR)에서 뇌위축과 WMH를 정량 분석하는 솔루션, AQUA를 소개합니다</p>
+               </div>
+            </div>
+            <div class="thumb" data-category="neurodegenerative" data-pdf-url="11.html" data-title="Aqua Brochure - Korean">
+               <img src="images/book/coverpage/04.png" alt="Aqua Brochure - Korean" />
+               <div class="overlay">
+                  <p><a>KOR</a> 뇌 MRI(T1/T2-FLAIR)에서 뇌위축과 WMH를 정량 분석하는 솔루션, AQUA를 소개합니다</p>
+               </div>
+            </div>
+            <div class="thumb" data-category="neurodegenerative" data-pdf-url="10.html" data-title="Aqua Case Series Brochure">
+               <img src="images/book/coverpage/10.png" alt="Aqua Case Series Brochure" />
+               <div class="overlay">
+                  <p><a>KOR</a> 뉴로핏 AQUA를 실제 임상에 적용하고 이를 논문으로 정리한 임상 증례집을 소개합니다</p>
+               </div>
+            </div>
+            <div class="thumb" data-category="neurodegenerative" data-pdf-url="05.html" data-title="Scale Pet Brochure">
+               <img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
+               <div class="overlay">
+                  <p><a>ENG</a> Brain PET Scan에서 다양한 PET tracer의 관심영역별 정량분석값(SUVR)을 제공하는 AI 솔루션, SCALE PET을 소개합니다</p>
+               </div>
+            </div>
+            <div class="thumb" data-category="neurodegenerative" data-pdf-url="06.html" data-title="Aqua Pediatric Brochure">
+               <img src="images/book/coverpage/06.png" alt="Aqua Pediatric Brochure" />
+               <div class="overlay">
+                  <p><a>ENG</a> 0~24개월의 뇌 MRI 이미지를 자동으로 정량분석하는 AI 솔루션, AQUA Pedicatric를 소개합니다</p>
+               </div>
+            </div>
+            <div class="thumb" data-category="neuromodulation" data-pdf-url="07.html" data-title="TESLAB Brochure">
+               <img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
+               <div class="overlay">
+                  <p><a>ENG</a> 뇌 MRI를 사용하여 3D 모델을 생성하고 치료 계획을 위한 전기 자극을 시뮬레이션하는 AI 기반 소프트웨어, tES LAB을 소개합니다</p>
+               </div>
+            </div>
+            <div class="thumb" data-category="neuromodulation" data-pdf-url="08.html" data-title="InnK Brochure">
+               <img src="images/book/coverpage/08.png" alt="InnK Brochure" />
+               <div class="overlay">
+                  <p><a>KOR</a> 뇌 질환 환자의 기능 회복과 재활을 돕기 위한 비침습적 전기 자극 치료기기, innk 소개합니다</p>
+               </div>
+            </div>
+            <div class="thumb" data-category="imaging-corelab" data-pdf-url="09.html" data-title="Imaging CoreLab Brochure">
+               <img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
+               <div class="overlay">
+                  <p><a>ENG</a> 임상시험에서 필요한 뇌 영상 전문 데이터 관리 및 분석 서비스, Imaging corelab을 소개합니다</p>
+               </div>
+            </div>
+         </div>
       </div>
-    </nav>
-    <div class="content">
-      <div class="filter-buttons text-center">
-        <button class="btn filter-btn active" data-filter="all" id="filter-btn-all" aria-label="Show All brochures">ALL</button>
-        <button class="btn filter-btn" data-filter="neurophet" id="filter-btn-neurophet" aria-label="Show Neurophet brochures">Neurophet</button>
-        <button class="btn filter-btn" data-filter="neurodegenerative" id="filter-btn-neurodegenerative" aria-label="Show Neurodegenerative brochures">Neurodegenerative</button>
-        <button class="btn filter-btn" data-filter="neuromodulation" id="filter-btn-neuromodulation" aria-label="Show Neuromodulation brochures">Neuromodulation</button>
-        <button class="btn filter-btn" data-filter="imaging-corelab" id="filter-btn-corelab" aria-label="Show Imaging Corelab brochures">Imaging CoreLab</button>
-      </div>
-      <div class="covers">
-        <div class="thumb" data-category="neurophet" data-pdf-url="01.html">
-          <img src="images/book/coverpage/01.png" alt="Neurophet Brochure Cover" />
-          <div class="overlay">
-            <p><a>ENG</a>뉴로핏과 주요제품에 대해 간략히 소개합니다</p>
-          </div>
-        </div>
-        <div class="thumb" data-category="neurophet" data-pdf-url="02.html">
-          <img src="images/book/coverpage/02.png" alt="Neurophet Product Catalogue" />
-          <div class="overlay">
-            <p><a>KOR</a> 뉴로핏 출시 제품들의 기능, 사양, 사용목적 등 제품 관련 종합적인 정보를 제공합니다</p>
-          </div>
-        </div>
-        <div class="thumb" data-category="neurodegenerative" data-pdf-url="03.html">
-          <img src="images/book/coverpage/03.png" alt="Aqua AD Brochure" />
-          <div class="overlay">
-            <p><a>ENG</a> 뇌 MRI,PET 영상 정량 분석을 통해 항아밀로이드 치료제 투약 과정에서 필요한 모든 뇌 영상 분석 기능을 제공하는 AI 솔루션, AQUA AD를 소개합니다</p>
-          </div>
-        </div>
-        <div class="thumb" data-category="neurodegenerative" data-pdf-url="04.html">
-          <img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
-          <div class="overlay">
-            <p><a>ENG</a> 뇌 MRI(T1/T2-FLAIR)에서 뇌위축과 WMH를 정량 분석하는 솔루션, AQUA를 소개합니다</p>
-          </div>
-        </div>
-        <div class="thumb" data-category="neurodegenerative" data-pdf-url="11.html">
-          <img src="images/book/coverpage/04.png" alt="Aqua Brochure" />
-          <div class="overlay">
-            <p><a>KOR</a> 뇌 MRI(T1/T2-FLAIR)에서 뇌위축과 WMH를 정량 분석하는 솔루션, AQUA를 소개합니다</p>
-          </div>
-        </div>
-        <div class="thumb" data-category="neurodegenerative" data-pdf-url="10.html">
-          <img src="images/book/coverpage/10.png" alt="caseseries" />
-          <div class="overlay">
-            <p><a>KOR</a> 뉴로핏 AQUA를 실제 임상에 적용하고 이를 논문으로 정리한 임상 증례집을 소개합니다</p>
-          </div>
-        </div>
-        <div class="thumb" data-category="neurodegenerative" data-pdf-url="05.html">
-          <img src="images/book/coverpage/05.png" alt="Scale Pet Brochure" />
-          <div class="overlay">
-            <p><a>ENG</a> Brain PET Scan에서 다양한 PET tracer의 관심영역별 정량분석값(SUVR)을 제공하는 AI 솔루션, SCALE PET을 소개합니다</p>
-          </div>
-        </div>
-        <div class="thumb" data-category="neurodegenerative" data-pdf-url="06.html">
-          <img src="images/book/coverpage/06.png" alt="Aqua Pedi Brochure" />
-          <div class="overlay">
-            <p><a>ENG</a> 0~24개월의 뇌 MRI 이미지를 자동으로 정량분석하는 AI 솔루션, AQUA Pedicatric를 소개합니다</p>
-          </div>
-        </div>
-        <div class="thumb" data-category="neuromodulation" data-pdf-url="07.html">
-          <img src="images/book/coverpage/07.png" alt="TESLAB Brochure" />
-          <div class="overlay">
-            <p><a>ENG</a> 뇌 MRI를 사용하여 3D 모델을 생성하고 치료 계획을 위한 전기 자극을 시뮬레이션하는 AI 기반 소프트웨어, tES LAB을 소개합니다</p>
-          </div>
-        </div>
-        <div class="thumb" data-category="neuromodulation" data-pdf-url="08.html">
-          <img src="images/book/coverpage/08.png" alt="InnK Brochure" />
-          <div class="overlay">
-            <p><a>KOR</a>뇌 질환 환자의 기능 회복과 재활을 돕기 위한 비침습적 전기 자극 치료기기, innk 소개합니다</p>
-          </div>
-        </div>
-        <div class="thumb" data-category="imaging-corelab" data-pdf-url="09.html">
-          <img src="images/book/coverpage/09.png" alt="Imaging CoreLab Brochure" />
-          <div class="overlay">
-            <p><a>ENG</a> 임상시험에서 필요한 뇌 영상 전문 데이터 관리 및 분석 서비스, Imaging corelab을 소개합니다</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer class="footer">
-      <p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
-    </footer>
-    <!-- JavaScript -->
-  <!-- JavaScript -->
-  <script src="js/flipbook.min.js"></script>
-  <script src="js/chrome.js"></script>
-  <script src="js/analytics.js"></script>
-  <script>
-    $(document).ready(function () {
-        var $window = $(window);
-        var $navbar = $(".navbar");
-        var $footer = $(".footer");
-        var $content = $(".content");
-        var $filterBtns = $(".filter-btn");
-        var $thumbs = $(".thumb");
-
-        // 구글 애널리틱스 이벤트 추적
-        $thumbs.on("click", function () {
-            var pdfUrl = $(this).data("pdf-url");
-            
-            // 구글 애널리틱스 이벤트 전송
-            gtag('event', 'click', {
-                'event_category': 'Brochure',
-                'event_label': pdfUrl,
-                'value': 1
-            });
-            
-            // PDF URL을 모달에 설정하고 모달을 표시
-            $("#pdfFrame").attr("src", pdfUrl);
-            $("#pdfModal").show();
-        });
-
-        // 모달 닫기 기능
-        $(".close").on("click", function () {
-            $("#pdfModal").hide();
-            $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
-        });
-
-        // 모달 외부 클릭 시 닫기
-        $(window).on("click", function (event) {
-            if (event.target.id === "pdfModal") {
-                $("#pdfModal").hide();
-                $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
-            }
-        });
-
-        // ESC 키로 모달 닫기
-        $(document).on("keydown", function (event) {
-            if (event.key === "Escape") {
-                $("#pdfModal").hide();
-                $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
-            }
-        });
-
-        // 필터 기능
-        function setActiveFilter(filterValue) {
-            $filterBtns.each(function () {
-                var $this = $(this);
-                $this.toggleClass("active", $this.data("filter") === filterValue);
-            });
-
-            $thumbs.each(function () {
-                var $this = $(this);
-                $this.toggle(filterValue === "all" || $this.data("category") === filterValue);
-            });
-        }
-
-        // 필터 버튼 클릭 시
-        $filterBtns.on("click", function () {
-            var filterValue = $(this).data("filter");
-            setActiveFilter(filterValue);
-        });
-
-        // 초기 필터 설정
-        setActiveFilter("all");
-    });
-  </script>
-  </body>
+      <footer class="footer">
+         <p>&copy; 2024 Neurophet Marketing Team. All Rights Reserved.</p>
+      </footer>
+      <!-- JavaScript -->
+      <!-- JavaScript -->
+      <script src="js/flipbook.min.js"></script>
+      <script src="js/chrome.js"></script>
+      <script src="js/analytics.js"></script>
+      <script>
+         $(document).ready(function () {
+             var $window = $(window);
+             var $navbar = $(".navbar");
+             var $footer = $(".footer");
+             var $content = $(".content");
+             var $filterBtns = $(".filter-btn");
+             var $thumbs = $(".thumb");
+         
+             // 구글 애널리틱스 이벤트 추적
+             $thumbs.on("click", function () {
+                 var pdfUrl = $(this).data("pdf-url");
+                 
+                 // 구글 애널리틱스 이벤트 전송
+                 gtag('event', 'click', {
+                     'event_category': 'Brochure',
+                     'event_label': pdfUrl,
+                     'value': 1
+                 });
+                 
+                 // PDF URL을 모달에 설정하고 모달을 표시
+                 $("#pdfFrame").attr("src", pdfUrl);
+                 $("#pdfModal").show();
+             });
+         
+             // 모달 닫기 기능
+             $(".close").on("click", function () {
+                 $("#pdfModal").hide();
+                 $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
+             });
+         
+             // 모달 외부 클릭 시 닫기
+             $(window).on("click", function (event) {
+                 if (event.target.id === "pdfModal") {
+                     $("#pdfModal").hide();
+                     $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
+                 }
+             });
+         
+             // ESC 키로 모달 닫기
+             $(document).on("keydown", function (event) {
+                 if (event.key === "Escape") {
+                     $("#pdfModal").hide();
+                     $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
+                 }
+             });
+         
+             // 필터 기능
+             function setActiveFilter(filterValue) {
+                 $filterBtns.each(function () {
+                     var $this = $(this);
+                     $this.toggleClass("active", $this.data("filter") === filterValue);
+                 });
+         
+                 $thumbs.each(function () {
+                     var $this = $(this);
+                     $this.toggle(filterValue === "all" || $this.data("category") === filterValue);
+                 });
+             }
+         
+             // 필터 버튼 클릭 시
+             $filterBtns.on("click", function () {
+                 var filterValue = $(this).data("filter");
+                 setActiveFilter(filterValue);
+             });
+         
+             // 초기 필터 설정
+             setActiveFilter("all");
+         });
+      </script>
+   </body>
 </html>
