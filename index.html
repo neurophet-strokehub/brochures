@@ -126,78 +126,76 @@
       <script src="js/flipbook.min.js"></script>
       <script src="js/chrome.js"></script>
       <script src="js/analytics.js"></script>
-    
       <script>
-    $(document).ready(function () {
-        var $window = $(window);
-        var $navbar = $(".navbar");
-        var $footer = $(".footer");
-        var $content = $(".content");
-        var $filterBtns = $(".filter-btn");
-        var $thumbs = $(".thumb");
-
-        // 구글 애널리틱스 이벤트 추적
-        $thumbs.on("click", function () {
-            var pdfUrl = $(this).data("pdf-url"); // PDF URL
-            var title = $(this).data("title"); // data-title 속성 값 (브로슈어 제목)
-
-            // 구글 애널리틱스 이벤트 전송
-            gtag('event', 'click', {
-                'event_category': 'Brochure', // 이벤트 카테고리
-                'event_label': title,         // 클릭된 브로슈어의 제목
-                'value': 1                    // 이벤트 값
-            });
-
-            // PDF URL을 모달에 설정하고 모달을 표시
-            $("#pdfFrame").attr("src", pdfUrl);
-            $("#pdfModal").show();
-        });
-
-        // 모달 닫기 기능
-        $(".close").on("click", function () {
-            $("#pdfModal").hide();
-            $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
-        });
-
-        // 모달 외부 클릭 시 닫기
-        $(window).on("click", function (event) {
-            if (event.target.id === "pdfModal") {
-                $("#pdfModal").hide();
-                $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
-            }
-        });
-
-        // ESC 키로 모달 닫기
-        $(document).on("keydown", function (event) {
-            if (event.key === "Escape") {
-                $("#pdfModal").hide();
-                $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
-            }
-        });
-
-        // 필터 기능
-        function setActiveFilter(filterValue) {
-            $filterBtns.each(function () {
-                var $this = $(this);
-                $this.toggleClass("active", $this.data("filter") === filterValue);
-            });
-
-            $thumbs.each(function () {
-                var $this = $(this);
-                $this.toggle(filterValue === "all" || $this.data("category") === filterValue);
-            });
-        }
-
-        // 필터 버튼 클릭 시
-        $filterBtns.on("click", function () {
-            var filterValue = $(this).data("filter");
-            setActiveFilter(filterValue);
-        });
-
-        // 초기 필터 설정
-        setActiveFilter("all");
-    });
-</script>
-
+         $(document).ready(function () {
+             var $window = $(window);
+             var $navbar = $(".navbar");
+             var $footer = $(".footer");
+             var $content = $(".content");
+             var $filterBtns = $(".filter-btn");
+             var $thumbs = $(".thumb");
+         
+             // 구글 애널리틱스 이벤트 추적
+             $thumbs.on("click", function () {
+                 var pdfUrl = $(this).data("pdf-url"); // PDF URL
+                 var title = $(this).data("title"); // data-title 속성 값 (브로슈어 제목)
+         
+                 // 구글 애널리틱스 이벤트 전송
+                 gtag('event', 'click', {
+                     'event_category': 'Brochure', // 이벤트 카테고리
+                     'event_label': title,         // 클릭된 브로슈어의 제목
+                     'value': 1                    // 이벤트 값
+                 });
+         
+                 // PDF URL을 모달에 설정하고 모달을 표시
+                 $("#pdfFrame").attr("src", pdfUrl);
+                 $("#pdfModal").show();
+             });
+         
+             // 모달 닫기 기능
+             $(".close").on("click", function () {
+                 $("#pdfModal").hide();
+                 $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
+             });
+         
+             // 모달 외부 클릭 시 닫기
+             $(window).on("click", function (event) {
+                 if (event.target.id === "pdfModal") {
+                     $("#pdfModal").hide();
+                     $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
+                 }
+             });
+         
+             // ESC 키로 모달 닫기
+             $(document).on("keydown", function (event) {
+                 if (event.key === "Escape") {
+                     $("#pdfModal").hide();
+                     $("#pdfFrame").attr("src", ""); // PDF 소스 지우기
+                 }
+             });
+         
+             // 필터 기능
+             function setActiveFilter(filterValue) {
+                 $filterBtns.each(function () {
+                     var $this = $(this);
+                     $this.toggleClass("active", $this.data("filter") === filterValue);
+                 });
+         
+                 $thumbs.each(function () {
+                     var $this = $(this);
+                     $this.toggle(filterValue === "all" || $this.data("category") === filterValue);
+                 });
+             }
+         
+             // 필터 버튼 클릭 시
+             $filterBtns.on("click", function () {
+                 var filterValue = $(this).data("filter");
+                 setActiveFilter(filterValue);
+             });
+         
+             // 초기 필터 설정
+             setActiveFilter("all");
+         });
+      </script>
    </body>
 </html>
